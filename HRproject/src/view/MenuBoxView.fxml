@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="1000.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuBoxController">
+   <children>
+      <GridPane prefHeight="448.0" prefWidth="200.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#toHome" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Home" textFill="WHITE">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+               <cursor>
+				   <Cursor fx:constant="HAND" />
+			   </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#toTrainings" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Trainings" textFill="WHITE" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+               <cursor>
+				   <Cursor fx:constant="HAND" />
+			   </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#toEmployees" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Employees" textFill="WHITE" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+               <cursor>
+				   <Cursor fx:constant="HAND" />
+			   </cursor>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Certificates" textFill="WHITE" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+               <cursor>
+				   <Cursor fx:constant="HAND" />
+			   </cursor>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Surveys" textFill="WHITE" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+               <cursor>
+				   <Cursor fx:constant="HAND" />
+			   </cursor>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Books" textFill="WHITE" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+               <cursor>
+				   <Cursor fx:constant="HAND" />
+			   </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#toSettings" prefHeight="39.0" prefWidth="394.0" style="-fx-background-color: #47525E;" text="Settings" textFill="WHITE" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+               <cursor>
+				   <Cursor fx:constant="HAND" />
+			   </cursor>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

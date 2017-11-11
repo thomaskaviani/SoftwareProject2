@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane prefHeight="1022.0" prefWidth="1645.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="628.0" minHeight="10.0" prefHeight="384.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="528.0" minHeight="0.0" prefHeight="528.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="TOP" text="Employee Info: " textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="115.0" />
+               </GridPane.margin>
+            </Label>
+            <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="315.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="@../images/EmployeeIcon.png" />
+               </image>
+            </ImageView>
+            <Label text="EmployeeName" textFill="#47525e" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="225.0" />
+               </GridPane.margin>
+            </Label>
+            <Pane prefHeight="392.0" prefWidth="410.0" GridPane.rowIndex="1">
+               <children>
+                  <Label layoutX="125.0" layoutY="7.0" text="Employee number:" textFill="#47525e">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="44.0" text="Name:" textFill="#47525e" translateY="-10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="81.0" text="Title:" textFill="#47525e" translateY="-20.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="118.0" text="Title of courtesy:" textFill="#47525e" translateY="-30.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="155.0" text="Reports to:" textFill="#47525e" translateY="-40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="userName" layoutX="306.0" layoutY="7.0" text="number" textFill="#47525e">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="fullName" layoutX="306.0" layoutY="44.0" text="fullname" textFill="#47525e" translateY="-10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gender" layoutX="306.0" layoutY="81.0" text="title" textFill="#47525e" translateY="-20.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="concurrency" layoutX="306.0" layoutY="118.0" text="courtesy" textFill="#47525e" translateY="-30.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="306.0" layoutY="155.0" text="manager name" textFill="#47525e" translateY="-40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="email2" layoutX="306.0" layoutY="192.0" text="DD/MM/YY" textFill="#47525e" translateY="-40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="192.0" text="Birthdate:" textFill="#47525e" translateY="-40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="229.0" text="Hiredate:" textFill="#47525e" translateY="-50.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="306.0" layoutY="229.0" text="Birthdate" textFill="#47525e" translateY="-50.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="266.0" text="Homephone:" textFill="#47525e" translateY="-60.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="306.0" layoutY="266.0" text="phone" textFill="#47525e" translateY="-60.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="303.0" text="Extension:" textFill="#47525e" translateY="-70.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="306.0" layoutY="303.0" text="extension" textFill="#47525e" translateY="-70.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="342.0" text="Email:" textFill="#47525e" translateY="-70.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="306.0" layoutY="340.0" text="email1" textFill="#47525e" translateY="-70.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="306.0" layoutY="377.0" text="email2" textFill="#47525e" translateY="-70.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="306.0" layoutY="414.0" text="email3" textFill="#47525e" translateY="-70.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="51.0" layoutY="473.0" text="Notes:" textFill="#47525e" translateY="-60.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextFlow layoutX="131.0" layoutY="473.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="883.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" minHeight="-Infinity" minWidth="-Infinity" prefHeight="222.0" prefWidth="880.0" text="Andrew received his BTS commercial in 1974 and a Ph.D. in international marketing from the University of Dallas in 1981.  He is fluent in French and Italian and reads German.  He joined the company as a sales representative, was promoted to sales manager in January 1992 and to vice president of sales in March 1993.  Andrew is a member of the Sales Management Roundtable, the Seattle Chamber of Commerce, and the Pacific Rim Importers Association." textAlignment="JUSTIFY" textFill="#47525e" textOverrun="CLIP" translateY="-60.0" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </TextFlow>
+               </children>
+            </Pane>
+            <ImageView fx:id="returnButton" fitHeight="42.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+               <image>
+                  <Image url="@../images/BackButton.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label layoutX="517.0" layoutY="233.0" text="Address:" textFill="#47525e" translateY="-30.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="517.0" layoutY="270.0" text="City:" textFill="#47525e" translateY="-35.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="517.0" layoutY="307.0" text="Region:" textFill="#47525e" translateY="-40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="517.0" layoutY="344.0" text="Postalcode:" textFill="#47525e" translateY="-45.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="517.0" layoutY="381.0" text="Country:" textFill="#47525e" translateY="-50.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="202.0" fitWidth="211.0" layoutX="517.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/MalePP.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="669.0" layoutY="233.0" text="address" textFill="#47525e" translateY="-30.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="669.0" layoutY="270.0" text="city" textFill="#47525e" translateY="-35.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="669.0" layoutY="307.0" text="region" textFill="#47525e" translateY="-40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="669.0" layoutY="344.0" text="postalcode" textFill="#47525e" translateY="-45.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="669.0" layoutY="381.0" text="country" textFill="#47525e" translateY="-50.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

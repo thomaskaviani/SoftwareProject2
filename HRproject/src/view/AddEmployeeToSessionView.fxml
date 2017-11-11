@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane prefHeight="1022.0" prefWidth="1645.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="396.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="653.0" minHeight="1.666656494140625" prefHeight="465.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="TOP" text="Trainingnaam - Sessiondate" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+            </Label>
+            <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="300.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="@../images/TrainingIcon.png" />
+               </image>
+            </ImageView>
+            <TextField promptText="Employee name" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="50.0" top="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label text="Participants:" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="-200.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Employee:" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <TextField promptText="Participant name" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="-200.0" right="240.0" top="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+              <columns>
+                <TableColumn maxWidth="300.0" prefWidth="185.0" text="Name" />
+                <TableColumn maxWidth="300.0" prefWidth="185.0" text="Function" />
+              </columns>
+               <GridPane.margin>
+                  <Insets bottom="50.0" left="50.0" right="-200.0" top="50.0" />
+               </GridPane.margin>
+            </TableView>
+            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <columns>
+                  <TableColumn maxWidth="300.0" prefWidth="185.0" text="Name" />
+                  <TableColumn maxWidth="300.0" prefWidth="185.0" text="Function" />
+               </columns>
+               <GridPane.margin>
+                  <Insets bottom="50.0" left="-200.0" right="50.0" top="50.0" />
+               </GridPane.margin>
+            </TableView>
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="154.0" style="-fx-background-color: WHITE; -fx-border-color: #47525E; -fx-border-radius: 10;" text="---&gt; Add Employees to session " textAlignment="CENTER" textFill="#47525e" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="100.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="154.0" style="-fx-background-color: white; -fx-border-color: #47525E; -fx-border-radius: 10;" text="&lt;--- Remove employee from session" textAlignment="CENTER" textFill="#47525e" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets top="100.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</VBox>
