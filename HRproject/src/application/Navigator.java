@@ -34,6 +34,7 @@ public class Navigator {
     
     //todo
     public static final String AccountSettingsView = "/view/AccountSettingsView.fxml";
+    public static final String StyleOptionsView = "/view/StyleOptionsView.fxml";
 
     
     
