@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TrainingDetailController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
@@ -57,7 +57,7 @@
                   <Insets bottom="50.0" left="50.0" top="50.0" />
                </GridPane.margin>
             </ListView>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="533.0" text="Add Session" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#toAddSession" prefHeight="39.0" prefWidth="533.0" text="Add Session" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
@@ -80,12 +80,12 @@
                   <Insets bottom="50.0" right="50.0" top="50.0" />
                </GridPane.margin>
             </ListView>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="467.0" text="View location" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#toLocation" prefHeight="39.0" prefWidth="467.0" text="View location" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="150.0" right="50.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="437.0" text="Add employees" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#toAddEmployee" prefHeight="39.0" prefWidth="437.0" text="Add employees" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
