@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 public class GeneralSettingsController implements Initializable{
 
 	@FXML
-protected void toAccountSettings(ActionEvent e) {
+	protected void toAccountSettings(ActionEvent e) {
 		
 		Navigator.loadVista(Navigator.AccountSettingsView);
 	}
@@ -19,16 +19,17 @@ protected void toAccountSettings(ActionEvent e) {
 	@FXML
 	protected void toStyleOptions(ActionEvent e) {
 			
-			Navigator.loadVista(Navigator.StyleOptionsView);
-		}
+		Navigator.loadVista(Navigator.StyleOptionsView);
+	}
 	
 	/*
-	 *deze view is nog niet gemaakt 
-	 *@FXML
+	
+	@FXML
 	protected void toStyleOptions(ActionEvent e) {
 			
 			Navigator.loadVista(Navigator.ExtrasView);
-		}
+	}
+	
 	*/
 	
 	@Override
