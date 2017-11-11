@@ -18,9 +18,9 @@ public class EmployeeDetailController implements Initializable{
 	}
 	
 	@Override
-		public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		       // TODO Auto-generated method stub
-		   }
+		// TODO Auto-generated method stub
+	}
 	
 }
