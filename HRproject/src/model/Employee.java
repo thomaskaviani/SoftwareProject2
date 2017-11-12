@@ -22,7 +22,13 @@ public class Employee {
 	private String homePhone;
 	private String extension;
 	
+	private String photo;
+	
 	private String notes;
+	
+	//als dit -1 is, heeft de mployee geen manager!
+	private int reportso;
+	private String photoPath;
 	
 	
 	//private String email;
@@ -39,7 +45,7 @@ public class Employee {
 	}
 	
 	//CONSTRUCTOR alle velden
-	public Employee(int employeeId, String firstName, String lastName, String title, String titleOfCourtesy, Date birthDate, Date hireDate, String address, String city, String region, String postalCode, String country, String homePhone, String extension, String notes) {
+	public Employee(int employeeId, String firstName, String lastName, String title, String titleOfCourtesy, Date birthDate, Date hireDate, String address, String city, String region, String postalCode, String country, String homePhone, String extension, String photo, String notes, int reportsto, String photoPath) {
 		
 		setEmployeeId(employeeId);
 		setFirstName(firstName);
@@ -59,11 +65,16 @@ public class Employee {
 		setHomePhone(homePhone);
 		setExtension(extension);
 		
+		setPhoto(photo);
+		setPhotoPath(photoPath);
+		
 		setNotes(notes);
+		
+		setReportsTo(reportsto);
 		
 		
 	}
-
+	public Employee() {};
 
 	public int getEmployeeId() {
 		return employeeId;
@@ -214,7 +225,49 @@ public class Employee {
 		this.notes = notes;
 	}
 
+	public String getPhoto() {
+		return photo;
+	}
 
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public int getReportsTo() {
+		return reportso;
+	}
+
+	public void setReportsTo(int reportso) {
+		this.reportso = reportso;
+	}
+
+	public String getPhotoPath() {
+		return photoPath;
+	}
+
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
+
+	public String toString() {
+		return "Last Name : " + getLastName() +'\n'+
+		"First Name : " +getFirstName()+'\n'+
+		"Title : " + getTitle()+'\n'+
+		"TitleOfCourtesy : "+getTitleOfCourtesy()+'\n'+
+		"BirthDate : " + getBirthDate()+'\n'+
+		"HireDate : " + getHireDate()+'\n'+
+		"Address : " + getAddress()+'\n'+
+		"City : " + getCity()+'\n'+
+		"Region : " + getRegion()+'\n'+
+		"PostalCode : " +getPostalCode()+'\n'+
+		"Country : " + getCountry()+'\n'+
+		"HomePhone : " + getHomePhone()+'\n'+
+		"Extension : " + getExtension()+'\n'+
+		"Photo : " + getPhoto()+'\n'+
+		"Notes : " + getRegion()+'\n'+
+		"ReportsTo : " + getReportsTo()+'\n'+
+		"PhotoPath : " + getPhotoPath();
+	}
 	
 	
 	
