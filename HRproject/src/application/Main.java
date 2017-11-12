@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import controller.MainController;
+import dao.TrainingDAO;
 
 //import dao.AddressDAO;
 //import dao.UserDAO;
@@ -87,5 +88,8 @@ public class Main extends Application {
 		User y = new User("Piet", "wachtwoord", "kok");
 		UserDao.insert(y);
 		*/
+		
+		TrainingDAO tdao = new TrainingDAO();
+		System.out.println(tdao.getAll());
 	}
 }
