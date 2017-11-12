@@ -18,7 +18,6 @@ public class Training {
 	
 	@Column
 	private String name;
-
 	@Column
 	private String goal;
 	@Column
@@ -47,34 +46,6 @@ public class Training {
 
 	public void setArch(int arch) {
 		this.arch = arch;
-	}
-
-	public Training(int trainingId, String name, String description, List<Book> books, List<Session> sessions,
-			List<Certificate> certificate, Survey survey) {
-		super();
-		this.trainingId = trainingId;
-		this.name = name;
-		this.description = description;
-		this.books = books;
-		this.sessions = sessions;
-		this.certificate = certificate;
-		this.survey = survey;
-	}
-	
-
-	public Training(int trainingId, String name, String description, List<Session> sessions) {
-		super();
-		this.trainingId = trainingId;
-		this.name = name;
-		this.description = description;
-		this.sessions = sessions;
-	}
-
-	public Training(int trainingId, String name, String description) {
-		super();
-		this.trainingId = trainingId;
-		this.name = name;
-		this.description = description;
 	}
 
 	public int getTrainingId() {
@@ -110,36 +81,10 @@ public class Training {
 	public List<Session> getSessions() {
 		return sessions;
 	}
-
 	public void setSessions(List<Session> sessions) {
 		this.sessions = sessions;
 	}
 	
-	
-	public List<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
-
-	public List<Certificate> getCertificate() {
-		return certificate;
-	}
-
-	public void setCertificate(List<Certificate> certificate) {
-		this.certificate = certificate;
-	}
-
-	public Survey getSurvey() {
-		return survey;
-	}
-
-	public void setSurvey(Survey survey) {
-		this.survey = survey;
-	}
-
 	public void addSession (Session session)
 	{
 		this.sessions.add(session);
@@ -158,7 +103,7 @@ public class Training {
 	
 	 public void addBook (Book book)
 	{
-		this.books.add(book);
+		this.books.add(Book);
 	}
-
+*/
 }
