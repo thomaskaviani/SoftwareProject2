@@ -1,24 +1,52 @@
 package model;
-import java.util.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
 public class Training {
 
-	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
 	private int trainingId;
+	
+	@Column
 	private String name;
-	private String description;
-	List<Book> books = new ArrayList<Book>();
-	List<Session> sessions = new ArrayList<Session>();
-	List <Certificate> certificate = new ArrayList<Certificate>();
-	private Survey survey;
-	
-	//CONSTRUCTOR LATER TOEVOEGEN
-	
-		
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+	@Column
+	private String goal;
+	@Column
+	private int arch;
+	
+	//List<Session> sessions = new ArrayList<Session>();
+	//List <Certificate> certificate = new ArrayList<Certificate>();
+	//List<Book> books = new ArrayList<Book>();
+	//private Survey survey;
+	
+	public Training() {
+		
+	}
+	
+	public Training(String name, String description) {
+		this.name = name;
+		this.goal = description;
+	}
+	
+	
+	
+	public int getArch() {
+		return arch;
+	}
+
+
+	public void setArch(int arch) {
+		this.arch = arch;
 	}
 
 	public Training(int trainingId, String name, String description, List<Book> books, List<Session> sessions,
@@ -65,14 +93,20 @@ public class Training {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getGoal() {
+		return goal;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setGoal(String description) {
+		this.goal = description;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "\n\nID:" + getTrainingId() + "\n" + getName() + " " + getGoal();
+	}
+	
+	/*
 	public List<Session> getSessions() {
 		return sessions;
 	}
