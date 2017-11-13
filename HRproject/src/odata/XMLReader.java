@@ -34,7 +34,6 @@ public class XMLReader {
 		con.setDoOutput(true);
 		con.setDoInput(true);
 
-
 		con.setRequestProperty("Content-Type", "application/xml; charset=utf-8");
 		con.setRequestProperty("Accept", "application/atom+xml,application/xml");
 		con.setRequestProperty("Method", "GET");
@@ -88,7 +87,8 @@ public class XMLReader {
 		emp.setPhotoPath(eElement.getElementsByTagName("d:PhotoPath").item(0).getTextContent());
 		return emp;
 	}
-	//print ALLE emps
+	
+	//ALLE emps
 	public static ArrayList<Employee> getAllEmps(Document doc) throws ParseException {
 		ArrayList<Employee> emps = new ArrayList<Employee>();
 		NodeList nList = doc.getElementsByTagName("entry");
@@ -128,19 +128,6 @@ public class XMLReader {
 		}
 		Employee e = new Employee();
 		return e;
-	}
-
-	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException {
-		Document doc;
-		doc = getConnection();
-		ArrayList<Employee> emps = new ArrayList<Employee>();
-		emps = getAllEmps(doc);
-		for (int i = 0; i < emps.size(); i++) {
-			System.out.println(emps.get(i).toString()+'\n');
-		}
-		//Employee e = getEmpById(doc, 1);
-		//System.out.println(e.toString());
-		
 	}
 }
 

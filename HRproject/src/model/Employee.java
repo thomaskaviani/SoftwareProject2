@@ -250,7 +250,8 @@ public class Employee {
 	}
 
 	public String toString() {
-		return "Last Name : " + getLastName() +'\n'+
+		return "EmployeeID: "+ getEmployeeId()+'\n'+
+		"Last Name : " + getLastName() +'\n'+
 		"First Name : " +getFirstName()+'\n'+
 		"Title : " + getTitle()+'\n'+
 		"TitleOfCourtesy : "+getTitleOfCourtesy()+'\n'+
