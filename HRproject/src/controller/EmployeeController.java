@@ -28,18 +28,8 @@ public class EmployeeController implements Initializable {
 	
 	@FXML 
 	private TextField searchBar;
-    
-    
-    
-    
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-    
-    
-    
+ 
+	
 
 	@FXML
 	protected void toDetailEmployee(ActionEvent e) {
