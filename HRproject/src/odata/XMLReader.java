@@ -54,12 +54,11 @@ public class XMLReader {
 	public static Employee fillEmp(Element eElement, Node nNode) throws ParseException {
 		Employee emp = new Employee();
 		
-		String id = eElement.getElementsByTagName("d:EmployeeID").item(0).getTextContent();
-		emp.setEmployeeId(Integer.parseInt(id));
+		emp.setEmployeeId(eElement.getElementsByTagName("d:EmployeeID").item(0).getTextContent());
 		emp.setLastName(eElement.getElementsByTagName("d:LastName").item(0).getTextContent());
 		emp.setFirstName(eElement.getElementsByTagName("d:FirstName").item(0).getTextContent());
 		emp.setTitle(eElement.getElementsByTagName("d:Title").item(0).getTextContent());
-		emp.setTitleOfCourtesy(eElement.getElementsByTagName("d:Title").item(0).getTextContent());
+		emp.setTitleOfCourtesy(eElement.getElementsByTagName("d:TitleOfCourtesy").item(0).getTextContent());
 		String date = eElement.getElementsByTagName("d:BirthDate").item(0).getTextContent();
 		Date dat;
 		DateFormat df = new SimpleDateFormat("d-M-Y");
@@ -79,10 +78,10 @@ public class XMLReader {
 		emp.setNotes(eElement.getElementsByTagName("d:Notes").item(0).getTextContent());
 		String repto = eElement.getElementsByTagName("d:ReportsTo").item(0).getTextContent();
 		if (repto != "") {
-			emp.setReportsTo(Integer.parseInt(repto));
+			emp.setReportsTo(repto);
 		}
 		else {
-			emp.setReportsTo(-1);
+			emp.setReportsTo("-1");
 		}
 		emp.setPhotoPath(eElement.getElementsByTagName("d:PhotoPath").item(0).getTextContent());
 		return emp;

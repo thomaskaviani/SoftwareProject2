@@ -30,9 +30,8 @@ public class SearchTrainingController implements Initializable {
 	@FXML
 	protected void toTrainingDetail(ActionEvent e) {
 		
-    Training t = tableView.getSelectionModel().getSelectedItem();
+		Training t = tableView.getSelectionModel().getSelectedItem();
 		TrainingDetailController.training = t;  
-    µ
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 		
