@@ -29,7 +29,6 @@ public class Training {
 	//private Survey survey;
 	
 	public Training() {
-		
 	}
 	
 	public Training(String name, String description) {
@@ -81,7 +80,6 @@ public class Training {
 	public List<Session> getSessions() {
 		return sessions;
 	}
-
 	public void setSessions(List<Session> sessions) {
 		this.sessions = sessions;
 	}

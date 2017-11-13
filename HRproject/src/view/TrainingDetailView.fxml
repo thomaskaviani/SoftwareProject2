@@ -26,7 +26,7 @@
         </rowConstraints>
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label alignment="CENTER" contentDisplay="TOP" text="Trainingnaam" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label fx:id="trainingName" alignment="CENTER" contentDisplay="TOP" text="Trainingnaam" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -34,14 +34,6 @@
                   <Insets left="30.0" />
                </GridPane.margin>
             </Label>
-            <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-               <GridPane.margin>
-                  <Insets right="160.0" />
-               </GridPane.margin>
-               <image>
-                  <Image url="@../images/TrainingIcon.png" />
-               </image>
-            </ImageView>
             <Label text="Session info" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
             	<font>
               	<Font size="36.0" />

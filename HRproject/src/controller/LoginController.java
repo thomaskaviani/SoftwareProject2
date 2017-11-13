@@ -30,9 +30,11 @@ public class LoginController {
 		
 		
 		User x = userManager.getByUsername(usernameField.getText());
-		System.out.println(x);
+
 		if(x != null) {
 			if (passwordField.getText().equals(x.getPassword())) {
+				
+				UserBoxController.user = x.getUsername();
 				
 				Navigator.loadVista(Navigator.HomeView);
 				Navigator.loadUserVista(Navigator.UserBoxView);

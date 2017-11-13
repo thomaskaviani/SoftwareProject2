@@ -3,14 +3,20 @@ package controller;
 //import application.Navigator;
 import model.Employee;
 
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class EmployeeController {
+import application.Navigator;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+
+
+public class EmployeeController implements Initializable {
 	
 	@FXML
 	private TableView<Employee> tableView;
@@ -22,15 +28,21 @@ public class EmployeeController {
     private TextField emailField;
     
     
-    @FXML
-    protected void addEmployee(ActionEvent e) {
-    	ObservableList<Employee> data = tableView.getItems();
-    	data.add(new Employee(firstNameField.getText(),lastNameField.getText(), emailField.getText()));
-    	
-    	firstNameField.setText("");
-    	lastNameField.setText("");
-    	emailField.setText("");
     
-    }
+
+	@FXML
+	protected void toDetailEmployee(ActionEvent e) {
+		
+		Navigator.loadVista(Navigator.EmployeeDetailView);
+				
+		
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
+    
+    
     
 }
