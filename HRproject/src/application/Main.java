@@ -100,15 +100,15 @@ public class Main extends Application {
 		UserDao.insert(y);
 		*/
 		
-		XMLReader reader = new XMLReader();
 		
 		Document doc;
-		doc = reader.getConnection();
+		doc = XMLReader.getConnection();
 		ArrayList<Employee> emps = new ArrayList<Employee>();
-		emps = reader.getAllEmps(doc);
+		emps = XMLReader.getAllEmps(doc);
 		for (int i = 0; i < emps.size(); i++) {
 			System.out.println(emps.get(i).toString()+'\n');
 		}
+		
 		//Employee e = getEmpById(doc, 1);
 		//System.out.println(e.toString());
 

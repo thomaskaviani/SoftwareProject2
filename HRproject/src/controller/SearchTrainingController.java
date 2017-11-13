@@ -32,7 +32,6 @@ public class SearchTrainingController implements Initializable {
 		
     Training t = tableView.getSelectionModel().getSelectedItem();
 		TrainingDetailController.training = t;  
-    µ
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 		
