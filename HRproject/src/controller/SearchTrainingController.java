@@ -3,6 +3,8 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Navigator;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -20,6 +22,15 @@ public class SearchTrainingController implements Initializable {
 	@FXML
 	private TableColumn<Training, String> trainingDescCol;
 
+	@FXML
+	protected void toTrainingDetail(ActionEvent e) {
+		
+		Navigator.loadVista(Navigator.TrainingDetailView);
+				
+		
+	}
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
