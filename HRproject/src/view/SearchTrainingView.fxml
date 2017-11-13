@@ -25,6 +25,8 @@
             <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="132.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+         
+         
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label alignment="CENTER" contentDisplay="TOP" text="Search Training" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
@@ -42,11 +44,16 @@
                   <Image url="@../images/SearchIcon.png" />
                </image>
             </ImageView>
+            
+            
+            
             <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="1025.0" promptText="Search a training" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </TextField>
+            
+            
             <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
               <columns>
                 <TableColumn fx:id="trainingNameCol" prefWidth="177.0" text="Training" />
@@ -56,6 +63,8 @@
                   <Insets top="20.0" />
                </GridPane.margin>
             </TableView>
+            
+            
             <Button mnemonicParsing="false" onAction="#toTrainingDetail" prefHeight="43.0" prefWidth="121.0" style="-fx-background-color: #47525E;" text="More Info" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />

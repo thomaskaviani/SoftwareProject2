@@ -52,11 +52,11 @@
             
             <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
               <columns>
-                <TableColumn prefWidth="177.0" text="Employee ID" />
-                <TableColumn prefWidth="152.0" text="First Name" />
-                  <TableColumn prefWidth="196.0" text="Last Name" />
-                  <TableColumn prefWidth="177.0" text="Function" />
-                  <TableColumn prefWidth="177.0" text="Email address" />
+                <TableColumn fx:id="empIdCol" prefWidth="177.0" text="Employee ID" />
+                <TableColumn fx:id="empFirstNameCol" prefWidth="152.0" text="First Name" />
+                <TableColumn fx:id="empLastNameCol" prefWidth="196.0" text="Last Name" />
+                <TableColumn fx:id="empFunctionCol" prefWidth="177.0" text="Function" />
+                <TableColumn fx:id="empEmailCol" prefWidth="177.0" text="Email address" />
               </columns>
                <GridPane.margin>
                   <Insets top="20.0" />
