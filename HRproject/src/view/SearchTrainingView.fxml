@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchTrainingController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
@@ -47,17 +47,16 @@
                   <Insets />
                </GridPane.margin>
             </TextField>
-            <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
               <columns>
-                <TableColumn prefWidth="177.0" text="Training" />
-                <TableColumn prefWidth="584.3333740234375" text="Description" />
-                  <TableColumn prefWidth="103.0" text="Session" />
+                <TableColumn fx:id="trainingNameCol" prefWidth="177.0" text="Training" />
+                <TableColumn fx:id="trainingDescCol" prefWidth="584.3333740234375" text="Description" />
               </columns>
                <GridPane.margin>
                   <Insets top="20.0" />
                </GridPane.margin>
             </TableView>
-            <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="121.0" style="-fx-background-color: #47525E;" text="More Info" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#toDetail" prefHeight="43.0" prefWidth="121.0" style="-fx-background-color: #47525E;" text="More Info" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>

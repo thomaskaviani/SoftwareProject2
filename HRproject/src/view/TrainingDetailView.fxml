@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TrainingDetailController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
@@ -26,7 +26,7 @@
         </rowConstraints>
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label alignment="CENTER" contentDisplay="TOP" text="Trainingnaam" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label fx:id="trainingName" alignment="CENTER" contentDisplay="TOP" text="Trainingnaam" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -34,14 +34,6 @@
                   <Insets left="30.0" />
                </GridPane.margin>
             </Label>
-            <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-               <GridPane.margin>
-                  <Insets right="160.0" />
-               </GridPane.margin>
-               <image>
-                  <Image url="@../images/TrainingIcon.png" />
-               </image>
-            </ImageView>
             <Label text="Session info" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
             	<font>
               	<Font size="36.0" />
@@ -57,7 +49,7 @@
                   <Insets bottom="50.0" left="50.0" top="50.0" />
                </GridPane.margin>
             </ListView>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="533.0" text="Add Session" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#toAddSession" prefHeight="39.0" prefWidth="533.0" text="Add Session" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
@@ -85,7 +77,7 @@
                   <Insets bottom="150.0" right="50.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="437.0" text="Add employees" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#toAddEmployee" prefHeight="39.0" prefWidth="437.0" text="Add employees" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
