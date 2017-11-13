@@ -3,9 +3,11 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Navigator;
 import dao.TrainingDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -23,6 +25,18 @@ public class SearchTrainingController implements Initializable {
 	
 	@FXML
 	private TableColumn<Training, String> trainingDescCol;
+	
+	
+	@FXML
+	protected void toDetail(ActionEvent e) {
+		
+		Training t = tableView.getSelectionModel().getSelectedItem();
+		TrainingDetailController.training = t;   
+		
+		Navigator.loadVista(Navigator.TrainingDetailView);
+				
+		
+	}
 	
 
 	@Override
