@@ -19,9 +19,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import controller.MainController;
-import dao.TrainingDAO;
+
 
 import odata.XMLReader;
+
+//import dao.TrainingDAO;
 //import dao.AddressDAO;
 //import dao.UserDAO;
 //import model.Address;
@@ -109,5 +111,6 @@ public class Main extends Application {
 		}
 		//Employee e = getEmpById(doc, 1);
 		//System.out.println(e.toString());
+
 	}
 }

@@ -7,10 +7,16 @@ import application.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import model.Training;
 
 
 public class TrainingDetailController implements Initializable{
 
+	public static Training training;
+	
+	@FXML
+	private Label trainingName;
 	
 	@FXML
 	protected void toAddSession(ActionEvent e) {
@@ -34,7 +40,7 @@ public class TrainingDetailController implements Initializable{
 		
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		trainingName.setText(training.getName());
 			
 	}
 	

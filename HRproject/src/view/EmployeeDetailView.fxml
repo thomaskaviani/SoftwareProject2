@@ -181,6 +181,9 @@
                <image>
                   <Image url="@../images/BackButton.png" />
                </image>
+               <GridPane.margin>
+                  <Insets left="-120.0" />
+               </GridPane.margin>
             </ImageView>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
