@@ -4,11 +4,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Navigator;
+
+import dao.TrainingDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.Training;
 
 public class SearchTrainingController implements Initializable {
@@ -25,6 +30,9 @@ public class SearchTrainingController implements Initializable {
 	@FXML
 	protected void toTrainingDetail(ActionEvent e) {
 		
+    Training t = tableView.getSelectionModel().getSelectedItem();
+		TrainingDetailController.training = t;  
+    µ
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 		
@@ -33,6 +41,16 @@ public class SearchTrainingController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		TrainingDAO tdao = new TrainingDAO();
+		
+		ObservableList<Training> trainingen = FXCollections.observableArrayList(tdao.getAll());
+		
+		tableView.setItems(trainingen);
+		
+		trainingNameCol.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
+		trainingDescCol.setCellValueFactory(new PropertyValueFactory<Training, String>("goal"));
+		
 		
 	}
 

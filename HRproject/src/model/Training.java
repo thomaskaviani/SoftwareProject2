@@ -29,7 +29,6 @@ public class Training {
 	//private Survey survey;
 	
 	public Training() {
-		
 	}
 	
 	public Training(String name, String description) {

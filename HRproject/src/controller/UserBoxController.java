@@ -18,12 +18,16 @@ public class UserBoxController implements Initializable {
 	@FXML
 	private Label username;
 	
+	public static String user;
+	
 	@Override
     public void initialize(URL location, ResourceBundle resources) {
         
 		File file = new File("src/images/default.png");
         Image image = new Image(file.toURI().toString());
         imgView.setImage(image);
+        username.setText(user);
         
     }
+	
 }
