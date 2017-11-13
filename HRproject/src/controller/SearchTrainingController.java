@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Navigator;
+
 import dao.TrainingDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,20 +26,19 @@ public class SearchTrainingController implements Initializable {
 	
 	@FXML
 	private TableColumn<Training, String> trainingDescCol;
-	
-	
+
 	@FXML
-	protected void toDetail(ActionEvent e) {
+	protected void toTrainingDetail(ActionEvent e) {
 		
-		Training t = tableView.getSelectionModel().getSelectedItem();
-		TrainingDetailController.training = t;   
-		
+    Training t = tableView.getSelectionModel().getSelectedItem();
+		TrainingDetailController.training = t;  
+    µ
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 		
 	}
 	
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
