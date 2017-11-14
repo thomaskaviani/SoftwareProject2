@@ -10,7 +10,7 @@ import model.Training;
 
 public class TrainingDAO {
 
-public void insert(Training t) {
+	public void insert(Training t) {
         
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
