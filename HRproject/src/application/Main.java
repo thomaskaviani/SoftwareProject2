@@ -41,9 +41,7 @@ public class Main extends Application {
 
         Navigator.setMainController(mainController);
 
-        Navigator.loadVista(Navigator.LoginView);
-
-
+        Navigator.loadVista(Navigator.AddSessionView);
 
         return mainPane;
     }

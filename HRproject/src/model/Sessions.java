@@ -116,6 +116,11 @@ public class Sessions {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "ID: " + getSessionId() + "   StartTime: " + getStartTime();
+	}
+	
 	
 
 }
