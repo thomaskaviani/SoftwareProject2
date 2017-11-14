@@ -46,6 +46,7 @@ public class TrainingDetailController implements Initializable{
 	@FXML
 	protected void toAddSession(ActionEvent e) {
 			
+			AddSessionController.training = training;
 			Navigator.loadVista(Navigator.AddSessionView);
 	}
 		

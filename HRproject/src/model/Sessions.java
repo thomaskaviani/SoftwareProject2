@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,15 +37,15 @@ public class Sessions {
 		
 	}
 	
-	public Sessions( int sessionId, int trainingId, int addressId, int teacherId, Date startTime, Date endTime, int cancelled, int arch) {
-		this.sessionId = sessionId;
+	public Sessions(int trainingId, int addressId, int teacherId, Date startTime, Date endTime) {
+		
 		this.trainingId = trainingId;
 		this.addressId = addressId;
 		this.teacherId = teacherId;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.cancelled = cancelled;
-		this.arch = arch;
+		this.cancelled = 0;
+		this.arch = 0;
 		
 	}
 
