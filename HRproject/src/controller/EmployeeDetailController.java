@@ -48,8 +48,15 @@ public class EmployeeDetailController implements Initializable{
 		
 		Navigator.loadVista(Navigator.EmployeeView);
 				
+	}/*
+	@FXML
+	protected void goBack(ActionEvent e) {
+		
+		Navigator.loadVista(Navigator.EmployeeView);
+				
 	}
 	
+	*/
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		

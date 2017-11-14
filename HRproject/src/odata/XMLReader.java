@@ -45,7 +45,6 @@ public class XMLReader {
 		Document doc = db.parse(xml);
 
 		doc.getDocumentElement().normalize();
-
 		return doc;
 
 	}
@@ -88,7 +87,9 @@ public class XMLReader {
 	}
 	
 	//ALLE emps
-	public static ArrayList<Employee> getAllEmps(Document doc) throws ParseException {
+	public static ArrayList<Employee> getAllEmps(Document doc) throws ParseException, IOException, ParserConfigurationException, SAXException {
+		doc = getConnection();
+
 		ArrayList<Employee> emps = new ArrayList<Employee>();
 		NodeList nList = doc.getElementsByTagName("entry");
 
@@ -107,9 +108,12 @@ public class XMLReader {
 	}
 
 	//gaat over de IDs (haalt ze pas binnen als de param id overeenkomt met een bestaande emp
-	public static Employee getEmpById(Document doc, int id) throws ParseException {
+	public static Employee getEmpById(Document doc, int id) throws ParseException, IOException, ParserConfigurationException, SAXException {
+		
+		doc = getConnection();
+		
 		NodeList nList = doc.getElementsByTagName("entry");
-
+		
 		for (int temp = 0; temp < nList.getLength(); temp++) {
 
 			Node nNode = nList.item(temp);
@@ -125,8 +129,34 @@ public class XMLReader {
 				}
 			}
 		}
+		
 		Employee e = new Employee();
 		return e;
+	}
+	public static ArrayList<Employee> getEmpsByCols(Document doc, String s) throws ParseException, IOException, ParserConfigurationException, SAXException {
+		doc = getConnection();
+		
+		ArrayList<Employee> emps = new ArrayList<Employee>();
+		NodeList nList = doc.getElementsByTagName("entry");
+
+		for (int temp = 0; temp < nList.getLength(); temp++) {
+
+			Node nNode = nList.item(temp);
+
+			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+				Element eElement = (Element) nNode;
+				String f = eElement.getElementsByTagName("d:FirstName").item(0).getTextContent();
+				String l = eElement.getElementsByTagName("d:LastName").item(0).getTextContent();
+				String i = eElement.getElementsByTagName("d:EmployeeID").item(0).getTextContent();
+				String t = eElement.getElementsByTagName("d:Title").item(0).getTextContent();
+				if (f.toUpperCase().contains(s.toUpperCase()) || l.toUpperCase().contains(s.toUpperCase()) ||
+						i.toUpperCase().contains(s.toUpperCase()) || t.toUpperCase().contains(s.toUpperCase()))
+						emps.add(fillEmp(eElement, nNode));
+				
+			}
+		}
+		return emps;
 	}
 }
 

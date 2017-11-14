@@ -84,6 +84,22 @@
                   <Insets bottom="4.0" right="4.0" />
                </GridPane.margin>
             </Label>
+          <Button mnemonicParsing="false" onAction="#toTraining" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="-120.0" />
+               </GridPane.margin>
+               <graphic>
+                  <ImageView fx:id="returnButton" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/BackButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </GridPane>
    </children>
