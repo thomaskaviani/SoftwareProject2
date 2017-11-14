@@ -33,6 +33,7 @@
         <mapping class="model.Sessions"/>
         <mapping class="model.Address"/>
         <mapping class="model.Teacher"/>
+        <mapping class="model.Participation"/>
         
         
  

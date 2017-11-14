@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddEmployeeToSessionController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
@@ -25,7 +25,7 @@
         </rowConstraints>
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label alignment="CENTER" contentDisplay="TOP" text="Trainingnaam - Sessiondate" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label fx:id="trainingTitle" alignment="CENTER" contentDisplay="TOP" text="Trainingnaam - Sessiondate" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -33,15 +33,7 @@
                   <Insets left="30.0" />
                </GridPane.margin>
             </Label>
-            <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-               <GridPane.margin>
-                  <Insets right="300.0" />
-               </GridPane.margin>
-               <image>
-                  <Image url="@../images/TrainingIcon.png" />
-               </image>
-            </ImageView>
-            <TextField promptText="Employee name" GridPane.rowIndex="1">
+            <TextField fx:id="employeeSearchBar" promptText="Employee name" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="50.0" top="50.0" />
                </GridPane.margin>
@@ -62,24 +54,26 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <TextField promptText="Participant name" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <TextField fx:id="participantSearchBar" promptText="Participant name" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="-200.0" right="240.0" top="50.0" />
                </GridPane.margin>
             </TextField>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <TableView fx:id="employeeTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
               <columns>
-                <TableColumn maxWidth="300.0" prefWidth="185.0" text="Name" />
-                <TableColumn maxWidth="300.0" prefWidth="185.0" text="Function" />
+                <TableColumn fx:id="employeeFirstNameCol" maxWidth="300.0" prefWidth="132.0" text="First Name" />
+                  <TableColumn fx:id="employeeLastNameCol" prefWidth="144.0" text="Last Name" />
+                <TableColumn fx:id="employeeFunctionCol" maxWidth="300.0" prefWidth="86.0" text="Function" />
               </columns>
                <GridPane.margin>
                   <Insets bottom="50.0" left="50.0" right="-200.0" top="50.0" />
                </GridPane.margin>
             </TableView>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <TableView fx:id="participantTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <columns>
-                  <TableColumn maxWidth="300.0" prefWidth="185.0" text="Name" />
-                  <TableColumn maxWidth="300.0" prefWidth="185.0" text="Function" />
+                  <TableColumn fx:id="participantFirstNameCol" maxWidth="300.0" prefWidth="130.0" text="First Name" />
+                  <TableColumn fx:id="participantLastNameCol" prefWidth="130.0" text="Last Name" />
+                  <TableColumn fx:id="participantFunctionCol" maxWidth="300.0" prefWidth="149.0" text="Function" />
                </columns>
                <GridPane.margin>
                   <Insets bottom="50.0" left="-200.0" right="50.0" top="50.0" />
@@ -94,6 +88,22 @@
                <GridPane.margin>
                   <Insets top="100.0" />
                </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#toTrainingDetail" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="-120.0" />
+               </GridPane.margin>
+               <graphic>
+                  <ImageView fx:id="returnButton" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/BackButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </GridPane>

@@ -287,6 +287,10 @@ public class Employee {
 		this.email = email;
 	}
 	
+	public String getFullName() {
+		return getFirstName() + " " + getLastName();
+	}
+	
 	
 	
 	
