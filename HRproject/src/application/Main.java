@@ -61,6 +61,7 @@ public class Main extends Application {
 	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException {
 
 		CacheData.setEmployees();
+		CacheData.setTrainings();
 		
 		launch(args);
 		
