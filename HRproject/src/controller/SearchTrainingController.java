@@ -3,9 +3,9 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.CacheData;
 import application.Navigator;
 
-import dao.TrainingDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,9 +41,8 @@ public class SearchTrainingController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		TrainingDAO tdao = new TrainingDAO();
 		
-		ObservableList<Training> trainingen = FXCollections.observableArrayList(tdao.getAll());
+		ObservableList<Training> trainingen = FXCollections.observableArrayList(CacheData.trainings);
 		
 		tableView.setItems(trainingen);
 		

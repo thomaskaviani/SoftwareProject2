@@ -41,9 +41,7 @@ public class Main extends Application {
 
         Navigator.setMainController(mainController);
 
-        Navigator.loadVista(Navigator.LoginView);
-
-
+        Navigator.loadVista(Navigator.AddSessionView);
 
         return mainPane;
     }
@@ -61,6 +59,7 @@ public class Main extends Application {
 	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException {
 
 		CacheData.setEmployees();
+		CacheData.setTrainings();
 		
 		launch(args);
 		
