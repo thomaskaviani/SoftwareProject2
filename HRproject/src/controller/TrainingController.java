@@ -17,6 +17,13 @@ public class TrainingController implements Initializable {
 				
 		
 	}
+	@FXML
+	protected void toHome(ActionEvent e) {
+		
+		Navigator.loadVista(Navigator.HomeView);
+				
+		
+	}
 	
 	
 	@FXML

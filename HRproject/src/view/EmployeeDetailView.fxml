@@ -9,6 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.*?>
 
 <VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeDetailController">
    <children>
@@ -169,14 +170,6 @@
                   </TextFlow>
                </children>
             </Pane>
-            <ImageView fx:id="returnButton" fitHeight="42.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
-               <image>
-                  <Image url="@../images/BackButton.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets left="-120.0" />
-               </GridPane.margin>
-            </ImageView>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Label layoutX="517.0" layoutY="233.0" text="Address:" textFill="#47525e" translateX="-50.0" translateY="-30.0">
@@ -236,6 +229,23 @@
                   </Label>
                </children>
             </Pane>
+		           
+            <Button mnemonicParsing="false" onAction="#toEmployees" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="-120.0" />
+               </GridPane.margin>
+               <graphic>
+                  <ImageView fx:id="returnButton" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/BackButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </GridPane>
    </children>

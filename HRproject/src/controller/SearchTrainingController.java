@@ -36,6 +36,15 @@ public class SearchTrainingController implements Initializable {
 				
 		
 	}
+
+	@FXML
+	protected void toTraining(ActionEvent e) {
+		
+		
+		Navigator.loadVista(Navigator.TrainingView);
+				
+		
+	}
 	
 	
 	@Override

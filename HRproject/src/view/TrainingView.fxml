@@ -37,7 +37,7 @@
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
                   <Circle fill="#e6e9f3" layoutX="412.0" layoutY="340.0" radius="127.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" stroke="TRANSPARENT" strokeType="INSIDE" translateX="-150.0" translateY="-200.0" />
-                  <Button onAction="#toAddTraining" layoutX="295.0" layoutY="538.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="233.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" style="-fx-background-color: #49525D;" text="Add Training" textFill="WHITE" translateX="-150.0" translateY="-250.0">
+                  <Button layoutX="295.0" layoutY="538.0" mnemonicParsing="false" onAction="#toAddTraining" prefHeight="71.0" prefWidth="233.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" style="-fx-background-color: #49525D;" text="Add Training" textFill="WHITE" translateX="-150.0" translateY="-250.0">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -55,7 +55,7 @@
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
                   <Circle fill="#e6e9f3" layoutX="411.0" layoutY="340.0" radius="127.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" stroke="TRANSPARENT" strokeType="INSIDE" translateX="-450.0" translateY="-200.0" />
-                  <Button onAction="#toSearchTraining" layoutX="295.0" layoutY="530.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="233.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" style="-fx-background-color: #49525D;" text="Search Training" textFill="WHITE" translateX="-450.0" translateY="-250.0">
+                  <Button layoutX="295.0" layoutY="530.0" mnemonicParsing="false" onAction="#toSearchTraining" prefHeight="71.0" prefWidth="233.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" style="-fx-background-color: #49525D;" text="Search Training" textFill="WHITE" translateX="-450.0" translateY="-250.0">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -70,6 +70,22 @@
                   </ImageView>
                </children>
             </Pane>
+            <Button mnemonicParsing="false" onAction="#toHome" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="-120.0" />
+               </GridPane.margin>
+               <graphic>
+                  <ImageView fx:id="returnButton" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/BackButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </GridPane>
    </children>

@@ -48,7 +48,12 @@ public class TrainingDetailController implements Initializable{
 			
 			Navigator.loadVista(Navigator.AddSessionView);
 	}
-		
+	//toTrainingView
+	@FXML
+	protected void toTrainingView(ActionEvent e) {
+			
+			Navigator.loadVista(Navigator.SearchTrainingView);
+	}
 	/*deze view moet nog gemaakt worden
 	 
 	@FXML
