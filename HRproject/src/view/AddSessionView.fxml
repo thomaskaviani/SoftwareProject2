@@ -136,7 +136,7 @@
             </TextField>
             <Label text="City:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <Label text="Country:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+            <Button mnemonicParsing="false" onAction="#addSession" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -265,6 +265,16 @@
             <Label text="minuten" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="570.0" />
+               </GridPane.margin>
+            </Label>
+            <DatePicker fx:id="dateEnd" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="425.0" />
+               </GridPane.margin>
+            </DatePicker>
+            <Label text="End date:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="350.0" />
                </GridPane.margin>
             </Label>
          </children>
