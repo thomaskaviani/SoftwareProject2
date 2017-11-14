@@ -18,7 +18,7 @@ public class EmployeeDetailController implements Initializable{
 
 	public static Employee employee;
 	public int managerId = Integer.parseInt(employee.getReportsTo()) - 1;
-	public String managerName = CacheData.employees.get(managerId).getFirstName() + " " +CacheData.employees.get(managerId).getLastName();
+	public String managerName = "";
 	
 	@FXML private Label employeeName;
 	
@@ -52,6 +52,10 @@ public class EmployeeDetailController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		if(managerId>0) {
+			managerName = CacheData.employees.get(managerId).getFirstName() + " " +CacheData.employees.get(managerId).getLastName();
+		}
 		
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date birthDate = employee.getBirthDate();

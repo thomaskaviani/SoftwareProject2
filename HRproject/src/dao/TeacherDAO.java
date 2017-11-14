@@ -6,11 +6,11 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import model.Training;
+import model.Teacher;
 
-public class TrainingDAO {
+public class TeacherDAO {
 
-	public void insert(Training t) {
+	public void insert(Teacher t) {
         
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -21,7 +21,7 @@ public class TrainingDAO {
     }
 	
 	
-	public void delete(Training t) {
+	public void delete(Teacher t) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
@@ -38,7 +38,7 @@ public class TrainingDAO {
 		
 	}
 	
-	public void update(Training t) {
+	public void update(Teacher t) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
@@ -50,43 +50,43 @@ public class TrainingDAO {
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<Training> getAll() {
+	public List<Teacher> getAll() {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		List<Training> traininglijst = (List<Training>) session.createQuery("from Training").list();
+		List<Teacher> traininglijst = (List<Teacher>) session.createQuery("from Teacher").list();
 		session.getTransaction().commit();
 		
 		return traininglijst;
 	}
 	
-	public Training getById(Integer id) {
+	public Teacher getById(Integer id) {
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        Training t = (Training) session.get(Training.class, id);
+        Teacher t = (Teacher) session.get(Teacher.class, id);
         session.getTransaction().commit();
 
         return t;
     }
 	
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	public Training getByName(String searchstring) {
+	public Teacher getByName(String searchstring) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		Criteria cr = session.createCriteria(Training.class);
-		cr.add(Restrictions.eq("name", searchstring));
+		Criteria cr = session.createCriteria(Teacher.class);
+		cr.add(Restrictions.eq("teacherName", searchstring));
 				
-		List<Training> traininglijst = cr.list();
+		List<Teacher> tlijst = cr.list();
 		
 		session.close();
 		
-		if (traininglijst.size() == 1) {
-			return traininglijst.get(0);
+		if (tlijst.size() == 1) {
+			return tlijst.get(0);
 		} else {
 			return null;
 		}

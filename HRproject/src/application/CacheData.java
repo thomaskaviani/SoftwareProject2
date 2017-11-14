@@ -3,18 +3,24 @@ package application;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import dao.TrainingDAO;
 import model.Employee;
+import model.Training;
 import odata.XMLReader;
 
 public class CacheData {
 
 	public static ArrayList<Employee> employees;
+	
+	public static List<Training> trainings;
+	
 	
 	
 	
@@ -27,6 +33,11 @@ public class CacheData {
 		
 		CacheData.employees = emps;
 		
+	}
+	
+	public static void setTrainings() {
+		TrainingDAO tdao = new TrainingDAO();
+		trainings = tdao.getAll();
 	}
 	
 	
