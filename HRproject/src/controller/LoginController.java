@@ -6,8 +6,7 @@ import application.Navigator;
 import dao.UserDAO;
 
 import model.User;
-
-
+import sha256.Encryption;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -30,9 +29,10 @@ public class LoginController {
 		
 		
 		User x = userManager.getByUsername(usernameField.getText());
-
+		System.out.println(x);
+		
 		if(x != null) {
-			if (passwordField.getText().equals(x.getPassword())) {
+			if (Encryption.sha256(passwordField.getText()).equals(x.getPassword())) {
 				
 				UserBoxController.user = x.getUsername();
 				
