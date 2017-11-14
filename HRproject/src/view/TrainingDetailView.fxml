@@ -50,7 +50,7 @@
                   <Insets bottom="50.0" left="50.0" top="50.0" />
                </GridPane.margin>
                <columns>
-                  <TableColumn fx:id="sessionTableCol" prefWidth="138.0" text="Date &amp; time of session" />
+                  <TableColumn fx:id="sessionTableCol" prefWidth="256.0" text="Date &amp; time of session" />
                </columns>
             </TableView>
             
@@ -80,7 +80,8 @@
                   <Insets bottom="50.0" right="50.0" top="50.0" />
                </GridPane.margin>
                <columns>
-                  <TableColumn fx:id="participantTableCol" prefWidth="107.0" text="Employee name" />
+                  <TableColumn fx:id="participantFirstNameCol" prefWidth="107.0" text="First name" />
+                  <TableColumn fx:id="participantLastNameCol" prefWidth="121.0" text="Last name" />
                </columns>
             </TableView>
             

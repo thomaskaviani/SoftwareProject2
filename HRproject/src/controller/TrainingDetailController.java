@@ -38,7 +38,9 @@ public class TrainingDetailController implements Initializable{
 	private TableColumn<Sessions, Date> sessionTableCol;
 	
 	@FXML
-	private TableColumn<Employee, String> participantTableCol;
+	private TableColumn<Employee, String> participantFirstNameCol;
+	@FXML
+	private TableColumn<Employee, String> participantLastNameCol;
 	
 	@FXML
 	private TextField sessionSearchBar;
@@ -68,13 +70,20 @@ public class TrainingDetailController implements Initializable{
 	
 	@FXML
 	protected void toAddEmployee(ActionEvent e) {
-				
+			
+		if (sessionTable.getSelectionModel().isEmpty()) {
+			
+		} else {
+			AddEmployeeToSessionController.session = sessionTable.getSelectionModel().getSelectedItem();
+			AddEmployeeToSessionController.training = training;
 			Navigator.loadVista(Navigator.AddEmployeeToSessionView);
+		}
 	}
 		
 		
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		trainingName.setText(training.getName());
 		
 		
