@@ -72,26 +72,6 @@ public class SessionsDAO {
         return s;
     }
 	
-	@SuppressWarnings({ "deprecation", "unchecked" })
-	public Sessions getByName(String searchstring) {
-		
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		
-		Criteria cr = session.createCriteria(Sessions.class);
-		cr.add(Restrictions.eq("name", searchstring));
-				
-		List<Sessions> sessionslist = cr.list();
-		
-		session.close();
-		
-		if (sessionslist.size() == 1) {
-			return sessionslist.get(0);
-		} else {
-			return null;
-		}
-		
-	}
 	
 	@SuppressWarnings({ "deprecation", "unchecked" })
 	public List<Sessions> getByTraining(Integer trainingId) {
