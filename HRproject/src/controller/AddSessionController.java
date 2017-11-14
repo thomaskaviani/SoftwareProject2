@@ -6,15 +6,25 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import application.Navigator;
+import dao.AddressDAO;
+import dao.SessionsDAO;
+import dao.TeacherDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import model.Address;
+import model.Sessions;
+import model.Teacher;
+import model.Training;
 
 public class AddSessionController implements Initializable {
-
+	
+	public static Training training;
+	
+	
 	@FXML private DatePicker date;
 	@FXML private DatePicker dateEnd;
 	
@@ -38,6 +48,7 @@ public class AddSessionController implements Initializable {
 	@FXML
 	protected void addSession(ActionEvent e) {
 		
+		
 		Calendar startcal = Calendar.getInstance();
 		startcal.set(Calendar.DAY_OF_MONTH, date.getValue().getDayOfMonth());
 		startcal.set(Calendar.MONTH, date.getValue().getMonthValue()-1);
@@ -59,8 +70,23 @@ public class AddSessionController implements Initializable {
 		Date startDate = startcal.getTime();
 		Date endDate = endcal.getTime();
 		
+		Address adres = new Address(street.getText(), number.getText(), bus.getText(), zipcode.getText(), city.getText(), country.getText());
+		AddressDAO adao = new AddressDAO();
+		adao.insert(adres);
+		Address adresSecond = adao.getByStreetAndNumber(street.getText(), number.getText());
 		
-		//Navigator.loadVista(Navigator.TrainingDetailView);
+		Teacher teach = new Teacher(teacherName.getText(), teacherEmail.getText(), teacherCompany.getText());
+		TeacherDAO teachdao = new TeacherDAO();
+		teachdao.insert(teach);
+		Teacher teachSecond = teachdao.getByName(teacherName.getText());
+		
+		Sessions sesh = new Sessions(training.getTrainingId(), adresSecond.getAddressId(), teachSecond.getTeacherId(), startDate, endDate);
+		
+		SessionsDAO sdao = new SessionsDAO();
+		sdao.insert(sesh);
+		System.out.println(sesh);
+		
+		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 		
 	}

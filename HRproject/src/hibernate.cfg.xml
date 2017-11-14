@@ -31,6 +31,10 @@
         <mapping class="model.User"/>
         <mapping class="model.Training"/>
         <mapping class="model.Sessions"/>
+        <mapping class="model.Address"/>
+        <mapping class="model.Teacher"/>
+        
+        
  
     </session-factory>
 
