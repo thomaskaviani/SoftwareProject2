@@ -1,144 +1,132 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.VBox?>
-
-<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?import javafx.geometry.*?><?import javafx.scene.image.*?><?import javafx.scene.*?><?import javafx.scene.shape.*?><?import javafx.scene.text.*?><?import javafx.scene.control.*?><?import java.lang.*?><?import javafx.scene.layout.*?><?import javafx.scene.layout.VBox?><VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" fx:controller="controller.HomeController" prefHeight="1021.0" prefWidth="1645.0">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875"/>
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="631.6666564941406" minHeight="10.0" prefHeight="500.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="832.3333435058594" minHeight="10.0" prefHeight="500.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="631.6666564941406" minHeight="10.0" prefHeight="500.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="832.3333435058594" minHeight="10.0" prefHeight="500.0" vgrow="SOMETIMES"/>
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label alignment="CENTER" contentDisplay="TOP" text="Home" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Rectangle GridPane.columnIndex="1" GridPane.halignment="CENTER" arcHeight="5.0" arcWidth="5.0" fill="f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0"/>
+            <Label GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" alignment="CENTER" contentDisplay="TOP" text="Home" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP">
                <font>
-                  <Font size="24.0" />
+                  <Font size="24.0"/>
                </font>
                <GridPane.margin>
-                  <Insets left="30.0" />
+                  <Insets left="30.0"/>
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#toEmployees" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Employees" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Button GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" mnemonicParsing="false" onAction="#toEmployees" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Employees" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font size="28.0"/>
                </font>
                <cursor>
-	                 	<Cursor fx:constant="HAND" />
+	                 	<Cursor fx:constant="HAND"/>
 	                 </cursor>
                <GridPane.margin>
-                  <Insets bottom="20.0" right="-50.0" />
+                  <Insets bottom="20.0" right="-50.0"/>
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toTrainings" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Trainings" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Button GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" mnemonicParsing="false" onAction="#toTrainings" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Trainings" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font size="28.0"/>
                </font>
                <cursor>
-	                 	<Cursor fx:constant="HAND" />
+	                 	<Cursor fx:constant="HAND"/>
 	                 </cursor>
                <GridPane.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="20.0"/>
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Certificates" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Button GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Certificates" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font size="28.0"/>
                </font>
                <cursor>
-	                 	<Cursor fx:constant="HAND" />
+	                 	<Cursor fx:constant="HAND"/>
 	                 </cursor>
                <GridPane.margin>
-                  <Insets bottom="20.0" left="-50.0" />
+                  <Insets bottom="20.0" left="-50.0"/>
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Surveys" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Surveys" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font size="28.0"/>
                </font>
                <cursor>
-	                 	<Cursor fx:constant="HAND" />
+	                 	<Cursor fx:constant="HAND"/>
 	                 </cursor>
                <GridPane.margin>
-                  <Insets bottom="20.0" right="-50.0" />
+                  <Insets bottom="20.0" right="-50.0"/>
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Books" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Books" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font size="28.0"/>
                </font>
                <cursor>
-	                 	<Cursor fx:constant="HAND" />
+	                 	<Cursor fx:constant="HAND"/>
 	                 </cursor>
                <GridPane.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="20.0"/>
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toSettings" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Settings" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" mnemonicParsing="false" onAction="#toSettings" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Settings" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font size="28.0"/>
                </font>
                <cursor>
-	                 	<Cursor fx:constant="HAND" />
+	                 	<Cursor fx:constant="HAND"/>
 	                 </cursor>
                <GridPane.margin>
-                  <Insets bottom="20.0" left="-50.0" />
+                  <Insets bottom="20.0" left="-50.0"/>
                </GridPane.margin>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/homeEmployees.png" />
+                  <Image url="@../images/homeEmployees.png"/>
                </image>
                <GridPane.margin>
-                  <Insets left="50.0" />
+                  <Insets left="50.0"/>
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/homeTrainings.png" />
+                  <Image url="@../images/homeTrainings.png"/>
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/homeCertificates.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets right="50.0" />
-               </GridPane.margin>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
-               <image>
-                  <Image url="@../images/homeSettings.png" />
+                  <Image url="@../images/homeCertificates.png"/>
                </image>
                <GridPane.margin>
-                  <Insets right="50.0" />
+                  <Insets right="50.0"/>
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <ImageView GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/homeSurveys.png" />
+                  <Image url="@../images/homeSettings.png"/>
                </image>
                <GridPane.margin>
-                  <Insets left="50.0" />
+                  <Insets right="50.0"/>
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <ImageView GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/homeBooks.png" />
+                  <Image url="@../images/homeSurveys.png"/>
+               </image>
+               <GridPane.margin>
+                  <Insets left="50.0"/>
+               </GridPane.margin>
+            </ImageView>
+            <ImageView GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/homeBooks.png"/>
                </image>
             </ImageView>
          </children>

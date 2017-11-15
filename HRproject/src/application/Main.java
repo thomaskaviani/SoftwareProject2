@@ -2,9 +2,11 @@ package application;
 	
 
 import java.io.IOException;
+
 import java.text.ParseException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
@@ -15,6 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import controller.MainController;
+
+import model.ChangeColor;
 
 public class Main extends Application {
 	
@@ -56,8 +60,9 @@ public class Main extends Application {
 	
 	
 	
-	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException {
-
+	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException, TransformerException {
+		
+		ChangeColor.changeColor("f5d6a6");
 		CacheData.setEmployees();
 		CacheData.setTrainings();
 		CacheData.setParticipations();
