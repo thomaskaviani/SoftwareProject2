@@ -60,7 +60,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException, TransformerException {
 		
-		ChangeColor.changeColor("f5d6a6");
+		
 		CacheData.setEmployees();
 		CacheData.setTrainings();
 		CacheData.setParticipations();
