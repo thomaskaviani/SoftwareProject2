@@ -79,11 +79,6 @@ public class AddEmployeeToSessionController implements Initializable {
 		}
 		
 		
-		for (Participation p : parts) {
-			
-			//TO DOOO
-			
-		}
 		
 		
 	}

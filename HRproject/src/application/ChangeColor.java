@@ -20,9 +20,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import controller.HomeController;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 
 public class ChangeColor {
 	public static ArrayList<String> getViews(){
