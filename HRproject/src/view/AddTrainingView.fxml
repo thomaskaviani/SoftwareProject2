@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddTrainingController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
@@ -58,7 +58,7 @@
                <GridPane.margin>
                   <Insets left="110.0" />
                </GridPane.margin></Label>
-            <TextField GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField fx:id="trainingName" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="200.0" right="200.0" />
                </GridPane.margin>
@@ -67,7 +67,7 @@
                <GridPane.margin>
                   <Insets left="200.0" right="200.0" />
                </GridPane.margin></TextField>
-            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextArea fx:id="trainingDesc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="20.0" left="200.0" right="200.0" top="20.0" />
                </GridPane.margin>
@@ -91,7 +91,7 @@
                   <Insets right="120.0" />
                </GridPane.margin>
             </MenuButton>
-            <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#saveTraining" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -101,6 +101,21 @@
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
+            </Button>
+            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toTraining" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
+               <graphic>
+                  <ImageView fx:id="returnButton" fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/BackButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </GridPane>
