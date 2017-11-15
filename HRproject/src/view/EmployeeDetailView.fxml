@@ -229,22 +229,20 @@
                   </Label>
                </children>
             </Pane>
-		           
-            <Button mnemonicParsing="false" onAction="#toEmployees" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <GridPane.margin>
-                  <Insets left="-120.0" />
-               </GridPane.margin>
+            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toEmployees" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fx:id="returnButton" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="returnButton1" fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/BackButton.png" />
                      </image>
                   </ImageView>
                </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Button>
          </children>
       </GridPane>

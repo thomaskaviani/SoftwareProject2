@@ -29,7 +29,6 @@ public class LoginController {
 		
 		
 		User x = userManager.getByUsername(usernameField.getText());
-		System.out.println(x);
 		
 		if(x != null) {
 			if (Encryption.sha256(passwordField.getText()).equals(x.getPassword())) {

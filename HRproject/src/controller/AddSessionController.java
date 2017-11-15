@@ -90,7 +90,13 @@ public class AddSessionController implements Initializable {
 				
 		
 	}
-	
+	@FXML
+	protected void toTrainingDetail(ActionEvent e) {
+		
+		Navigator.loadVista(Navigator.TrainingDetailView);
+				
+		
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
