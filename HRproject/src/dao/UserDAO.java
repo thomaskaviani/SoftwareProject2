@@ -17,6 +17,7 @@ public class UserDAO {
         session.beginTransaction();
         session.save(u);
         session.getTransaction().commit();
+        session.close();
         
     }
 	
@@ -29,6 +30,7 @@ public class UserDAO {
         session.beginTransaction();
         session.update(user);
         session.getTransaction().commit();
+        session.close();
         
 	}
 	
@@ -45,6 +47,7 @@ public class UserDAO {
         session.beginTransaction();
         session.update(u);
         session.getTransaction().commit();
+        session.close();
 	}
 	
 	
@@ -57,6 +60,7 @@ public class UserDAO {
 		
 		List<User> userlijst = (List<User>) session.createQuery("from User").list();
 		session.getTransaction().commit();
+		session.close();
 		
 		return userlijst;
 	}
@@ -68,6 +72,7 @@ public class UserDAO {
 
         User u = (User) session.get(User.class, id);
         session.getTransaction().commit();
+        session.close();
 
         return u;
     }
