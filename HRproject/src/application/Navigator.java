@@ -34,6 +34,7 @@ public class Navigator {
     
     //todo
     public static final String AccountSettingsView = "/view/AccountSettingsView.fxml";
+    public static final String StyleOptionsView = "/view/StyleOptionsView.fxml";
 
     
     
@@ -47,7 +48,8 @@ public class Navigator {
     public static void setMainController(MainController mainController) {
         Navigator.mainController = mainController;
     }
-	
+    
+    
     
     public static void loadVista(String fxml) {
         try {

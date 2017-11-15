@@ -98,5 +98,27 @@ public class AddressDAO {
 		return adreslijst;
 	}
 	
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	public Address getByStreetAndNumber(String street, String number) {
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		Criteria cr = session.createCriteria(Address.class);
+		cr.add(Restrictions.eq("street", street));
+		cr.add(Restrictions.eq("number", number));
+				
+		List<Address> adreslist = cr.list();
+		
+		session.close();
+		
+		if (adreslist.size() == 1) {
+			return adreslist.get(0);
+		} else {
+			return null;
+		}
+		
+	}
+	
 	
 }

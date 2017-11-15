@@ -34,7 +34,7 @@
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toTrainings" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Trainings" textFill="WHITE" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#toTrainings" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Trainings" textFill="WHITE" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="20.0" right="20.0" />
                </GridPane.margin>
@@ -42,7 +42,7 @@
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toEmployees" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Employees" textFill="WHITE" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#toEmployees" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Employees" textFill="WHITE" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="20.0" right="20.0" />
                </GridPane.margin>

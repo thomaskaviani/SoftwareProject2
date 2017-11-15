@@ -1,10 +1,14 @@
 package controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import application.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 
-public class HomeController {
+public class HomeController implements Initializable {
 
 	@FXML
 	protected void toTrainings(ActionEvent e) {
@@ -42,6 +46,12 @@ public class HomeController {
 	
 	@FXML
 	protected void toSurveys(ActionEvent e) {
+		
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
 		
 	}
 }
