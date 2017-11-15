@@ -2,9 +2,11 @@ package application;
 	
 
 import java.io.IOException;
+
 import java.text.ParseException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
@@ -56,8 +58,9 @@ public class Main extends Application {
 	
 	
 	
-	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException {
-
+	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException, TransformerException {
+		
+		
 		CacheData.setEmployees();
 		CacheData.setTrainings();
 		CacheData.setParticipations();
