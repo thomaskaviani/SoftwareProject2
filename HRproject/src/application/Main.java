@@ -18,8 +18,6 @@ import javafx.scene.layout.Pane;
 
 import controller.MainController;
 
-import model.ChangeColor;
-
 public class Main extends Application {
 	
 	@Override

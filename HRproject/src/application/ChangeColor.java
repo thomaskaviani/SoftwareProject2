@@ -1,4 +1,4 @@
-package model;
+package application;
 
 //basis gevonden op https://www.mkyong.com/java/how-to-modify-xml-file-in-java-dom-parser/
 
@@ -20,7 +20,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import application.Main;
 import controller.HomeController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
