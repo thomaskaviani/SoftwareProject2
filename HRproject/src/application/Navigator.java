@@ -48,7 +48,8 @@ public class Navigator {
     public static void setMainController(MainController mainController) {
         Navigator.mainController = mainController;
     }
-	
+    
+    
     
     public static void loadVista(String fxml) {
         try {

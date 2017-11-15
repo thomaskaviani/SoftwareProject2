@@ -41,7 +41,7 @@ public class Main extends Application {
 
         Navigator.setMainController(mainController);
 
-        Navigator.loadVista(Navigator.AddSessionView);
+        Navigator.loadVista(Navigator.LoginView);
 
         return mainPane;
     }
@@ -60,6 +60,7 @@ public class Main extends Application {
 
 		CacheData.setEmployees();
 		CacheData.setTrainings();
+		CacheData.setParticipations();
 		
 		launch(args);
 		

@@ -25,7 +25,6 @@ public class TrainingController implements Initializable {
 		
 	}
 	
-	
 	@FXML
 	protected void toAddTraining(ActionEvent e) {
 		

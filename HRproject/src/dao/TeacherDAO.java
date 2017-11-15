@@ -6,28 +6,28 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import model.Sessions;
+import model.Teacher;
 
-public class SessionsDAO {
+public class TeacherDAO {
 
-	public void insert(Sessions s) {
+	public void insert(Teacher t) {
         
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
         session.beginTransaction();
-        session.save(s);
+        session.save(t);
         session.getTransaction().commit();
         
     }
 	
 	
-	public void delete(Sessions s) {
+	public void delete(Teacher t) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
-		s.setArch(1);
+		t.setArch(1);
         session.beginTransaction();
-        session.update(s);
+        session.update(t);
         session.getTransaction().commit();
         
 	}
@@ -38,56 +38,55 @@ public class SessionsDAO {
 		
 	}
 	
-	public void update(Sessions s) {
+	public void update(Teacher t) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
         session.beginTransaction();
-        session.update(s);
+        session.update(t);
         session.getTransaction().commit();
 	}
 	
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<Sessions> getAll() {
+	public List<Teacher> getAll() {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		List<Sessions> sessionslist = (List<Sessions>) session.createQuery("from Sessions").list();
+		List<Teacher> traininglijst = (List<Teacher>) session.createQuery("from Teacher").list();
 		session.getTransaction().commit();
 		
-		return sessionslist;
+		return traininglijst;
 	}
 	
-	public Sessions getById(Integer id) {
+	public Teacher getById(Integer id) {
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        Sessions s = (Sessions) session.get(Sessions.class, id);
+        Teacher t = (Teacher) session.get(Teacher.class, id);
         session.getTransaction().commit();
 
-        return s;
+        return t;
     }
 	
-	
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	public List<Sessions> getByTraining(Integer trainingId) {
+	public Teacher getByName(String searchstring) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		Criteria cr = session.createCriteria(Sessions.class);
-		cr.add(Restrictions.eq("trainingId", trainingId));
-		
-		List<Sessions> sessionslist = cr.list();
+		Criteria cr = session.createCriteria(Teacher.class);
+		cr.add(Restrictions.eq("teacherName", searchstring));
+				
+		List<Teacher> tlijst = cr.list();
 		
 		session.close();
 		
-		if (sessionslist.size() >= 1) {
-			return sessionslist;
+		if (tlijst.size() == 1) {
+			return tlijst.get(0);
 		} else {
 			return null;
 		}

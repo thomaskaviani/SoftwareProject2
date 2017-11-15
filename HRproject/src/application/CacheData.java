@@ -10,14 +10,20 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import dao.ParticipationDAO;
 import dao.TrainingDAO;
 import model.Employee;
+import model.Participation;
 import model.Training;
 import odata.XMLReader;
 
 public class CacheData {
+	
+	public static boolean loggedIn = false;
 
 	public static ArrayList<Employee> employees;
+	
+	public static List<Participation> participations;
 	
 	public static List<Training> trainings;
 	
@@ -35,9 +41,15 @@ public class CacheData {
 		
 	}
 	
+	
 	public static void setTrainings() {
 		TrainingDAO tdao = new TrainingDAO();
 		trainings = tdao.getAll();
+	}
+	
+	public static void setParticipations() {
+		ParticipationDAO pdao = new ParticipationDAO();
+		participations = pdao.getAll();
 	}
 	
 	

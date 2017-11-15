@@ -38,7 +38,9 @@ public class TrainingDetailController implements Initializable{
 	private TableColumn<Sessions, Date> sessionTableCol;
 	
 	@FXML
-	private TableColumn<Employee, String> participantTableCol;
+	private TableColumn<Employee, String> participantFirstNameCol;
+	@FXML
+	private TableColumn<Employee, String> participantLastNameCol;
 	
 	@FXML
 	private TextField sessionSearchBar;
@@ -46,6 +48,7 @@ public class TrainingDetailController implements Initializable{
 	@FXML
 	protected void toAddSession(ActionEvent e) {
 			
+			AddSessionController.training = training;
 			Navigator.loadVista(Navigator.AddSessionView);
 	}
 	//toTrainingView
@@ -67,21 +70,33 @@ public class TrainingDetailController implements Initializable{
 	
 	@FXML
 	protected void toAddEmployee(ActionEvent e) {
-				
+			
+		if (sessionTable.getSelectionModel().isEmpty()) {
+			
+		} else {
+			AddEmployeeToSessionController.session = sessionTable.getSelectionModel().getSelectedItem();
+			AddEmployeeToSessionController.training = training;
 			Navigator.loadVista(Navigator.AddEmployeeToSessionView);
+		}
 	}
 		
 		
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		trainingName.setText(training.getName());
 		
 		
 		SessionsDAO sdao = new SessionsDAO();
-		ObservableList<Sessions> sessions = FXCollections.observableArrayList(sdao.getByTraining(training.getTrainingId()));
 		
-		sessionTable.setItems(sessions);
-		sessionTableCol.setCellValueFactory(new PropertyValueFactory<Sessions, Date>("startTime"));
+		if (sdao.getByTraining(training.getTrainingId()) != null) {
+			
+			ObservableList<Sessions> sessions = FXCollections.observableArrayList(sdao.getByTraining(training.getTrainingId()));
+			
+			sessionTable.setItems(sessions);
+			sessionTableCol.setCellValueFactory(new PropertyValueFactory<Sessions, Date>("startTime"));
+			
+		}
 		
 	}
 	

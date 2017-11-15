@@ -28,7 +28,12 @@ public class AddTrainingController implements Initializable {
 		Navigator.loadVista(Navigator.SearchTrainingView);
 				
 	}
-	
+	@FXML
+	protected void toTraining(ActionEvent e) {
+		
+		Navigator.loadVista(Navigator.TrainingView);		
+		
+	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
