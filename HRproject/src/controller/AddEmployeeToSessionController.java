@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import application.CacheData;
 import application.Navigator;
+import dao.ParticipationDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,7 +29,7 @@ public class AddEmployeeToSessionController implements Initializable {
 	public static Training training;
 	public static Sessions session;
 	
-	public static List<Participation> participations;
+	public static List<Participation> parts;
 	public static List<Employee> empsPart;
 	
 	@FXML private Label trainingTitle;
@@ -72,9 +73,20 @@ public class AddEmployeeToSessionController implements Initializable {
 		employeeLastNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
 		employeeFunctionCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("title"));
 		
+		ParticipationDAO pdao = new ParticipationDAO();
+		if (pdao.getBySessionId(session.getSessionId()) != null) {
+			parts = pdao.getBySessionId(session.getSessionId());
+		}
 		
+		
+		for (Participation p : parts) {
+			
+			//TO DOOO
+			
+		}
 		
 		
 	}
+	
 
 }
