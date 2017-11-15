@@ -115,7 +115,7 @@ public class Address {
 	
 	@Override
 	public String toString() {
-		return "\n\nID:" + getAddressId() + "\n" + getStreet() + " " + getNumber() + " " + getBus() + "\n" + getPostalCode() + " " + getPlace() + " - " + getCountry();
+		return getStreet() + " " + getNumber() + " " + getBus() + " - " + getPostalCode() + " " + getPlace() + " - " + getCountry();
 	}
 	
 	

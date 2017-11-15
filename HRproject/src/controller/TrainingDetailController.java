@@ -88,10 +88,15 @@ public class TrainingDetailController implements Initializable{
 		
 		
 		SessionsDAO sdao = new SessionsDAO();
-		ObservableList<Sessions> sessions = FXCollections.observableArrayList(sdao.getByTraining(training.getTrainingId()));
 		
-		sessionTable.setItems(sessions);
-		sessionTableCol.setCellValueFactory(new PropertyValueFactory<Sessions, Date>("startTime"));
+		if (sdao.getByTraining(training.getTrainingId()) != null) {
+			
+			ObservableList<Sessions> sessions = FXCollections.observableArrayList(sdao.getByTraining(training.getTrainingId()));
+			
+			sessionTable.setItems(sessions);
+			sessionTableCol.setCellValueFactory(new PropertyValueFactory<Sessions, Date>("startTime"));
+			
+		}
 		
 	}
 	

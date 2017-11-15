@@ -18,6 +18,8 @@ import model.Training;
 import odata.XMLReader;
 
 public class CacheData {
+	
+	public static boolean loggedIn = false;
 
 	public static ArrayList<Employee> employees;
 	
