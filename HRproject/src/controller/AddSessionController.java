@@ -9,10 +9,13 @@ import application.Navigator;
 import dao.AddressDAO;
 import dao.SessionsDAO;
 import dao.TeacherDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import model.Address;
@@ -45,9 +48,34 @@ public class AddSessionController implements Initializable {
 	@FXML private TextField zipcode;
 	@FXML private TextField country;
 	
+	
+	@FXML private ComboBox<Teacher> teacherComboBox;
+	@FXML private ComboBox<Address> addressComboBox;
+	
 	@FXML
 	protected void addSession(ActionEvent e) {
 		
+		Teacher teacher = null;
+		Address address = null;
+		
+		if (teacherComboBox.getValue() == null) {
+			
+			Teacher teachTemp = new Teacher(teacherName.getText(), teacherEmail.getText(), teacherCompany.getText());
+			TeacherDAO teachdao = new TeacherDAO();
+			teachdao.insert(teachTemp);
+			teacher = teachdao.getByName(teacherName.getText());
+		} else {
+			teacher = teacherComboBox.getValue();
+		}
+		
+		if (addressComboBox.getValue() == null) {
+			Address adresTemp = new Address(street.getText(), number.getText(), bus.getText(), zipcode.getText(), city.getText(), country.getText());
+			AddressDAO adao = new AddressDAO();
+			adao.insert(adresTemp);
+			address = adao.getByStreetAndNumber(street.getText(), number.getText());
+		} else {
+			address = addressComboBox.getValue();
+		}
 		
 		Calendar startcal = Calendar.getInstance();
 		startcal.set(Calendar.DAY_OF_MONTH, date.getValue().getDayOfMonth());
@@ -70,21 +98,12 @@ public class AddSessionController implements Initializable {
 		Date startDate = startcal.getTime();
 		Date endDate = endcal.getTime();
 		
-		Address adres = new Address(street.getText(), number.getText(), bus.getText(), zipcode.getText(), city.getText(), country.getText());
-		AddressDAO adao = new AddressDAO();
-		adao.insert(adres);
-		Address adresSecond = adao.getByStreetAndNumber(street.getText(), number.getText());
 		
-		Teacher teach = new Teacher(teacherName.getText(), teacherEmail.getText(), teacherCompany.getText());
-		TeacherDAO teachdao = new TeacherDAO();
-		teachdao.insert(teach);
-		Teacher teachSecond = teachdao.getByName(teacherName.getText());
-		
-		Sessions sesh = new Sessions(training.getTrainingId(), adresSecond.getAddressId(), teachSecond.getTeacherId(), startDate, endDate);
+		Sessions sesh = new Sessions(training.getTrainingId(), address.getAddressId(), teacher.getTeacherId(), startDate, endDate);
 		
 		SessionsDAO sdao = new SessionsDAO();
 		sdao.insert(sesh);
-		System.out.println(sesh);
+		
 		
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
@@ -99,6 +118,19 @@ public class AddSessionController implements Initializable {
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		
+		
+		TeacherDAO tdao = new TeacherDAO();
+		ObservableList<Teacher> teachers = FXCollections.observableArrayList(tdao.getAll());
+		
+		teacherComboBox.getItems().addAll(teachers);
+		
+		AddressDAO adao = new AddressDAO();
+		ObservableList<Address> addresses = FXCollections.observableArrayList(adao.getAll());
+		
+		addressComboBox.getItems().addAll(addresses);
+		
 		
 
 	}

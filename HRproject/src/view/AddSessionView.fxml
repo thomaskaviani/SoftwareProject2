@@ -292,6 +292,10 @@
                   <Insets />
                </opaqueInsets>
             </Button>
+            <ComboBox fx:id="teacherComboBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <ComboBox fx:id="addressComboBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Label text="Existing Teachers" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Label text="Existing Addresses" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
          </children>
       </GridPane>
    </children>
