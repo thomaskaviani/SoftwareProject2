@@ -9,6 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.*?>
 
 <VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeDetailController">
    <children>
@@ -33,15 +34,7 @@
                   <Insets right="115.0" />
                </GridPane.margin>
             </Label>
-            <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-               <GridPane.margin>
-                  <Insets right="315.0" />
-               </GridPane.margin>
-               <image>
-                  <Image url="@../images/EmployeeIcon.png" />
-               </image>
-            </ImageView>
-            <Label text="EmployeeName" textFill="#47525e" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            <Label fx:id="employeeName" text="EmployeeName" textFill="#47525e" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -51,22 +44,22 @@
             </Label>
             <Pane prefHeight="392.0" prefWidth="410.0" GridPane.rowIndex="1">
                <children>
-                  <Label layoutX="125.0" layoutY="7.0" text="Employee number:" textFill="#47525e">
+                  <Label layoutX="125.0" layoutY="7.0" text="Employee ID:" textFill="#47525e">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="125.0" layoutY="44.0" text="Name:" textFill="#47525e" translateY="-10.0">
+                  <Label layoutX="125.0" layoutY="118.0" text="Name:" textFill="#47525e" translateY="-30.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="125.0" layoutY="81.0" text="Title:" textFill="#47525e" translateY="-20.0">
+                  <Label layoutX="125.0" layoutY="44.0" text="Title:" textFill="#47525e" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="125.0" layoutY="118.0" text="Title of courtesy:" textFill="#47525e" translateY="-30.0">
+                  <Label layoutX="125.0" layoutY="81.0" text="Title of courtesy:" textFill="#47525e" translateY="-20.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -76,32 +69,32 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="userName" layoutX="306.0" layoutY="7.0" text="number" textFill="#47525e">
+                  <Label fx:id="empId" layoutX="306.0" layoutY="7.0" text="number" textFill="#47525e">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="fullName" layoutX="306.0" layoutY="44.0" text="fullname" textFill="#47525e" translateY="-10.0">
+                  <Label fx:id="empName" layoutX="306.0" layoutY="118.0" text="fullname" textFill="#47525e" translateY="-30.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gender" layoutX="306.0" layoutY="81.0" text="title" textFill="#47525e" translateY="-20.0">
+                  <Label fx:id="empTitle" layoutX="306.0" layoutY="44.0" text="title" textFill="#47525e" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="concurrency" layoutX="306.0" layoutY="118.0" text="courtesy" textFill="#47525e" translateY="-30.0">
+                  <Label fx:id="empTitleCourtesy" layoutX="306.0" layoutY="81.0" text="courtesy" textFill="#47525e" translateY="-20.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="306.0" layoutY="155.0" text="manager name" textFill="#47525e" translateY="-40.0">
+                  <Label fx:id="empManager" layoutX="306.0" layoutY="155.0" text="manager name" textFill="#47525e" translateY="-40.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="email2" layoutX="306.0" layoutY="192.0" text="DD/MM/YY" textFill="#47525e" translateY="-40.0">
+                  <Label fx:id="empBirthdate" layoutX="306.0" layoutY="192.0" text="DD/MM/YY" textFill="#47525e" translateY="-40.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -116,7 +109,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="306.0" layoutY="229.0" text="Birthdate" textFill="#47525e" translateY="-50.0">
+                  <Label fx:id="empHiredate" layoutX="306.0" layoutY="229.0" text="DD/MM/YY" textFill="#47525e" translateY="-50.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -126,7 +119,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="306.0" layoutY="266.0" text="phone" textFill="#47525e" translateY="-60.0">
+                  <Label fx:id="empPhone" layoutX="306.0" layoutY="266.0" text="phone" textFill="#47525e" translateY="-60.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -136,7 +129,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="306.0" layoutY="303.0" text="extension" textFill="#47525e" translateY="-70.0">
+                  <Label fx:id="empExtension" layoutX="306.0" layoutY="303.0" text="extension" textFill="#47525e" translateY="-70.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -168,7 +161,7 @@
                   </Label>
                   <TextFlow layoutX="131.0" layoutY="473.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="883.0">
                      <children>
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" minHeight="-Infinity" minWidth="-Infinity" prefHeight="222.0" prefWidth="880.0" text="Andrew received his BTS commercial in 1974 and a Ph.D. in international marketing from the University of Dallas in 1981.  He is fluent in French and Italian and reads German.  He joined the company as a sales representative, was promoted to sales manager in January 1992 and to vice president of sales in March 1993.  Andrew is a member of the Sales Management Roundtable, the Seattle Chamber of Commerce, and the Pacific Rim Importers Association." textAlignment="JUSTIFY" textFill="#47525e" textOverrun="CLIP" translateY="-60.0" wrapText="true">
+                        <Label fx:id="empNotes" alignment="TOP_LEFT" contentDisplay="TOP" minHeight="-Infinity" minWidth="-Infinity" prefHeight="222.0" prefWidth="880.0" text="Andrew received his BTS commercial in 1974 and a Ph.D. in international marketing from the University of Dallas in 1981.  He is fluent in French and Italian and reads German.  He joined the company as a sales representative, was promoted to sales manager in January 1992 and to vice president of sales in March 1993.  Andrew is a member of the Sales Management Roundtable, the Seattle Chamber of Commerce, and the Pacific Rim Importers Association." textAlignment="JUSTIFY" textFill="#47525e" textOverrun="CLIP" translateY="-60.0" wrapText="true">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -177,73 +170,80 @@
                   </TextFlow>
                </children>
             </Pane>
-            <ImageView fx:id="returnButton" fitHeight="42.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
-               <image>
-                  <Image url="@../images/BackButton.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets left="-120.0" />
-               </GridPane.margin>
-            </ImageView>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label layoutX="517.0" layoutY="233.0" text="Address:" textFill="#47525e" translateY="-30.0">
+                  <Label layoutX="517.0" layoutY="233.0" text="Address:" textFill="#47525e" translateX="-50.0" translateY="-30.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="517.0" layoutY="270.0" text="City:" textFill="#47525e" translateY="-35.0">
+                  <Label layoutX="517.0" layoutY="270.0" text="City:" textFill="#47525e" translateX="-50.0" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="517.0" layoutY="307.0" text="Region:" textFill="#47525e" translateY="-40.0">
+                  <Label layoutX="517.0" layoutY="307.0" text="Region:" textFill="#47525e" translateX="-50.0" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="517.0" layoutY="344.0" text="Postalcode:" textFill="#47525e" translateY="-45.0">
+                  <Label layoutX="517.0" layoutY="344.0" text="Postalcode:" textFill="#47525e" translateX="-50.0" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="517.0" layoutY="381.0" text="Country:" textFill="#47525e" translateY="-50.0">
+                  <Label layoutX="517.0" layoutY="381.0" text="Country:" textFill="#47525e" translateX="-50.0" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="202.0" fitWidth="211.0" layoutX="517.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="202.0" fitWidth="211.0" layoutX="517.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0">
                      <image>
                         <Image url="@../images/MalePP.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="669.0" layoutY="233.0" text="address" textFill="#47525e" translateY="-30.0">
+                  <Label fx:id="empAddress" layoutX="669.0" layoutY="233.0" text="address" textFill="#47525e" translateX="-50.0" translateY="-30.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="669.0" layoutY="270.0" text="city" textFill="#47525e" translateY="-35.0">
+                  <Label fx:id="empCity" layoutX="669.0" layoutY="270.0" text="city" textFill="#47525e" translateX="-50.0" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="669.0" layoutY="307.0" text="region" textFill="#47525e" translateY="-40.0">
+                  <Label fx:id="empRegion" layoutX="669.0" layoutY="307.0" text="region" textFill="#47525e" translateX="-50.0" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="669.0" layoutY="344.0" text="postalcode" textFill="#47525e" translateY="-45.0">
+                  <Label fx:id="empPostalcode" layoutX="669.0" layoutY="344.0" text="postalcode" textFill="#47525e" translateX="-50.0" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="669.0" layoutY="381.0" text="country" textFill="#47525e" translateY="-50.0">
+                  <Label fx:id="empCountry" layoutX="669.0" layoutY="381.0" text="country" textFill="#47525e" translateX="-50.0" translateY="-10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
+            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toEmployees" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fx:id="returnButton1" fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/BackButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
          </children>
       </GridPane>
    </children>

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Employee {
 
-	private int employeeId;
+	private String employeeId;
 	private String lastName;
 	private String firstName;
 	private String title;
@@ -26,8 +26,11 @@ public class Employee {
 	
 	private String notes;
 	
-	//als dit -1 is, heeft de mployee geen manager!
-	private int reportso;
+	private String email;
+	
+	//als dit "-1" is, heeft de mployee geen manager!
+	private String reportso;
+	
 	private String photoPath;
 	
 	
@@ -38,14 +41,14 @@ public class Employee {
 	//private ArrayList<Training> trainingsRegistered;
 	
 	//CONSTRUCTOR id - firstname - lastname
-	public Employee(int employeeId, String firstName, String lastName) {
+	public Employee(String employeeId, String firstName, String lastName) {
 		setEmployeeId(employeeId);
 		setFirstName(firstName);
 		setLastName(lastName);
 	}
 	
 	//CONSTRUCTOR alle velden
-	public Employee(int employeeId, String firstName, String lastName, String title, String titleOfCourtesy, Date birthDate, Date hireDate, String address, String city, String region, String postalCode, String country, String homePhone, String extension, String photo, String notes, int reportsto, String photoPath) {
+	public Employee(String employeeId, String firstName, String lastName, String title, String titleOfCourtesy, Date birthDate, Date hireDate, String address, String city, String region, String postalCode, String country, String homePhone, String extension, String photo, String notes, String reportsto, String photoPath, String email) {
 		
 		setEmployeeId(employeeId);
 		setFirstName(firstName);
@@ -72,16 +75,22 @@ public class Employee {
 		
 		setReportsTo(reportsto);
 		
+		setEmail(email);
+		
 		
 	}
-	public Employee() {};
+	
+	
+	public Employee() {
+		
+	}
 
-	public int getEmployeeId() {
+	public String getEmployeeId() {
 		return employeeId;
 	}
 
 
-	public void setEmployeeId(int employeeId) {
+	public void setEmployeeId(String employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -233,11 +242,11 @@ public class Employee {
 		this.photo = photo;
 	}
 
-	public int getReportsTo() {
+	public String getReportsTo() {
 		return reportso;
 	}
 
-	public void setReportsTo(int reportso) {
+	public void setReportsTo(String reportso) {
 		this.reportso = reportso;
 	}
 
@@ -268,6 +277,18 @@ public class Employee {
 		"Notes : " + getRegion()+'\n'+
 		"ReportsTo : " + getReportsTo()+'\n'+
 		"PhotoPath : " + getPhotoPath();
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getFullName() {
+		return getFirstName() + " " + getLastName();
 	}
 	
 	

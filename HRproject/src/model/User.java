@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.GenericGenerator;
+import sha256.Encryption;
 
 @Entity
 public class User {
@@ -38,7 +39,7 @@ public class User {
 	public User(String username, String password, String function) {
 		super();
 		this.username = username;
-		this.password = password;
+		this.password = Encryption.sha256(password);
 		this.function = function;
 		this.arch = 0;
 	}
@@ -62,7 +63,7 @@ public class User {
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = Encryption.sha256(password);;
 	}
 	public String getFunction() {
 		return function;
