@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 import javax.xml.transform.TransformerException;
 
 import application.ChangeColor;
-import application.Main;
 import application.Navigator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
