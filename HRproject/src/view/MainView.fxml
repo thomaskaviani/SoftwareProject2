@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="800.0" style="-fx-background-color: #fdfdfd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="800.0" style="-fx-background-color: #fdfdfd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
 	<children>
 	
 	    <ToolBar maxHeight="-Infinity" prefHeight="40.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -15,7 +15,7 @@
                <children>
                   <Label layoutY="6.0" text="REFLEX" />
                </children></Pane>
-	            <Button mnemonicParsing="false" onAction="#doLogout" style="-fx-background-image: url(&quot;@../images/loginicon.png&quot;);" text="Logout" />
+	            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#doLogout" style="-fx-background-image: url(&quot;@../images/loginicon.png&quot;);" text="Logout" />
 	         </items>
 	    </ToolBar>
 	    
