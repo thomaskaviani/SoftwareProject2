@@ -81,7 +81,7 @@ public class Teacher {
 	
 	@Override
 	public String toString() {
-		return "ID: " + getTeacherId() + " Name: " + getTeacherName();
+		return getTeacherName() + " - " + getCompany();
 	}
 	
 }
