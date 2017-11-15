@@ -17,6 +17,7 @@ public class ParticipationDAO {
         session.beginTransaction();
         session.save(part);
         session.getTransaction().commit();
+        session.close();
     }
 	
 	public void delete(Participation part) {
@@ -27,6 +28,7 @@ public class ParticipationDAO {
         session.beginTransaction();
         session.update(part);
         session.getTransaction().commit();
+        session.close();
         
 	}
 	
@@ -43,6 +45,7 @@ public class ParticipationDAO {
         session.beginTransaction();
         session.update(a);
         session.getTransaction().commit();
+        session.close();
 	}
 	
 	
@@ -53,6 +56,7 @@ public class ParticipationDAO {
 
         Participation part = (Participation) session.get(Participation.class, id);
         session.getTransaction().commit();
+        session.close();
 
         return part;
     }
@@ -65,6 +69,7 @@ public class ParticipationDAO {
 		
 		List<Participation> partlijst = (List<Participation>) session.createQuery("from Participation").list();
 		session.getTransaction().commit();
+		session.close();
 		
 		return partlijst;
 	}
@@ -81,7 +86,13 @@ public class ParticipationDAO {
 				
 		List<Participation> partlijst = cr.list();
 		
-		return partlijst;
+		session.close();
+		
+		if (partlijst.size() >= 1) {
+			return partlijst;
+		} else {
+			return null;
+		}
 	}
 	
 	
