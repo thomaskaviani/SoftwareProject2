@@ -19,7 +19,7 @@ public class Participation {
 	@Column
 	private int sessionId;
 	@Column
-	private int empId;
+	private String empId;
 	@Column
 	private int isChecked;
 	@Column
@@ -31,7 +31,7 @@ public class Participation {
 		
 	}
 	
-	public Participation(int sessionId, int empId, int isChecked, int cancelled) {
+	public Participation(int sessionId, String empId, int isChecked, int cancelled) {
 		
 		this.sessionId = sessionId;
 		this.empId = empId;
@@ -56,11 +56,11 @@ public class Participation {
 		this.sessionId = sessionId;
 	}
 
-	public int getEmpId() {
+	public String getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(int empId) {
+	public void setEmpId(String empId) {
 		this.empId = empId;
 	}
 
