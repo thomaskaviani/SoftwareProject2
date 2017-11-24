@@ -8,9 +8,9 @@ import application.CacheData;
 import application.Navigator;
 
 import dao.UserDAO;
-
 import model.User;
 import sha256.Encryption;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

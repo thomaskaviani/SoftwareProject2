@@ -30,6 +30,7 @@ public class CacheData {
 	
 	
 	
+	
 	public static void setEmployees() throws IOException, ParserConfigurationException, SAXException, ParseException {
 		
 		Document doc;
@@ -51,6 +52,5 @@ public class CacheData {
 		ParticipationDAO pdao = new ParticipationDAO();
 		participations = pdao.getAll();
 	}
-	
 	
 }

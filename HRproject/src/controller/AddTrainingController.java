@@ -3,15 +3,16 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.CacheData;
-import application.Navigator;
-import dao.TrainingDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
 import model.Training;
+import application.CacheData;
+import application.Navigator;
+import dao.TrainingDAO;
 
 public class AddTrainingController implements Initializable {
 	
