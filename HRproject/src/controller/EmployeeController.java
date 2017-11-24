@@ -1,8 +1,5 @@
 package controller;
 
-//import application.Navigator;
-import model.Employee;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,13 +10,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-
-import application.CacheData;
-import application.Navigator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+
+import application.CacheData;
+import application.Navigator;
+import model.Employee;
 
 
 public class EmployeeController implements Initializable {
@@ -43,8 +40,10 @@ public class EmployeeController implements Initializable {
 	protected void toDetailEmployee(ActionEvent e) {
 		
 		Employee emp = tableView.getSelectionModel().getSelectedItem();
-		EmployeeDetailController.employee = emp;  
-		Navigator.loadVista(Navigator.EmployeeDetailView);
+		if (emp != null) {
+			EmployeeDetailController.employee = emp;
+			Navigator.loadVista(Navigator.EmployeeDetailView);
+		}
 				
 		
 	}

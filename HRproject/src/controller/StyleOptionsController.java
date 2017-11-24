@@ -7,8 +7,6 @@ import java.util.ResourceBundle;
 
 import javax.xml.transform.TransformerException;
 
-import application.ChangeColor;
-import application.Navigator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 
 import model.Theme;
+import application.ChangeColor;
+import application.Navigator;
 
 public class StyleOptionsController implements Initializable{
 	@FXML private ComboBox<Theme> colorComboBox = new ComboBox<Theme>();

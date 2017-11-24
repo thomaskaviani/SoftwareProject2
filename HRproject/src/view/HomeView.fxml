@@ -38,7 +38,7 @@
                </font>
                <cursor>
 	                 	<Cursor fx:constant="HAND"/>
-	                 </cursor>
+	           </cursor>
                <GridPane.margin>
                   <Insets bottom="20.0"/>
                </GridPane.margin>

@@ -8,11 +8,12 @@ import java.util.ResourceBundle;
 
 import application.CacheData;
 import application.Navigator;
+import model.Employee;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import model.Employee;
 
 public class EmployeeDetailController implements Initializable{
 

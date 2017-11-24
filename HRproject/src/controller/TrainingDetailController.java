@@ -3,13 +3,11 @@ package controller;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import application.Navigator;
-import dao.AddressDAO;
-import dao.SessionsDAO;
-import dao.TeacherDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,16 +19,25 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+
 import model.Address;
 import model.Employee;
+import model.Participation;
 import model.Sessions;
 import model.Teacher;
 import model.Training;
+import application.CacheData;
+import application.Navigator;
+import dao.AddressDAO;
+import dao.SessionsDAO;
+import dao.TeacherDAO;
 
 
 public class TrainingDetailController implements Initializable{
 
 	public static Training training;
+	
+	public static List<Employee> participationEmployees;
 	
 	@FXML private Label trainingName;
 	
@@ -95,8 +102,10 @@ public class TrainingDetailController implements Initializable{
 		} else {
 			AddEmployeeToSessionController.session = sessionTable.getSelectionModel().getSelectedItem();
 			AddEmployeeToSessionController.training = training;
+			AddEmployeeToSessionController.participationEmployees = new ArrayList<Employee>();
 			Navigator.loadVista(Navigator.AddEmployeeToSessionView);
 		}
+		
 	}
 		
 	
@@ -105,6 +114,8 @@ public class TrainingDetailController implements Initializable{
 	
 	@FXML
 	public void clickSession(MouseEvent e) {
+		
+		participationEmployees = new ArrayList<Employee>();
 		
 		Sessions s = sessionTable.getSelectionModel().getSelectedItem();
 		
@@ -132,6 +143,30 @@ public class TrainingDetailController implements Initializable{
 		
 		infoTime1.setText(dateStart);
 		infoTime2.setText(dateEnd);
+		
+		//Employees die meedoen aan lijst toevoegen
+		for (Participation p : CacheData.participations) {
+			if (p.getSessionId() == s.getSessionId()) {
+				if (CacheData.employees.size() >= Integer.valueOf(p.getEmpId())) {
+									
+					Employee emp = CacheData.employees.get(Integer.valueOf(p.getEmpId()) - 1);
+									
+					if (emp != null) {
+						participationEmployees.add(emp);
+					}
+									
+				}
+			}
+		}
+		
+		
+		//Employees die meedoen tonen in participants tabel
+		ObservableList<Employee> parts = FXCollections.observableArrayList(participationEmployees);
+		participantTable.setItems(parts);
+		
+		participantFirstNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("firstName"));
+		participantLastNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
+		
 	}
 		
 	@Override

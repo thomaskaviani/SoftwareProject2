@@ -3,10 +3,12 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.Initializable;
-import application.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
+import application.Navigator;
 
 public class GeneralSettingsController implements Initializable{
 

@@ -65,6 +65,10 @@ public class Main extends Application {
 		CacheData.setTrainings();
 		CacheData.setParticipations();
 		
+		
+	
+		
+		
 		launch(args);
 		
 
