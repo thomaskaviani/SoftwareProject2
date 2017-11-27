@@ -74,11 +74,21 @@ public class AddCertificateController implements Initializable {
 			
 		} else {
 			
-			//Certificate in de databank steken
+			//CERTIFICATE IN DB STEKEN
 			CertificateDAO cdao = new CertificateDAO();
 			
 			byte[] certData = new byte[(int) certificateFile.length()];
 			
+			//extensie verkrijgen
+			String filename = certificateFile.getName();
+			String extension = "";
+			int i = filename.lastIndexOf('.');
+			if (i > 0) {
+			    extension = filename.substring(i);
+			}
+			System.out.println(extension);
+			
+			//fileinputstream
 			try {
 	            FileInputStream fileInputStream = new FileInputStream(certificateFile);
 	            fileInputStream.read(certData);
@@ -87,7 +97,9 @@ public class AddCertificateController implements Initializable {
 		            x.printStackTrace();
 		    }
 			
-			Certificate cert = new Certificate(employee.getEmployeeId(), trainName.getText().trim() , certData);
+
+			//certificaat toevoegen
+			Certificate cert = new Certificate(employee.getEmployeeId(), trainName.getText().trim() , certData, extension);
 			
 			if (trainingComboBox.getValue() != null) {
 				cert.setTrainingName(trainingComboBox.getValue().getName());

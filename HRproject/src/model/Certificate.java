@@ -24,13 +24,16 @@ public class Certificate {
 	@Column
 	private byte[] file;
 	@Column
+	private String extension;
+	@Column
 	private int arch = 0;
 	
 	public Certificate() {};
 	
 	//alle params
-	public Certificate(String empId, String trainingName, byte[] file) {
+	public Certificate(String empId, String trainingName, byte[] file, String extension) {
 		super();
+		this.extension = extension;
 		this.empId = empId;
 		this.trainingName = trainingName;
 		this.file = file;
@@ -76,6 +79,16 @@ public class Certificate {
 	public void setArch(int arch) {
 		this.arch = arch;
 	}
+
+	public String getExtension() {
+		return extension;
+	}
+
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
+	
+	
 	
 
 	
