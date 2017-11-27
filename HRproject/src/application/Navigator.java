@@ -1,3 +1,11 @@
+/*
+ * Bronnen:
+ * 
+ * 
+ * Navigator framework voor JavaFX door "Jewelsea": https://gist.github.com/jewelsea/6460130
+ * 
+ * */
+
 package application;
 
 import javafx.fxml.FXMLLoader;

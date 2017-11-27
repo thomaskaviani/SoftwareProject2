@@ -1,3 +1,11 @@
+/*
+ * Bronnen:
+ * 
+ * XMLModifier voor het aanpassen van kleuren door mkyong: https://www.mkyong.com/java/how-to-modify-xml-file-in-java-dom-parser/
+ * 
+ * 
+ * */
+
 package controller;
 
 import java.io.IOException;
