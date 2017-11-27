@@ -22,8 +22,7 @@ import model.Employee;
 public class EmployeeController implements Initializable {
 
 	
-	@FXML
-	private TableView<Employee> tableView;
+	@FXML private TableView<Employee> tableView;
 	
 	@FXML 
 	private TextField searchBar;
@@ -63,6 +62,16 @@ public class EmployeeController implements Initializable {
 			Navigator.loadVista(Navigator.AddCertificateView);
 		}
 		
+	}
+	
+	@FXML
+	protected void toShowCert(ActionEvent e) {
+		
+		Employee emp = tableView.getSelectionModel().getSelectedItem();
+		if (emp != null) {
+			ShowCertificateController.employee = emp;
+			Navigator.loadVista(Navigator.ShowCertificateView);
+		}
 	}
 	
 	@Override
