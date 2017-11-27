@@ -1,6 +1,8 @@
 package application;
 	
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import java.text.ParseException;
@@ -13,10 +15,12 @@ import org.xml.sax.SAXException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import model.Certificate;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import controller.MainController;
+import dao.CertificateDAO;
 
 public class Main extends Application {
 	
@@ -71,6 +75,27 @@ public class Main extends Application {
 		
 		launch(args);
 		
+		
+		
+		CertificateDAO cdao = new CertificateDAO();
+
+		File file = new File("C:\\Users\\bavia\\Downloads\\Klassediagram_groep3.pdf");
+		byte[] certData = new byte[(int) file.length()];
+
+		try {
+	            FileInputStream fileInputStream = new FileInputStream(file);
+	            fileInputStream.read(certData);
+	            fileInputStream.close();
+	    } catch (Exception e) {
+	            e.printStackTrace();
+	    }
+
+
+		Certificate cert = new Certificate(2,"Certnaam", certData);
+
+		cdao.insert(cert);
+	     
+
 
 	}
 }
