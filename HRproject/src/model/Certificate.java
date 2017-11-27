@@ -18,7 +18,7 @@ public class Certificate {
 	private int certificateId;
 	
 	@Column
-	private int empId;
+	private String empId;
 	@Column
 	private String trainingName;
 	@Column
@@ -29,7 +29,7 @@ public class Certificate {
 	public Certificate() {};
 	
 	//alle params
-	public Certificate(int empId, String trainingName, byte[] file) {
+	public Certificate(String empId, String trainingName, byte[] file) {
 		super();
 		this.empId = empId;
 		this.trainingName = trainingName;
@@ -45,11 +45,11 @@ public class Certificate {
 		this.certificateId = certificateId;
 	}
 
-	public int getEmpId() {
+	public String getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(int empId) {
+	public void setEmpId(String empId) {
 		this.empId = empId;
 	}
 

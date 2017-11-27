@@ -44,6 +44,7 @@ public class Navigator {
     public static final String AccountSettingsView = "/view/AccountSettingsView.fxml";
     public static final String StyleOptionsView = "/view/StyleOptionsView.fxml";
 
+    public static final String AddCertificateView = "/view/AddCertificateView.fxml";
     
     
     public static final String TEST = "/view/test.fxml";

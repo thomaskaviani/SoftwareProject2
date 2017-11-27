@@ -29,6 +29,9 @@ public class User {
 	
 	@Column
 	private int arch;
+	
+	@Column
+	private byte[] imagefile;
 
 	
 	
@@ -77,7 +80,13 @@ public class User {
 	public void setArch(int arch) {
 		this.arch = arch;
 	}
-	
+	public byte[] getImagefile() {
+		return imagefile;
+	}
+	public void setImagefile(byte[] imagefile) {
+		this.imagefile = imagefile;
+	}
+
 	
 	@Override 
 	public String toString() {

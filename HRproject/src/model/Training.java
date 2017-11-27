@@ -73,7 +73,7 @@ public class Training {
 	
 	@Override
 	public String toString() {
-		return "\n\nID:" + getTrainingId() + "\n" + getName() + " " + getGoal();
+		return getName();
 	}
 	
 	/*

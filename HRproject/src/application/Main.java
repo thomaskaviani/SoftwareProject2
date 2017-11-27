@@ -1,8 +1,6 @@
 package application;
 	
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import java.text.ParseException;
@@ -15,18 +13,19 @@ import org.xml.sax.SAXException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import model.Certificate;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import controller.MainController;
-import dao.CertificateDAO;
 
 public class Main extends Application {
+	
+	public static Stage mainStage;
 	
 	@Override
 	public void start(Stage stage) throws Exception {
 		 
+		mainStage = stage;
 		stage.setTitle("HR - Application");
 		
         stage.setScene(createScene(loadMainPane()));
@@ -75,8 +74,9 @@ public class Main extends Application {
 		
 		launch(args);
 		
+		/*
 		
-		
+		//adden van image aan database
 		CertificateDAO cdao = new CertificateDAO();
 
 		File file = new File("C:\\Users\\bavia\\Downloads\\Klassediagram_groep3.pdf");
@@ -91,11 +91,11 @@ public class Main extends Application {
 	    }
 
 
-		Certificate cert = new Certificate(2,"Certnaam", certData);
+		Certificate cert = new Certificate("2","Certnaam", certData);
 
 		cdao.insert(cert);
 	     
-
+		*/
 
 	}
 }

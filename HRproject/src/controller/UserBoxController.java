@@ -1,8 +1,10 @@
 package controller;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.scene.image.ImageView;
 
 public class UserBoxController implements Initializable {
 
+	
 	@FXML
 	private ImageView imgView;
 	
@@ -24,11 +27,28 @@ public class UserBoxController implements Initializable {
 	@Override
     public void initialize(URL location, ResourceBundle resources) {
         
-		File file = new File("src/images/default.png");
+		byte[] imagedata = LoginController.userLogged.getImagefile();
+		
+		String filepath = "src/images/userimage_" + LoginController.userLogged.getUsername() + ".jpg";
+		
+		try {
+			FileOutputStream fos = new FileOutputStream(filepath);
+			fos.write(imagedata);
+			fos.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		File file = new File(filepath);
         Image image = new Image(file.toURI().toString());
         imgView.setImage(image);
-        username.setText(user);
+        
+        String str = user;
+        String strUppercase = str.substring(0, 1).toUpperCase() + str.substring(1);
+        username.setText(strUppercase);
         
     }
+	
 	
 }
