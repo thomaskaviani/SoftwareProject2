@@ -8,9 +8,9 @@ import application.CacheData;
 import application.Navigator;
 
 import dao.UserDAO;
-
 import model.User;
 import sha256.Encryption;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,13 +34,12 @@ public class LoginController implements Initializable {
 	@FXML
 	protected void doLogin(ActionEvent e) {
 		
-		System.out.println("Check!");
-		
-		/*
 		User x = userManager.getByUsername(usernameField.getText());
 		
 		if(x != null) {
 			if (Encryption.sha256(passwordField.getText()).equals(x.getPassword())) {
+				
+				
 				
 				UserBoxController.user = x.getUsername();
 				CacheData.loggedIn = true;
@@ -58,10 +57,6 @@ public class LoginController implements Initializable {
 			errorLabel.setTextFill(Color.FIREBRICK);
 			errorLabel.setText("No user found");
 		}
-		
-		*/
-		
-		
 	}
 	
 	
@@ -71,7 +66,7 @@ public class LoginController implements Initializable {
 		switch(e.getCode()) {
 			case ENTER: 
 				User x = userManager.getByUsername(usernameField.getText());
-				System.out.println(x);
+	
 				
 				if(x != null) {
 					if (Encryption.sha256(passwordField.getText()).equals(x.getPassword())) {

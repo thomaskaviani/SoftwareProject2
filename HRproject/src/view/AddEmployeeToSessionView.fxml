@@ -24,7 +24,7 @@
             <RowConstraints maxHeight="653.0" minHeight="1.666656494140625" prefHeight="465.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label fx:id="trainingTitle" alignment="CENTER" contentDisplay="TOP" text="Trainingnaam - Sessiondate" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
@@ -79,15 +79,21 @@
                   <Insets bottom="50.0" left="-200.0" right="50.0" top="50.0" />
                </GridPane.margin>
             </TableView>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="154.0" style="-fx-background-color: WHITE; -fx-border-color: #47525E; -fx-border-radius: 10;" text="---&gt; Add Employees to session " textAlignment="CENTER" textFill="#47525e" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#addEmpSession" prefHeight="60.0" prefWidth="154.0" style="-fx-background-color: WHITE; -fx-border-color: #47525E; -fx-border-radius: 10;" text="---&gt; Add Employees to session " textAlignment="CENTER" textFill="#47525e" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="100.0" />
                </GridPane.margin>
+               <cursor>
+	                 	<Cursor fx:constant="HAND" />
+	           </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="154.0" style="-fx-background-color: white; -fx-border-color: #47525E; -fx-border-radius: 10;" text="&lt;--- Remove employee from session" textAlignment="CENTER" textFill="#47525e" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#removeEmpSession" prefHeight="60.0" prefWidth="154.0" style="-fx-background-color: white; -fx-border-color: #47525E; -fx-border-radius: 10;" text="&lt;--- Remove employee from session" textAlignment="CENTER" textFill="#47525e" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets top="100.0" />
                </GridPane.margin>
+               <cursor>
+	                 	<Cursor fx:constant="HAND" />
+	           </cursor>
             </Button>
             <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toTrainingDetail" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
                <cursor>

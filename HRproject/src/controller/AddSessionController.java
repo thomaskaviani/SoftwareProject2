@@ -5,10 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import application.Navigator;
-import dao.AddressDAO;
-import dao.SessionsDAO;
-import dao.TeacherDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,10 +14,15 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+
 import model.Address;
 import model.Sessions;
 import model.Teacher;
 import model.Training;
+import application.Navigator;
+import dao.AddressDAO;
+import dao.SessionsDAO;
+import dao.TeacherDAO;
 
 public class AddSessionController implements Initializable {
 	
