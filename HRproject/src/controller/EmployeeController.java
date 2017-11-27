@@ -53,7 +53,17 @@ public class EmployeeController implements Initializable {
 		Navigator.loadVista(Navigator.HomeView);
 				
 	}
-	//toHome
+
+	@FXML
+	protected void toAddCert(ActionEvent e) {
+		
+		Employee emp = tableView.getSelectionModel().getSelectedItem();
+		if (emp != null) {
+			AddCertificateController.employee = emp;
+			Navigator.loadVista(Navigator.AddCertificateView);
+		}
+		
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

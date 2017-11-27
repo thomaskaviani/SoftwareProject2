@@ -25,6 +25,8 @@ import javafx.scene.paint.Color;
 public class LoginController implements Initializable {
 	
 	UserDAO userManager = new UserDAO();
+	
+	public static User userLogged;
 	 
 	@FXML private Label username;
 	@FXML private TextField usernameField;
@@ -43,6 +45,7 @@ public class LoginController implements Initializable {
 				
 				UserBoxController.user = x.getUsername();
 				CacheData.loggedIn = true;
+				userLogged = x;
 				
 				Navigator.loadVista(Navigator.HomeView);
 				Navigator.loadUserVista(Navigator.UserBoxView);
@@ -73,6 +76,7 @@ public class LoginController implements Initializable {
 						
 						UserBoxController.user = x.getUsername();
 						CacheData.loggedIn = true;
+						userLogged = x;
 						
 						Navigator.loadVista(Navigator.HomeView);
 						Navigator.loadUserVista(Navigator.UserBoxView);
@@ -96,6 +100,8 @@ public class LoginController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		userLogged = null;
 		
 		Platform.runLater(new Runnable() {
 		    @Override

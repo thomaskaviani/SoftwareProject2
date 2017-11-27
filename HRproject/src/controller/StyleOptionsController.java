@@ -1,3 +1,11 @@
+/*
+ * Bronnen:
+ * 
+ * XMLModifier voor het aanpassen van kleuren door mkyong: https://www.mkyong.com/java/how-to-modify-xml-file-in-java-dom-parser/
+ * 
+ * 
+ * */
+
 package controller;
 
 import java.io.IOException;
@@ -19,6 +27,7 @@ import application.ChangeColor;
 import application.Navigator;
 
 public class StyleOptionsController implements Initializable{
+	
 	@FXML private ComboBox<Theme> colorComboBox = new ComboBox<Theme>();
 
 

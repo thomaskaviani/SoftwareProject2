@@ -15,12 +15,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 
 import model.Employee;
 import model.Participation;
 import model.Sessions;
 import model.Training;
-
 import application.CacheData;
 import application.Navigator;
 import dao.ParticipationDAO;
@@ -33,6 +33,8 @@ public class AddEmployeeToSessionController implements Initializable {
 	public static List<Employee> participationEmployees;
 	
 	@FXML private Label trainingTitle;
+	
+	@FXML private Label errorLabel;
 	
 	@FXML private TableView<Employee> employeeTable;
 	@FXML private TableView<Employee> participantTable;
@@ -56,6 +58,8 @@ public class AddEmployeeToSessionController implements Initializable {
 	
 	@FXML
 	protected void addEmpSession() {
+		
+		errorLabel.setText("");
 		
 		Employee emp = employeeTable.getSelectionModel().getSelectedItem();
 		
@@ -89,14 +93,19 @@ public class AddEmployeeToSessionController implements Initializable {
 					pdao2.update(p1);
 					CacheData.setParticipations();
 				}
+				
 			} else {
 				System.out.println("Steekt er al in!!");
+				errorLabel.setTextFill(Color.FIREBRICK);
+				errorLabel.setText("This employee is already participating");
 			}
 		}
 	}
 	
 	@FXML
 	protected void removeEmpSession() {
+		
+		errorLabel.setText("");
 		
 		Employee emp = participantTable.getSelectionModel().getSelectedItem();
 		

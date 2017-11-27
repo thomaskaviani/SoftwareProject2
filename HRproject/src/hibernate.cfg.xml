@@ -34,6 +34,7 @@
         <mapping class="model.Address"/>
         <mapping class="model.Teacher"/>
         <mapping class="model.Participation"/>
+        <mapping class="model.Certificate"/>
         
         
  

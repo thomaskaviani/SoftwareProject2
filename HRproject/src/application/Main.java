@@ -20,9 +20,12 @@ import controller.MainController;
 
 public class Main extends Application {
 	
+	public static Stage mainStage;
+	
 	@Override
 	public void start(Stage stage) throws Exception {
 		 
+		mainStage = stage;
 		stage.setTitle("HR - Application");
 		
         stage.setScene(createScene(loadMainPane()));
@@ -71,6 +74,28 @@ public class Main extends Application {
 		
 		launch(args);
 		
+		/*
+		
+		//adden van image aan database
+		CertificateDAO cdao = new CertificateDAO();
+
+		File file = new File("C:\\Users\\bavia\\Downloads\\Klassediagram_groep3.pdf");
+		byte[] certData = new byte[(int) file.length()];
+
+		try {
+	            FileInputStream fileInputStream = new FileInputStream(file);
+	            fileInputStream.read(certData);
+	            fileInputStream.close();
+	    } catch (Exception e) {
+	            e.printStackTrace();
+	    }
+
+
+		Certificate cert = new Certificate("2","Certnaam", certData);
+
+		cdao.insert(cert);
+	     
+		*/
 
 	}
 }
