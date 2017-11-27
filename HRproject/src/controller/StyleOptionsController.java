@@ -19,6 +19,7 @@ import application.ChangeColor;
 import application.Navigator;
 
 public class StyleOptionsController implements Initializable{
+	
 	@FXML private ComboBox<Theme> colorComboBox = new ComboBox<Theme>();
 
 

@@ -110,6 +110,11 @@
                   <Insets />
                </opaqueInsets>
             </Button>
+            <Label fx:id="errorLabel" text="" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets top="300.0" />
+               </GridPane.margin>
+            </Label>
          </children>
       </GridPane>
    </children>
