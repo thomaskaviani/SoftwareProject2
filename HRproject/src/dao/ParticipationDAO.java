@@ -17,6 +17,7 @@ public class ParticipationDAO {
         session.beginTransaction();
         session.save(part);
         session.getTransaction().commit();
+        session.close();
     }
 	
 	public void delete(Participation part) {
@@ -27,6 +28,7 @@ public class ParticipationDAO {
         session.beginTransaction();
         session.update(part);
         session.getTransaction().commit();
+        session.close();
         
 	}
 	
@@ -43,6 +45,7 @@ public class ParticipationDAO {
         session.beginTransaction();
         session.update(a);
         session.getTransaction().commit();
+        session.close();
 	}
 	
 	
@@ -53,18 +56,48 @@ public class ParticipationDAO {
 
         Participation part = (Participation) session.get(Participation.class, id);
         session.getTransaction().commit();
+        session.close();
 
         return part;
     }
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public Participation getByEmpId(String empId, int sessionId) {
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
+		Criteria cr = session.createCriteria(Participation.class);
+		cr.add(Restrictions.eq("sessionId", sessionId));
+		cr.add(Restrictions.eq("empId", empId));
+		
+		List<Participation> partlijst = cr.list();
+		
+		session.close();
+		
+		if (partlijst.size() == 1) {
+			return partlijst.get(0);
+		} else {
+			return null;
+		}
+		
+		
+	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<Participation> getAll() {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		List<Participation> partlijst = (List<Participation>) session.createQuery("from Participation").list();
+		Criteria cr = session.createCriteria(Participation.class);
+		cr.add(Restrictions.eq("arch", 0));
+		
+		List<Participation> partlijst = cr.list();
+		
+		
 		session.getTransaction().commit();
+		session.close();
 		
 		return partlijst;
 	}
@@ -81,7 +114,13 @@ public class ParticipationDAO {
 				
 		List<Participation> partlijst = cr.list();
 		
-		return partlijst;
+		session.close();
+		
+		if (partlijst.size() >= 1) {
+			return partlijst;
+		} else {
+			return null;
+		}
 	}
 	
 	

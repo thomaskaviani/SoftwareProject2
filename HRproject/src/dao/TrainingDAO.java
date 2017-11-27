@@ -17,6 +17,7 @@ public class TrainingDAO {
         session.beginTransaction();
         session.save(t);
         session.getTransaction().commit();
+        session.close();
         
     }
 	
@@ -29,6 +30,7 @@ public class TrainingDAO {
         session.beginTransaction();
         session.update(t);
         session.getTransaction().commit();
+        session.close();
         
 	}
 	
@@ -45,6 +47,7 @@ public class TrainingDAO {
         session.beginTransaction();
         session.update(t);
         session.getTransaction().commit();
+        session.close();
 	}
 	
 	
@@ -57,6 +60,7 @@ public class TrainingDAO {
 		
 		List<Training> traininglijst = (List<Training>) session.createQuery("from Training").list();
 		session.getTransaction().commit();
+		session.close();
 		
 		return traininglijst;
 	}
@@ -68,6 +72,7 @@ public class TrainingDAO {
 
         Training t = (Training) session.get(Training.class, id);
         session.getTransaction().commit();
+        session.close();
 
         return t;
     }

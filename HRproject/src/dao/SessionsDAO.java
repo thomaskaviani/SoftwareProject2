@@ -17,6 +17,7 @@ public class SessionsDAO {
         session.beginTransaction();
         session.save(s);
         session.getTransaction().commit();
+        session.close();
         
     }
 	
@@ -29,6 +30,7 @@ public class SessionsDAO {
         session.beginTransaction();
         session.update(s);
         session.getTransaction().commit();
+        session.close();
         
 	}
 	
@@ -45,6 +47,7 @@ public class SessionsDAO {
         session.beginTransaction();
         session.update(s);
         session.getTransaction().commit();
+        session.close();
 	}
 	
 	
@@ -57,6 +60,7 @@ public class SessionsDAO {
 		
 		List<Sessions> sessionslist = (List<Sessions>) session.createQuery("from Sessions").list();
 		session.getTransaction().commit();
+		session.close();
 		
 		return sessionslist;
 	}
@@ -68,6 +72,7 @@ public class SessionsDAO {
 
         Sessions s = (Sessions) session.get(Sessions.class, id);
         session.getTransaction().commit();
+        session.close();
 
         return s;
     }

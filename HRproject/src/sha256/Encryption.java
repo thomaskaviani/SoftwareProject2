@@ -3,6 +3,7 @@ package sha256;
 import java.security.MessageDigest;
 
 public class Encryption {
+	
 	public static String sha256(String base) {
 	    try{
 	        MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -20,6 +21,7 @@ public class Encryption {
 	       throw new RuntimeException(ex);
 	    }
 	}
+	
 	public static String sha512(String base) {
 	    try{
 	        MessageDigest digest = MessageDigest.getInstance("SHA-512");
@@ -37,4 +39,5 @@ public class Encryption {
 	       throw new RuntimeException(ex);
 	    }
 	}
+
 }

@@ -17,6 +17,7 @@ public class AddressDAO {
         session.beginTransaction();
         session.save(adres);
         session.getTransaction().commit();
+        session.close();
     }
 	
 	public void delete(Address adres) {
@@ -27,6 +28,7 @@ public class AddressDAO {
         session.beginTransaction();
         session.update(adres);
         session.getTransaction().commit();
+        session.close();
         
 	}
 	
@@ -43,6 +45,7 @@ public class AddressDAO {
         session.beginTransaction();
         session.update(a);
         session.getTransaction().commit();
+        session.close();
 	}
 	
 	
@@ -53,6 +56,7 @@ public class AddressDAO {
 
         Address adres = (Address) session.get(Address.class, id);
         session.getTransaction().commit();
+        session.close();
 
         return adres;
     }
@@ -65,6 +69,7 @@ public class AddressDAO {
 		
 		List<Address> adreslijst = (List<Address>) session.createQuery("from Address").list();
 		session.getTransaction().commit();
+		session.close();
 		
 		return adreslijst;
 	}
@@ -81,6 +86,8 @@ public class AddressDAO {
 				
 		List<Address> adreslijst = cr.list();
 		
+		session.close();
+		
 		return adreslijst;
 	}
 	
@@ -94,6 +101,8 @@ public class AddressDAO {
 		cr.add(Restrictions.eq("country", searchstring));
 				
 		List<Address> adreslijst = cr.list();
+		
+		session.close();
 		
 		return adreslijst;
 	}
