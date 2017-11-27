@@ -1,3 +1,12 @@
+/*
+ * Bronnen:
+ * 
+ * 
+ * methode om files te manipuleren in de databank: 
+ * https://howtodoinjava.com/hibernate/hibernate-example-of-insertselect-blob-from-database/
+ * 
+ * 
+ * */
 package controller;
 
 import java.io.File;
