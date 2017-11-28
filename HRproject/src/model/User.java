@@ -28,6 +28,9 @@ public class User {
 	private String function;
 	
 	@Column
+	private String email;
+	
+	@Column
 	private int arch;
 	
 	@Column
@@ -86,8 +89,13 @@ public class User {
 	public void setImagefile(byte[] imagefile) {
 		this.imagefile = imagefile;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-	
 	@Override 
 	public String toString() {
 		return "\n" + getUsername() + " " + getPassword() + " " + getFunction();

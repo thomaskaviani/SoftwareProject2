@@ -113,6 +113,11 @@ public class Address {
 		this.arch = arch;
 	}
 	
+	
+	public String getFullAddress() {
+		return getStreet() + " " + getNumber() + ", " + getPostalCode() +  " " + getPlace() + ", " + getCountry();
+	}
+	
 	@Override
 	public String toString() {
 		return getStreet() + " " + getNumber() + " " + getBus() + " - " + getPostalCode() + " " + getPlace() + " - " + getCountry();
