@@ -80,7 +80,7 @@
                </columns>
             </TableView>
             
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="467.0" text="View location" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#toLocation" prefHeight="39.0" prefWidth="467.0" text="View location" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="150.0" right="50.0" />
                </GridPane.margin>

@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -12,14 +13,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 import model.Address;
 import model.Employee;
 import model.Participation;
@@ -82,16 +88,35 @@ public class TrainingDetailController implements Initializable{
 	}
 	
 	
-	
-	/*deze view moet nog gemaakt worden
-	 
 	@FXML
-	protected void toLocation(ActionEvent e) {
+	protected void toLocation(ActionEvent event) throws IOException {
 				
-			Navigator.loadVista(Navigator.LocationView);
+		Sessions foo = sessionTable.getSelectionModel().getSelectedItem();
+		
+		if (foo != null) {
+			AddressDAO adao = new AddressDAO();
+			Address adres = adao.getById(foo.getAddressId());
+			
+			Pane root = FXMLLoader.load(getClass().getResource("/view/Map.fxml"));
+	        
+	        WebView browser = new WebView();
+	        WebEngine webEngine = browser.getEngine();
+	        
+	        webEngine.loadContent(genHtml(adres));
+	        
+	        
+	        Scene mapScene = new Scene(root);
+	        Stage mapStage = new Stage();
+	        mapStage.setTitle("Location");
+	        mapStage.setScene(mapScene);
+	        
+	        ((Pane) mapScene.getRoot()).getChildren().add(browser);
+	        
+	        mapStage.show();
+		}		
 	}
 	
-	*/
+	
 	
 	
 	@FXML
@@ -108,9 +133,6 @@ public class TrainingDetailController implements Initializable{
 		
 	}
 		
-	
-	
-	
 	
 	@FXML
 	public void clickSession(MouseEvent e) {
@@ -168,7 +190,8 @@ public class TrainingDetailController implements Initializable{
 		participantLastNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
 		
 	}
-		
+	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -186,6 +209,27 @@ public class TrainingDetailController implements Initializable{
 			
 		}
 		
+	}
+	
+	//genereert de juiste maps html pagina
+	private String genHtml(Address adr) {
+		
+		StringBuilder tHtml = new StringBuilder();
+		StringBuilder tHtml2 = new StringBuilder();
+		
+		tHtml.append("<DOCTYPE html><html><head><title>Location</title><meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\"><meta charset=\"utf-8\"><style>#map {height: 100%;}html, body {height: 100%;margin: 0;padding: 0;}#floating-panel {position: absolute;top: 10px;left: 25%;z-index: 5;background-color: #fff;padding: 5px;border: 1px solid #999;text-align: center;font-family: 'Roboto','sans-serif';line-height: 30px;padding-left: 10px;}</style></head>");
+		tHtml.append("<body><div id=\"map\"></div>");
+		tHtml.append("<script>function initMap() {var map = new google.maps.Map(document.getElementById('map'), {zoom: 12,center: {lat: -34.397, lng: 150.644}});var geocoder = new google.maps.Geocoder();" + "\n");
+		
+		tHtml2.append("geocoder.geocode({'address': address}, function(results, status) {if (status === 'OK') {map.setCenter(results[0].geometry.location);var marker = new google.maps.Marker({map: map,position: results[0].geometry.location});} else {alert('Geocode was not successful for the following reason: ' + status);}});}</script>");
+		tHtml2.append("<script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAj3MH0bJ7nfXK9gmnbUTdOLlZAkgsDkho&callback=initMap\"></script></body></html>");
+		
+		String x1 = tHtml.toString();
+		String x2 = "var address = '" + adr.getFullAddress() + "';";
+		String x3 = tHtml2.toString();
+		String x = x1 + x2 + x3;
+		
+		return x;
 	}
 	
 	
