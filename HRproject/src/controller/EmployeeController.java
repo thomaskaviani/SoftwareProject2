@@ -42,27 +42,26 @@ public class EmployeeController implements Initializable {
 	@FXML private TableColumn<Employee, String> empEmailCol;
 	
 	
-	
-	@FXML
-	protected void toDetailEmployee(ActionEvent e) {
+	@FXML protected void toDetailEmployee(ActionEvent e) {
 		
 		Employee emp = tableView.getSelectionModel().getSelectedItem();
 		if (emp != null) {
 			EmployeeDetailController.employee = emp;
 			Navigator.loadVista(Navigator.EmployeeDetailView);
+		} else {
+			//ERROR: SELECT EMPLOYEE
 		}
 				
 		
 	}
-	@FXML
-	protected void toHome(ActionEvent e) {
-		
+
+	//backbutton
+	@FXML protected void toHome(ActionEvent e) {
 		Navigator.loadVista(Navigator.HomeView);
 				
 	}
 
-	@FXML
-	protected void toAddCert(ActionEvent e) {
+	@FXML protected void toAddCert(ActionEvent e) {
 		
 		Employee emp = tableView.getSelectionModel().getSelectedItem();
 		if (emp != null) {
@@ -72,8 +71,7 @@ public class EmployeeController implements Initializable {
 		
 	}
 	
-	@FXML
-	protected void toShowCert(ActionEvent e) {
+	@FXML protected void toShowCert(ActionEvent e) {
 		
 		Employee emp = tableView.getSelectionModel().getSelectedItem();
 		if (emp != null) {

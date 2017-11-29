@@ -53,8 +53,7 @@ public class AddSessionController implements Initializable {
 	@FXML private ComboBox<Teacher> teacherComboBox;
 	@FXML private ComboBox<Address> addressComboBox;
 	
-	@FXML
-	protected void addSession(ActionEvent e) {
+	@FXML protected void addSession(ActionEvent e) {
 		
 		Teacher teacher = null;
 		Address address = null;
@@ -105,35 +104,41 @@ public class AddSessionController implements Initializable {
 		SessionsDAO sdao = new SessionsDAO();
 		sdao.insert(sesh);
 		
-		
+		//terugkeren naar TrainingDetail
+		resetVars();
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 		
 	}
-	@FXML
-	protected void toTrainingDetail(ActionEvent e) {
-		
+	
+	//backbutton
+	@FXML protected void toTrainingDetail(ActionEvent e) {
+		resetVars();
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 		
 	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		
-		
+		//teacherlijst vullen
 		TeacherDAO tdao = new TeacherDAO();
 		ObservableList<Teacher> teachers = FXCollections.observableArrayList(tdao.getAll());
 		
-		teacherComboBox.getItems().addAll(teachers);
-		
+		//adreslijst vullen
 		AddressDAO adao = new AddressDAO();
 		ObservableList<Address> addresses = FXCollections.observableArrayList(adao.getAll());
 		
+		//comboboxen met lijsten vullen
+		teacherComboBox.getItems().addAll(teachers);
 		addressComboBox.getItems().addAll(addresses);
 		
 		
-
 	}
 
+	
+	public void resetVars() {
+		training = null;
+	}
 }

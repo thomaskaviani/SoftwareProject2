@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,54 +44,39 @@ import dao.TeacherDAO;
 public class TrainingDetailController implements Initializable{
 
 	public static Training training;
-	
 	public static List<Employee> participationEmployees;
 	
 	@FXML private Label trainingName;
-	
 	@FXML private Label infoTeacher;
 	@FXML private Label infoAddress;
 	@FXML private Label infoAddress2;
 	@FXML private Label infoAddress3;
-	
 	@FXML private Label infoTime1;
 	@FXML private Label infoTime2;
 	
-	@FXML
-	private TableView<Sessions> sessionTable;
+	@FXML private TableView<Sessions> sessionTable;
+	@FXML private TableView<Employee> participantTable;
+	@FXML private TableColumn<Sessions, Date> sessionTableCol;
+	@FXML private TableColumn<Employee, String> participantFirstNameCol;
+	@FXML private TableColumn<Employee, String> participantLastNameCol;
 	
-	@FXML
-	private TableView<Employee> participantTable;
-	
-	@FXML
-	private TableColumn<Sessions, Date> sessionTableCol;
-	
-	@FXML
-	private TableColumn<Employee, String> participantFirstNameCol;
-	@FXML
-	private TableColumn<Employee, String> participantLastNameCol;
-	
-	@FXML
-	private TextField sessionSearchBar;
+	@FXML private TextField searchBar;
 	
 	
-	@FXML
-	protected void toAddSession(ActionEvent e) {
+	@FXML protected void toAddSession(ActionEvent e) {
 			
 			AddSessionController.training = training;
 			Navigator.loadVista(Navigator.AddSessionView);
 	}
 
-	
-	@FXML
-	protected void toTrainingView(ActionEvent e) {
-			
+	//backbutton
+	@FXML protected void toTrainingView(ActionEvent e) {
+			resetVars();
 			Navigator.loadVista(Navigator.SearchTrainingView);
 	}
 	
 	
-	@FXML
-	protected void toLocation(ActionEvent event) throws IOException {
+	@FXML protected void toLocation(ActionEvent event) throws IOException {
 				
 		Sessions foo = sessionTable.getSelectionModel().getSelectedItem();
 		
@@ -113,10 +100,10 @@ public class TrainingDetailController implements Initializable{
 	        ((Pane) mapScene.getRoot()).getChildren().add(browser);
 	        
 	        mapStage.show();
-		}		
+		} else {
+			//ERROR: no session selected
+		}
 	}
-	
-	
 	
 	
 	@FXML
@@ -134,8 +121,7 @@ public class TrainingDetailController implements Initializable{
 	}
 		
 	
-	@FXML
-	public void clickSession(MouseEvent e) {
+	@FXML public void clickSession(MouseEvent e) {
 		
 		participationEmployees = new ArrayList<Employee>();
 		
@@ -197,15 +183,50 @@ public class TrainingDetailController implements Initializable{
 		
 		trainingName.setText(training.getName());
 		
-		
 		SessionsDAO sdao = new SessionsDAO();
 		
 		if (sdao.getByTraining(training.getTrainingId()) != null) {
 			
 			ObservableList<Sessions> sessions = FXCollections.observableArrayList(sdao.getByTraining(training.getTrainingId()));
 			
-			sessionTable.setItems(sessions);
-			sessionTableCol.setCellValueFactory(new PropertyValueFactory<Sessions, Date>("startTime"));
+			for (Sessions s : sessions) {
+				s.setStartTimeString();
+			}
+			
+			sessionTableCol.setCellValueFactory(new PropertyValueFactory<Sessions, Date>("startTimeString"));
+			
+			// 1. Wrap the ObservableList in a FilteredList (initially display all data).
+			FilteredList<Sessions> filteredSessions = new FilteredList<>(sessions, p -> true);
+					
+			// 2. Set the filter Predicate whenever the filter changes.
+			searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+				filteredSessions.setPredicate(session -> {
+					
+					// If filter text is empty, display all persons.
+					if (newValue == null || newValue.isEmpty()) {
+						return true;
+					}
+							
+					// Compare first name and last name of every employee with filter text.
+					String lowerCaseFilter = newValue.toLowerCase();
+							
+					if (session.getStartTimeString().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+						return true; // Filter matches start time.
+					} 
+					
+					return false; // Does not match.
+				});
+			});
+			
+			// 3. Wrap the FilteredList in a SortedList. 
+			SortedList<Sessions> sortedSessions = new SortedList<>(filteredSessions);
+							
+			// 4. Bind the SortedList comparator to the TableView comparator.
+			// 	  Otherwise, sorting the TableView would have no effect.
+			sortedSessions.comparatorProperty().bind(sessionTable.comparatorProperty());
+							
+			// 5. Add sorted (and filtered) data to the table.
+			sessionTable.setItems(sortedSessions);
 			
 		}
 		
@@ -233,5 +254,9 @@ public class TrainingDetailController implements Initializable{
 	}
 	
 	
+	public void resetVars() {
+		training = null;
+		participationEmployees = null;
+	}
 
 }

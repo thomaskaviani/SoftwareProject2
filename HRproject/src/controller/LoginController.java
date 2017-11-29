@@ -24,7 +24,7 @@ import javafx.scene.paint.Color;
 
 public class LoginController implements Initializable {
 	
-	UserDAO userManager = new UserDAO();
+	private UserDAO userManager = new UserDAO();
 	
 	public static User userLogged;
 	 
@@ -33,15 +33,13 @@ public class LoginController implements Initializable {
 	@FXML private PasswordField passwordField;
 	@FXML private Label errorLabel;
 	
-	@FXML
-	protected void doLogin(ActionEvent e) {
+	//Loginfunctie voor de button
+	@FXML protected void doLogin(ActionEvent e) {
 		
 		User x = userManager.getByUsername(usernameField.getText());
 		
 		if(x != null) {
 			if (Encryption.sha256(passwordField.getText()).equals(x.getPassword())) {
-				
-				
 				
 				UserBoxController.user = x.getUsername();
 				CacheData.loggedIn = true;
@@ -56,21 +54,17 @@ public class LoginController implements Initializable {
 				errorLabel.setText("Invalid username or password");
 			}
 		} else {
-			
 			errorLabel.setTextFill(Color.FIREBRICK);
 			errorLabel.setText("No user found");
 		}
 	}
 	
-	
-	
-	@FXML
-	protected void doLogin2(KeyEvent e) {
+	//Loginfunctie voor ENTER pressed
+	@FXML protected void doLogin2(KeyEvent e) {
 		switch(e.getCode()) {
 			case ENTER: 
 				User x = userManager.getByUsername(usernameField.getText());
-	
-				
+
 				if(x != null) {
 					if (Encryption.sha256(passwordField.getText()).equals(x.getPassword())) {
 						
@@ -87,7 +81,6 @@ public class LoginController implements Initializable {
 						errorLabel.setText("Invalid username or password");
 					}
 				} else {
-					
 					errorLabel.setTextFill(Color.FIREBRICK);
 					errorLabel.setText("No user found");
 				}
@@ -103,6 +96,7 @@ public class LoginController implements Initializable {
 		
 		userLogged = null;
 		
+		//focus leggen op usernameField
 		Platform.runLater(new Runnable() {
 		    @Override
 		    public void run() {

@@ -41,15 +41,14 @@ public class AddCertificateController implements Initializable {
 	
 	@FXML private Label titleLabel;
 	
-	@FXML
-	protected void openFile(ActionEvent e) {
+	@FXML protected void openFile(ActionEvent e) {
 		
 		configureFileChooser(fileChooser);
         File file = fileChooser.showOpenDialog(Main.mainStage);
         if (file != null) {
         	
         	certificateFile = file;
-        	fileLabel.setText("FILE SELECTED");
+        	fileLabel.setText("File selected");
         	
         	//FILE GEBRUIKEN
         	System.out.println(certificateFile);
@@ -58,8 +57,7 @@ public class AddCertificateController implements Initializable {
         errorLabel.setText("");
 	}
 	
-	@FXML
-	protected void saveCertificate(ActionEvent e) {
+	@FXML protected void saveCertificate(ActionEvent e) {
 		
 		
 		if (certificateFile == null || (trainName.getText().trim().isEmpty() && trainingComboBox.getValue() == null)) {
@@ -108,6 +106,7 @@ public class AddCertificateController implements Initializable {
 			cdao.insert(cert);
 			
 			//terug naar employees gaan
+			resetVars();
 			Navigator.loadVista(Navigator.EmployeeView);
 			
 		}
@@ -115,6 +114,7 @@ public class AddCertificateController implements Initializable {
 	
 	@FXML
 	protected void toEmployee(ActionEvent e) {
+		resetVars();
 		Navigator.loadVista(Navigator.EmployeeView);
 	}
 	
@@ -148,5 +148,10 @@ public class AddCertificateController implements Initializable {
 	                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
 	                new FileChooser.ExtensionFilter("PNG", "*.png")
 	            );
+	}
+	
+	public void resetVars() {
+		employee = null;
+		certificateFile = null;
 	}
 }

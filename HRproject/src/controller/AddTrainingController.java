@@ -19,8 +19,7 @@ public class AddTrainingController implements Initializable {
 	@FXML private TextArea trainingDesc;
 	@FXML private TextField trainingName;
 
-	@FXML
-	protected void saveTraining(ActionEvent e) {
+	@FXML protected void saveTraining(ActionEvent e) {
 		
 		Training train = new Training(trainingName.getText(),trainingDesc.getText());
 		TrainingDAO tdao = new TrainingDAO();
@@ -29,11 +28,10 @@ public class AddTrainingController implements Initializable {
 		Navigator.loadVista(Navigator.SearchTrainingView);
 				
 	}
-	@FXML
-	protected void toTraining(ActionEvent e) {
-		
+	
+	//backbutton
+	@FXML protected void toTraining(ActionEvent e) {
 		Navigator.loadVista(Navigator.TrainingView);		
-		
 	}
 	
 	@Override

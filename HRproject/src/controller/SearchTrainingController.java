@@ -29,23 +29,16 @@ public class SearchTrainingController implements Initializable {
 	
 	@FXML private TableColumn<Training, String> trainingDescCol;
 
-	@FXML
-	protected void toTrainingDetail(ActionEvent e) {
+	@FXML protected void toTrainingDetail(ActionEvent e) {
 		
 		Training t = tableView.getSelectionModel().getSelectedItem();
 		TrainingDetailController.training = t;  
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
-		
 	}
 
-	@FXML
-	protected void toTraining(ActionEvent e) {
-		
-		
+	@FXML protected void toTraining(ActionEvent e) {
 		Navigator.loadVista(Navigator.TrainingView);
-				
-		
 	}
 	
 	
