@@ -35,7 +35,7 @@
             
             
             
-            <TextField GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="1025.0" promptText="Search a training">
+            <TextField GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="1025.0" promptText="Search a training">
                <GridPane.margin>
                   <Insets/>
                </GridPane.margin>

@@ -27,10 +27,6 @@ public class CacheData {
 	
 	public static List<Training> trainings;
 	
-	
-	
-	
-	
 	public static void setEmployees() throws IOException, ParserConfigurationException, SAXException, ParseException {
 		
 		Document doc;
@@ -41,7 +37,6 @@ public class CacheData {
 		CacheData.employees = emps;
 		
 	}
-	
 	
 	public static void setTrainings() {
 		TrainingDAO tdao = new TrainingDAO();

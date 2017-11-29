@@ -11,8 +11,11 @@ import javax.xml.transform.TransformerException;
 import org.xml.sax.SAXException;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
@@ -26,12 +29,19 @@ public class Main extends Application {
 	public void start(Stage stage) throws Exception {
 		 
 		mainStage = stage;
-		stage.setTitle("HR - Application");
+		mainStage.setTitle("HR - Application");
+		mainStage.setScene(createScene(loadMainPane()));
+		mainStage.setMaximized(true);
 		
-        stage.setScene(createScene(loadMainPane()));
-        stage.setMaximized(true);
-        stage.show();
-        
+		mainStage.show();
+		
+		mainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent t) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
 		
 	}
 	
@@ -46,7 +56,7 @@ public class Main extends Application {
 
         Navigator.setMainController(mainController);
 
-        Navigator.loadVista(Navigator.LoginView);
+        Navigator.loadVista(Navigator.LoadingView);
 
         return mainPane;
     }
@@ -63,39 +73,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ParseException, TransformerException {
 		
-		
-		CacheData.setEmployees();
-		CacheData.setTrainings();
-		CacheData.setParticipations();
-		
-		
-	
-		
-		
 		launch(args);
-		
-		/*
-		
-		//adden van image aan database
-		CertificateDAO cdao = new CertificateDAO();
-
-		File file = new File("C:\\Users\\bavia\\Downloads\\Klassediagram_groep3.pdf");
-		byte[] certData = new byte[(int) file.length()];
-
-		try {
-	            FileInputStream fileInputStream = new FileInputStream(file);
-	            fileInputStream.read(certData);
-	            fileInputStream.close();
-	    } catch (Exception e) {
-	            e.printStackTrace();
-	    }
-
-
-		Certificate cert = new Certificate("2","Certnaam", certData);
-
-		cdao.insert(cert);
-	     
-		*/
 
 	}
 }

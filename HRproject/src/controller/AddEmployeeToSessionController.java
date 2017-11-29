@@ -29,7 +29,6 @@ public class AddEmployeeToSessionController implements Initializable {
 
 	public static Training training;
 	public static Sessions session;
-	
 	public static List<Employee> participationEmployees;
 	
 	@FXML private Label trainingTitle;
@@ -48,16 +47,14 @@ public class AddEmployeeToSessionController implements Initializable {
 	@FXML private TableColumn<Employee, String> participantFunctionCol;
 	
 	
-	
-	@FXML
-	protected void toTrainingDetail(ActionEvent e) {
-		
+	//backbutton
+	@FXML protected void toTrainingDetail(ActionEvent e) {
+		resetVars();
 		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 	}
 	
-	@FXML
-	protected void addEmpSession() {
+	@FXML protected void addEmpSession() {
 		
 		errorLabel.setText("");
 		
@@ -95,27 +92,23 @@ public class AddEmployeeToSessionController implements Initializable {
 				}
 				
 			} else {
-				System.out.println("Steekt er al in!!");
 				errorLabel.setTextFill(Color.FIREBRICK);
 				errorLabel.setText("This employee is already participating");
 			}
 		}
 	}
 	
-	@FXML
-	protected void removeEmpSession() {
+	@FXML protected void removeEmpSession() {
 		
 		errorLabel.setText("");
 		
 		Employee emp = participantTable.getSelectionModel().getSelectedItem();
 		
 		if (emp != null) {
+			
 			participationEmployees.remove(emp);
 			ObservableList<Employee> parts = FXCollections.observableArrayList(participationEmployees);
 			participantTable.setItems(parts);
-			
-			
-			
 			
 			ParticipationDAO pdao = new ParticipationDAO();
 			Participation part = pdao.getByEmpId(emp.getEmployeeId(), session.getSessionId());
@@ -124,8 +117,6 @@ public class AddEmployeeToSessionController implements Initializable {
 			
 		}
 	}
-	
-	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -154,20 +145,25 @@ public class AddEmployeeToSessionController implements Initializable {
 		
 		//vullen van tabellen met informatie
 		ObservableList<Employee> emps = FXCollections.observableArrayList(CacheData.employees);
-		employeeTable.setItems(emps);
+		ObservableList<Employee> parts = FXCollections.observableArrayList(participationEmployees);
 		
 		employeeFirstNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("firstName"));
 		employeeLastNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
 		employeeFunctionCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("title"));
 
-		ObservableList<Employee> parts = FXCollections.observableArrayList(participationEmployees);
-		participantTable.setItems(parts);
-		
 		participantFirstNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("firstName"));
 		participantLastNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
 		participantFunctionCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("title"));
 		
+		employeeTable.setItems(emps);
+		participantTable.setItems(parts);
 		
+	}
+	
+	public void resetVars() {
+		training = null;
+		session = null;
+		participationEmployees = null;
 	}
 	
 }

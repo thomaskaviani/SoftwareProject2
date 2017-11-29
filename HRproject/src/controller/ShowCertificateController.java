@@ -32,8 +32,7 @@ public class ShowCertificateController implements Initializable {
 	@FXML private TableView<Certificate> tableView;
 	@FXML private TableColumn<Certificate, String> certCol;
 	
-	@FXML
-	protected void openCert(ActionEvent e) {
+	@FXML protected void openCert(ActionEvent e) {
 		
 		Certificate cert = tableView.getSelectionModel().getSelectedItem();
 		if (cert != null) {
@@ -66,8 +65,9 @@ public class ShowCertificateController implements Initializable {
 		}
 	}
 	
-	@FXML
-	protected void toEmployee(ActionEvent e) {
+	//backbutton
+	@FXML protected void toEmployee(ActionEvent e) {
+		resetVars();
 		Navigator.loadVista(Navigator.EmployeeView);
 	}
 	
@@ -85,4 +85,9 @@ public class ShowCertificateController implements Initializable {
 
 	}
 
+	
+	public void resetVars() {
+		employee = null;
+	}
+	
 }

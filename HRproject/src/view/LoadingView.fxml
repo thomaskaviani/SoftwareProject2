@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoadingController">
+   <children>
+      <GridPane prefHeight="1022.0" prefWidth="1645.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="574.0" minHeight="1.666656494140625" prefHeight="150.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="574.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox fx:id="loadingContent" prefHeight="200.0" prefWidth="100.0" translateX="-100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Loading... Please wait" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label text="REFLEX" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="64.0" />
+               </font>
+            </Label>
+            
+         </children>
+      </GridPane>
+   </children>
+</VBox>

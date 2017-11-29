@@ -18,8 +18,8 @@ import javafx.scene.control.Label;
 public class EmployeeDetailController implements Initializable{
 
 	public static Employee employee;
-	public int managerId = Integer.parseInt(employee.getReportsTo()) - 1;
-	public String managerName = "";
+	public int managerId;
+	public String managerName = null;
 	
 	@FXML private Label employeeName;
 	
@@ -43,10 +43,9 @@ public class EmployeeDetailController implements Initializable{
 	@FXML private Label empNotes;
 	
 	
-	
-	@FXML
-	protected void toEmployees(ActionEvent e) {
-		
+	//backbutton
+	@FXML protected void toEmployees(ActionEvent e) {
+		resetVars();
 		Navigator.loadVista(Navigator.EmployeeView);
 				
 	}
@@ -55,6 +54,8 @@ public class EmployeeDetailController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		managerId = Integer.parseInt(employee.getReportsTo()) - 1;
 		
 		if(managerId>0) {
 			managerName = CacheData.employees.get(managerId).getFirstName() + " " +CacheData.employees.get(managerId).getLastName();
@@ -85,6 +86,12 @@ public class EmployeeDetailController implements Initializable{
 		empPostalcode.setText(employee.getPostalCode());
 		
 		empNotes.setText(employee.getNotes());
+	}
+	
+	public void resetVars() {
+		employee = null;
+		managerId = 0;
+		managerName = null;
 	}
 	
 }

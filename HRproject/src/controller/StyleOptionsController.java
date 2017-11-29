@@ -30,8 +30,6 @@ public class StyleOptionsController implements Initializable{
 	
 	@FXML private ComboBox<Theme> colorComboBox = new ComboBox<Theme>();
 
-
-
 	@FXML
 	protected void toGeneralSettings(ActionEvent e) {
 
@@ -40,6 +38,7 @@ public class StyleOptionsController implements Initializable{
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		ArrayList<Theme> colors = new ArrayList<Theme>();
 		Theme original = new Theme("ORIGINAL","f5d6a6");
 		Theme red = new Theme("RED", "f1d8d1");
@@ -61,9 +60,12 @@ public class StyleOptionsController implements Initializable{
 		if (colorComboBox.getValue() == null) {
 			//foutboodschap
 		} else {
+			
 			ChangeColor.changeColor(colorComboBox.getValue().getCode());
 		
 			System.out.println("color changed to "+ colorComboBox.getValue().getCode());
+			
+			
 		}
 	}
 

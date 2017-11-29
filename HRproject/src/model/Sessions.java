@@ -1,5 +1,7 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -32,6 +35,9 @@ public class Sessions {
 	private int cancelled;
 	@Column
 	private int arch;
+	
+	@Transient
+	private String startTimeString;
 	
 	public Sessions() {
 		
@@ -88,6 +94,7 @@ public class Sessions {
 	}
 
 	public void setStartTime(Date startTime) {
+		System.out.println("WOOOOOOO");
 		this.startTime = startTime;
 	}
 
@@ -115,6 +122,15 @@ public class Sessions {
 		this.arch = arch;
 	}
 	
+	
+	public void setStartTimeString() {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		startTimeString = df.format(getStartTime());
+	}
+	
+	public String getStartTimeString() {
+		return startTimeString;
+	}
 	
 	@Override
 	public String toString() {

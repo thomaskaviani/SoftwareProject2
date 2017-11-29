@@ -22,11 +22,15 @@ import org.xml.sax.SAXException;
 
 
 public class ChangeColor {
+	
 	public static ArrayList<String> getViews(){
-		ArrayList<String> views = new ArrayList<String>();
+		
 		//alle views MET GEKLEURDE BALK
+		ArrayList<String> views = new ArrayList<String>();
+		
 		String AccountSettingsView = "src/view/AccountSettingsView.fxml";
 		String AddEmployeeToSessionView= "src/view/AddEmployeeToSessionView.fxml";
+		String AddCertificateView = "src/view/AddCertificateView.fxml";
 		String AddSessionView = "src/view/AddSessionView.fxml";
 		String AddTrainingView = "src/view/AddTrainingView.fxml";
 		String EmployeeDetailView = "src/view/EmployeeDetailView.fxml";
@@ -36,11 +40,13 @@ public class ChangeColor {
 		String HomeView = "src/view/HomeView.fxml";
 		String LoginView = "src/view/LoginView.fxml";
 		String SearchTrainingView = "src/view/SearchTrainingView.fxml";
+		String ShowCertificateView = "src/view/ShowCertificateView.fxml";
 		String StyleOptionsView = "src/view/StyleOptionsView.fxml";
 		String TrainingDetailView = "src/view/TrainingDetailView.fxml";
 		String TrainingResultView = "src/view/TrainingResultView.fxml";
 		String TrainingView = "src/view/TrainingView.fxml";
 		views.add(AccountSettingsView);
+		views.add(AddCertificateView);
 		views.add(AddEmployeeToSessionView);
 		views.add(AddSessionView);
 		views.add(EmployeeDetailView);
@@ -50,6 +56,7 @@ public class ChangeColor {
 		views.add(HomeView);
 		views.add(LoginView);
 		views.add(SearchTrainingView);
+		views.add(ShowCertificateView);
 		views.add(StyleOptionsView);
 		views.add(TrainingDetailView);
 		views.add(TrainingResultView);
@@ -61,15 +68,19 @@ public class ChangeColor {
 	}
 
 	public static void changeColor(String color) throws TransformerException {
+		
 		//1 keer het linkerbovenvierkant veranderen
 		changeUserBox(color);
 	
 		ArrayList<String> views = getViews();
+		
 		for (int i = 0; i < views.size(); i++) {
+			
 			String filePath = views.get(i);
 			File xmlFile = new File(filePath);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder;
+			
 			try {
 				dBuilder = dbFactory.newDocumentBuilder();
 				Document doc = dBuilder.parse(xmlFile);
@@ -95,9 +106,13 @@ public class ChangeColor {
 				e1.printStackTrace();
 			}
 		}
+		
+		Navigator.setViews();
+		
 	}
 	
 	public static void changeUserBox (String color) throws TransformerException {
+		
 		String UserBoxView = "src/view/UserBoxView.fxml";
 		String filePath = UserBoxView;
 		File xmlFile = new File(filePath);
