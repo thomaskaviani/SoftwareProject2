@@ -1,9 +1,14 @@
 package controller;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.imageio.ImageIO;
+
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -27,7 +32,6 @@ public class UserBoxController implements Initializable {
 		byte[] imagedata = LoginController.userLogged.getImagefile();
 		
 		String filepath = "src/images/userimage_" + LoginController.userLogged.getUsername() + ".jpg";
-		String filepath2 = "/images/userimage_" + LoginController.userLogged.getUsername() + ".jpg";
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(filepath);
@@ -37,7 +41,9 @@ public class UserBoxController implements Initializable {
 			e.printStackTrace();
 		}
 		
-        Image image = new Image(filepath2);
+		File file = new File(filepath);
+		
+        Image image = new Image(file.toURI().toString());
         imgView.setImage(image);
         
         String str = user;
