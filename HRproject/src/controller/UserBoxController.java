@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +27,7 @@ public class UserBoxController implements Initializable {
 		byte[] imagedata = LoginController.userLogged.getImagefile();
 		
 		String filepath = "src/images/userimage_" + LoginController.userLogged.getUsername() + ".jpg";
+		String filepath2 = "/images/userimage_" + LoginController.userLogged.getUsername() + ".jpg";
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(filepath);
@@ -37,10 +37,7 @@ public class UserBoxController implements Initializable {
 			e.printStackTrace();
 		}
 		
-		File file = new File(filepath);
-		
-		
-        Image image = new Image(file.toURI().toString());
+        Image image = new Image(filepath2);
         imgView.setImage(image);
         
         String str = user;
