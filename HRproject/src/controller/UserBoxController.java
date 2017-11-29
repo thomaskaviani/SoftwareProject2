@@ -5,8 +5,6 @@ import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -39,8 +37,9 @@ public class UserBoxController implements Initializable {
 			e.printStackTrace();
 		}
 		
-		
 		File file = new File(filepath);
+		
+		
         Image image = new Image(file.toURI().toString());
         imgView.setImage(image);
         
