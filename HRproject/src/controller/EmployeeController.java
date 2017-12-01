@@ -13,10 +13,13 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -34,6 +37,7 @@ public class EmployeeController implements Initializable {
 	@FXML private TableView<Employee> tableView;
 	
 	@FXML private TextField searchBar;
+	@FXML private Label errorLabel;
 	
 	@FXML private TableColumn<Employee, String> empIdCol;
 	@FXML private TableColumn<Employee, String> empFirstNameCol;
@@ -49,10 +53,14 @@ public class EmployeeController implements Initializable {
 			EmployeeDetailController.employee = emp;
 			Navigator.loadVista(Navigator.EmployeeDetailView);
 		} else {
-			//ERROR: SELECT EMPLOYEE
+			errorLabel.setText("No employee selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
 		}
-				
-		
+	}
+	
+	
+	@FXML protected void clickEmp(MouseEvent e) {
+		errorLabel.setText("");
 	}
 
 	//backbutton
@@ -67,6 +75,9 @@ public class EmployeeController implements Initializable {
 		if (emp != null) {
 			AddCertificateController.employee = emp;
 			Navigator.loadVista(Navigator.AddCertificateView);
+		} else {
+			errorLabel.setText("No employee selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
 		}
 		
 	}
@@ -77,6 +88,9 @@ public class EmployeeController implements Initializable {
 		if (emp != null) {
 			ShowCertificateController.employee = emp;
 			Navigator.loadVista(Navigator.ShowCertificateView);
+		} else {
+			errorLabel.setText("No employee selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
 		}
 	}
 	

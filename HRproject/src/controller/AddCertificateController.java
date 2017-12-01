@@ -39,7 +39,7 @@ public class AddCertificateController implements Initializable {
 	private final FileChooser fileChooser = new FileChooser();
 	
 	
-	@FXML private Label fileLabel;
+	@FXML private Label fileNameLabel;
 	
 	@FXML private Label errorLabel;
 	
@@ -57,7 +57,7 @@ public class AddCertificateController implements Initializable {
         if (file != null) {
         	
         	certificateFile = file;
-        	fileLabel.setText("File selected");
+        	fileNameLabel.setText(file.getAbsolutePath());
         	
         	//FILE GEBRUIKEN
         	System.out.println(certificateFile);
@@ -71,7 +71,7 @@ public class AddCertificateController implements Initializable {
 		
 		if (certificateFile == null || (trainName.getText().trim().isEmpty() && trainingComboBox.getValue() == null)) {
 			
-			if (trainingComboBox.getValue() == null || trainName.getText().trim().isEmpty()) {
+			if (trainingComboBox.getValue() == null && trainName.getText().trim().isEmpty()) {
 				errorLabel.setText("You must select a training or enter a trainingname!");
 			} else if (certificateFile == null){
 				errorLabel.setText("You must select a file!");

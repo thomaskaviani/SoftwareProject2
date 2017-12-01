@@ -21,6 +21,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import model.Certificate;
 import model.Employee;
 
@@ -29,6 +31,7 @@ public class ShowCertificateController implements Initializable {
 	public static Employee employee;
 	
 	@FXML private Label empLabel;
+	@FXML private Label errorLabel;
 	@FXML private TableView<Certificate> tableView;
 	@FXML private TableColumn<Certificate, String> certCol;
 	
@@ -59,11 +62,17 @@ public class ShowCertificateController implements Initializable {
 	            Logger.getLogger(Main.class.getName()).log(
 	                Level.SEVERE, null, ex
 	            );
-	        }
-			
-			
+	        }	
+		} else {
+			errorLabel.setText("No certificate selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
 		}
 	}
+	
+	@FXML protected void clickCert(MouseEvent e) {
+		errorLabel.setText("");
+	}
+	
 	
 	//backbutton
 	@FXML protected void toEmployee(ActionEvent e) {

@@ -24,6 +24,8 @@ public class Sessions {
 	@Column
 	private int trainingId;
 	@Column
+	private String sessionName;
+	@Column
 	private int addressId;
 	@Column
 	private int teacherId;
@@ -43,9 +45,10 @@ public class Sessions {
 		
 	}
 	
-	public Sessions(int trainingId, int addressId, int teacherId, Date startTime, Date endTime) {
+	public Sessions(int trainingId, String sessionName, int addressId, int teacherId, Date startTime, Date endTime) {
 		
 		this.trainingId = trainingId;
+		this.sessionName = sessionName;
 		this.addressId = addressId;
 		this.teacherId = teacherId;
 		this.startTime = startTime;
@@ -57,6 +60,18 @@ public class Sessions {
 
 	
 	
+	public String getSessionName() {
+		return sessionName;
+	}
+
+	public void setSessionName(String sessionName) {
+		this.sessionName = sessionName;
+	}
+
+	public void setStartTimeString(String startTimeString) {
+		this.startTimeString = startTimeString;
+	}
+
 	public int getSessionId() {
 		return sessionId;
 	}
