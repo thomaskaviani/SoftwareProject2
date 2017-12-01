@@ -13,8 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
+import javafx.scene.paint.Color;
 import model.Address;
 import model.Sessions;
 import model.Teacher;
@@ -28,7 +29,8 @@ public class AddSessionController implements Initializable {
 	
 	public static Training training;
 	
-	
+	@FXML private TextField sessionName;
+	@FXML private Label errorLabel;
 	@FXML private DatePicker date;
 	@FXML private DatePicker dateEnd;
 	
@@ -57,56 +59,105 @@ public class AddSessionController implements Initializable {
 		
 		Teacher teacher = null;
 		Address address = null;
+		Date startDate = null;
+		Date endDate = null;
 		
-		if (teacherComboBox.getValue() == null) {
-			
-			Teacher teachTemp = new Teacher(teacherName.getText(), teacherEmail.getText(), teacherCompany.getText());
-			TeacherDAO teachdao = new TeacherDAO();
-			teachdao.insert(teachTemp);
-			teacher = teachdao.getByName(teacherName.getText());
+		boolean addSession = true;
+		
+		//Sessienaam
+		if (sessionName.getText().isEmpty()) {
+			addSession = false;
+			errorLabel.setText("Session name is required");
+			errorLabel.setTextFill(Color.FIREBRICK);
 		} else {
-			teacher = teacherComboBox.getValue();
+			
+			if (date.getValue() == null || dateEnd.getValue() == null || startUur == null || startMinuten == null || endUur == null || endMinuten == null) {
+				if (addSession) {
+					errorLabel.setText("All date and time fields are required!");
+					errorLabel.setTextFill(Color.FIREBRICK);
+				}
+				addSession = false;
+			} else if (addSession){
+				Calendar startcal = Calendar.getInstance();
+				startcal.set(Calendar.DAY_OF_MONTH, date.getValue().getDayOfMonth());
+				startcal.set(Calendar.MONTH, date.getValue().getMonthValue()-1);
+				startcal.set(Calendar.YEAR, date.getValue().getYear());
+				startcal.set(Calendar.HOUR_OF_DAY, startUur.getValue());
+				startcal.set(Calendar.MINUTE, startMinuten.getValue());
+				startcal.set(Calendar.SECOND, 0);
+				startcal.set(Calendar.MILLISECOND, 0);
+						
+				Calendar endcal = Calendar.getInstance();
+				endcal.set(Calendar.DAY_OF_MONTH, dateEnd.getValue().getDayOfMonth());
+				endcal.set(Calendar.MONTH, dateEnd.getValue().getMonthValue()-1);
+				endcal.set(Calendar.YEAR, dateEnd.getValue().getYear());
+				endcal.set(Calendar.HOUR_OF_DAY, endUur.getValue());
+				endcal.set(Calendar.MINUTE, endMinuten.getValue());
+				endcal.set(Calendar.SECOND, 0);
+				endcal.set(Calendar.MILLISECOND, 0);
+						
+				endDate = endcal.getTime();
+				startDate = startcal.getTime();	
+				
+				
+				//Teacher aanmaken / selecteren
+				if (teacherComboBox.getValue() == null && addSession == true) {
+					
+					//Teacher van texfields
+					if ((teacherName.getText().isEmpty() || teacherCompany.getText().isEmpty() || teacherCompany.getText().isEmpty()) && addSession == true) {
+						errorLabel.setText("Teacher's name, company and email are required");
+						errorLabel.setTextFill(Color.FIREBRICK);
+						addSession = false;
+					} else if (addSession) {
+						Teacher teachTemp = new Teacher(teacherName.getText(), teacherEmail.getText(), teacherCompany.getText());
+						TeacherDAO teachdao = new TeacherDAO();
+						teachdao.insert(teachTemp);					
+						teacher = teachdao.getByName(teacherName.getText());
+					}
+				} else if (addSession){
+					//teacher van de combobox
+					teacher = teacherComboBox.getValue();
+				}
+				
+				
+			}
+			
 		}
 		
-		if (addressComboBox.getValue() == null) {
-			Address adresTemp = new Address(street.getText(), number.getText(), bus.getText(), zipcode.getText(), city.getText(), country.getText());
-			AddressDAO adao = new AddressDAO();
-			adao.insert(adresTemp);
-			address = adao.getByStreetAndNumber(street.getText(), number.getText());
-		} else {
+		
+		
+		
+		//Adres aanmaken / selecteren
+		if (addressComboBox.getValue() == null && addSession == true) {
+			
+			if (street.getText().isEmpty() || number.getText().isEmpty() || zipcode.getText().isEmpty() || city.getText().isEmpty() || country.getText().isEmpty()) {
+				addSession = false;
+				errorLabel.setText("All addressfields are required (except 'Bus')");
+				errorLabel.setTextFill(Color.FIREBRICK);
+			} else if (addSession) {
+					Address adresTemp = new Address(street.getText(), number.getText(), bus.getText(), zipcode.getText(), city.getText(), country.getText());
+					AddressDAO adao = new AddressDAO();
+					adao.insert(adresTemp);
+					address = adao.getByStreetAndNumber(street.getText(), number.getText());
+			}
+			
+		} else if (addSession) {
+			//address van de combobox
 			address = addressComboBox.getValue();
 		}
 		
-		Calendar startcal = Calendar.getInstance();
-		startcal.set(Calendar.DAY_OF_MONTH, date.getValue().getDayOfMonth());
-		startcal.set(Calendar.MONTH, date.getValue().getMonthValue()-1);
-		startcal.set(Calendar.YEAR, date.getValue().getYear());
-		startcal.set(Calendar.HOUR_OF_DAY, startUur.getValue());
-		startcal.set(Calendar.MINUTE, startMinuten.getValue());
-		startcal.set(Calendar.SECOND, 0);
-		startcal.set(Calendar.MILLISECOND, 0);
 		
-		Calendar endcal = Calendar.getInstance();
-		endcal.set(Calendar.DAY_OF_MONTH, dateEnd.getValue().getDayOfMonth());
-		endcal.set(Calendar.MONTH, dateEnd.getValue().getMonthValue()-1);
-		endcal.set(Calendar.YEAR, dateEnd.getValue().getYear());
-		endcal.set(Calendar.HOUR_OF_DAY, endUur.getValue());
-		endcal.set(Calendar.MINUTE, endMinuten.getValue());
-		endcal.set(Calendar.SECOND, 0);
-		endcal.set(Calendar.MILLISECOND, 0);
+		if (addSession) {
+			
+			Sessions sesh = new Sessions(training.getTrainingId(), sessionName.getText(),  address.getAddressId(), teacher.getTeacherId(), startDate, endDate);
+			SessionsDAO sdao = new SessionsDAO();
+			sdao.insert(sesh);
 		
-		Date startDate = startcal.getTime();
-		Date endDate = endcal.getTime();
+			//terugkeren naar TrainingDetail
+			resetVars();
+			Navigator.loadVista(Navigator.TrainingDetailView);
+		}
 		
-		
-		Sessions sesh = new Sessions(training.getTrainingId(), address.getAddressId(), teacher.getTeacherId(), startDate, endDate);
-		
-		SessionsDAO sdao = new SessionsDAO();
-		sdao.insert(sesh);
-		
-		//terugkeren naar TrainingDetail
-		resetVars();
-		Navigator.loadVista(Navigator.TrainingDetailView);
 				
 		
 	}
