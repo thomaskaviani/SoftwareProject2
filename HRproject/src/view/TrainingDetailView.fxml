@@ -167,6 +167,11 @@
                   <Insets left="50.0" top="340.0" />
                </GridPane.margin>
             </Label>
+            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

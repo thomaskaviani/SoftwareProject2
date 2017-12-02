@@ -48,6 +48,9 @@ public class LoadingController implements Initializable {
 
 	public void setCache() {
 		
+		CacheData.setAddresses();
+		CacheData.setTeachers();
+		
 		try {
 			CacheData.setEmployees();
 		} catch (IOException | ParserConfigurationException | SAXException | ParseException e) {
