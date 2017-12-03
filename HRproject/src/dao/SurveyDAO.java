@@ -6,9 +6,9 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import model.Sessions;
+
 import model.Survey;
-import model.Training;
+
 
 
 public class SurveyDAO {

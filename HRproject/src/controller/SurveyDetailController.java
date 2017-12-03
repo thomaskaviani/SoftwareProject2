@@ -1,7 +1,7 @@
 package controller;
 
 import java.net.URL;
-import java.util.Date;
+
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -13,14 +13,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Sessions;
+
 import model.Survey;
 import model.Survey_q;
-import model.Training;
-import application.CacheData;
+
 import application.Navigator;
-import dao.SessionsDAO;
-import dao.SurveyDAO;
+
 import dao.Survey_qDAO;
 
 public class SurveyDetailController implements Initializable {

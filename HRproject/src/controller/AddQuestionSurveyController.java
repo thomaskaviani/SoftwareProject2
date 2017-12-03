@@ -9,11 +9,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+
 import model.Survey;
 import model.Survey_q;
 import model.Training;
-import application.CacheData;
+
 import application.Navigator;
 import dao.Survey_qDAO;
 
