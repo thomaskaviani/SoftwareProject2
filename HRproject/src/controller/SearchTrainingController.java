@@ -10,11 +10,13 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import model.Training;
 import application.CacheData;
 import application.Navigator;
@@ -24,6 +26,7 @@ public class SearchTrainingController implements Initializable {
 	@FXML private TableView<Training> tableView;
 	
 	@FXML private TextField searchBar;
+	@FXML private Label errorLabel;
 	
 	@FXML private TableColumn<Training, String> trainingNameCol;
 	
@@ -32,8 +35,14 @@ public class SearchTrainingController implements Initializable {
 	@FXML protected void toTrainingDetail(ActionEvent e) {
 		
 		Training t = tableView.getSelectionModel().getSelectedItem();
-		TrainingDetailController.training = t;  
-		Navigator.loadVista(Navigator.TrainingDetailView);
+		
+		if (t != null) {
+			TrainingDetailController.training = t;  
+			Navigator.loadVista(Navigator.TrainingDetailView);
+		} else {
+			errorLabel.setText("No training selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
 				
 	}
 
@@ -41,11 +50,14 @@ public class SearchTrainingController implements Initializable {
 		Navigator.loadVista(Navigator.TrainingView);
 	}
 	
+	@FXML protected void clickTrain(MouseEvent e) {
+		errorLabel.setText("");
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		
+		errorLabel.setText("");
 		ObservableList<Training> trainings = FXCollections.observableArrayList(CacheData.trainings);
 		
 		trainingNameCol.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));

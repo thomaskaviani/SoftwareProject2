@@ -23,11 +23,6 @@ public class Training {
 	@Column
 	private int arch;
 	
-	//List<Session> sessions = new ArrayList<Session>();
-	//List <Certificate> certificate = new ArrayList<Certificate>();
-	//List<Book> books = new ArrayList<Book>();
-	//private Survey survey;
-	
 	public Training() {
 	}
 	
@@ -76,33 +71,4 @@ public class Training {
 		return getName();
 	}
 	
-	/*
-	public List<Session> getSessions() {
-		return sessions;
-	}
-	public void setSessions(List<Session> sessions) {
-		this.sessions = sessions;
-	}
-	
-	public void addSession (Session session)
-	{
-		this.sessions.add(session);
-	}
-	public void deleteSession(Session session)
-	{
-		Iterator<Session> it = this.sessions.iterator();
-	    while (it.hasNext()) {
-	        if (it.next().getSessionId() == session.getSessionId()) {
-	            it.remove();
-	            break;
-	        }
-	    }
-		
-	}
-	
-	 public void addBook (Book book)
-	{
-		this.books.add(Book);
-	}
-*/
 }

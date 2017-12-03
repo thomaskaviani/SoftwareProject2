@@ -10,7 +10,6 @@ import application.Navigator;
 import dao.UserDAO;
 import model.User;
 import sha256.Encryption;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 
@@ -57,6 +57,10 @@ public class LoginController implements Initializable {
 			errorLabel.setTextFill(Color.FIREBRICK);
 			errorLabel.setText("No user found");
 		}
+	}
+	
+	@FXML protected void toForgotPassword(MouseEvent e) {
+		Navigator.loadVista(Navigator.ForgotPasswordView);
 	}
 	
 	//Loginfunctie voor ENTER pressed

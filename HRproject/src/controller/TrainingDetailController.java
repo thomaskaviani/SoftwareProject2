@@ -25,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -45,6 +46,8 @@ public class TrainingDetailController implements Initializable{
 
 	public static Training training;
 	public static List<Employee> participationEmployees;
+	
+	@FXML private Label errorLabel;
 	
 	@FXML private Label trainingName;
 	@FXML private Label infoTeacher;
@@ -101,7 +104,8 @@ public class TrainingDetailController implements Initializable{
 	        
 	        mapStage.show();
 		} else {
-			//ERROR: no session selected
+			errorLabel.setText("No session selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
 		}
 	}
 	
@@ -110,7 +114,8 @@ public class TrainingDetailController implements Initializable{
 	protected void toAddEmployee(ActionEvent e) {
 			
 		if (sessionTable.getSelectionModel().isEmpty()) {
-			
+			errorLabel.setText("No session selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
 		} else {
 			AddEmployeeToSessionController.session = sessionTable.getSelectionModel().getSelectedItem();
 			AddEmployeeToSessionController.training = training;
@@ -123,15 +128,49 @@ public class TrainingDetailController implements Initializable{
 	
 	@FXML public void clickSession(MouseEvent e) {
 		
+		errorLabel.setText("");
+		
 		participationEmployees = new ArrayList<Employee>();
 		
 		Sessions s = sessionTable.getSelectionModel().getSelectedItem();
 		
-		TeacherDAO teachdao = new TeacherDAO();
-		Teacher t = teachdao.getById(s.getTeacherId());
+		//Teachers checken
+		Teacher t = null;
+		Teacher t2 = null;
+		for (Teacher x : CacheData.teachers) {
+			if (x.getTeacherId() == s.getTeacherId()) {
+				t2 = x;
+			}
+		}
 		
-		AddressDAO adao = new AddressDAO();
-		Address a = adao.getById(s.getAddressId());
+		if (t2 == null) {
+			TeacherDAO teachdao = new TeacherDAO();
+			t = teachdao.getById(s.getTeacherId());
+		} else {
+			t = t2;
+		}
+		
+		
+		Address a = null;
+		Address a2 = null;
+		
+		
+		for (Address x : CacheData.addresses) {
+			if (x.getAddressId() == s.getAddressId()) {
+				a2 = x;
+			}
+		}
+		
+		if (a2 == null) {
+			AddressDAO adao = new AddressDAO();
+			a = adao.getById(s.getAddressId());
+		} else {
+			a = a2;
+		}
+		
+		
+		
+		
 		
 		String bus;	
 		if (a.getBus() == null) {
@@ -231,6 +270,7 @@ public class TrainingDetailController implements Initializable{
 		}
 		
 	}
+	
 	
 	//genereert de juiste maps html pagina
 	private String genHtml(Address adr) {
