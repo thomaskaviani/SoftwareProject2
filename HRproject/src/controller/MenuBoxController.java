@@ -31,6 +31,11 @@ public class MenuBoxController implements Initializable {
 		Navigator.loadVista(Navigator.GeneralSettingsView);			
 	}
 	
+	@FXML
+	protected void toTrainingRequests(ActionEvent e) {
+		Navigator.loadVista(Navigator.TrainingRequestView);
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		

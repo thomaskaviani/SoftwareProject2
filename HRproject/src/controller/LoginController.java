@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import application.CacheData;
+import application.Main;
 import application.Navigator;
 
 import dao.UserDAO;
@@ -20,9 +21,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 
 public class LoginController implements Initializable {
+	
+	@FXML private Rectangle balk;
 	
 	private UserDAO userManager = new UserDAO();
 	
@@ -44,6 +48,7 @@ public class LoginController implements Initializable {
 				UserBoxController.user = x.getUsername();
 				CacheData.loggedIn = true;
 				userLogged = x;
+				Main.color = x.getColor();
 				
 				Navigator.loadVista(Navigator.HomeView);
 				Navigator.loadUserVista(Navigator.UserBoxView);
@@ -60,6 +65,8 @@ public class LoginController implements Initializable {
 	}
 	
 	@FXML protected void toForgotPassword(MouseEvent e) {
+		
+	
 		Navigator.loadVista(Navigator.ForgotPasswordView);
 	}
 	
@@ -75,6 +82,7 @@ public class LoginController implements Initializable {
 						UserBoxController.user = x.getUsername();
 						CacheData.loggedIn = true;
 						userLogged = x;
+						Main.color = x.getColor();
 						
 						Navigator.loadVista(Navigator.HomeView);
 						Navigator.loadUserVista(Navigator.UserBoxView);
@@ -99,6 +107,7 @@ public class LoginController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		userLogged = null;
+		balk.setFill(Color.valueOf("b3b7a9"));
 		
 		
 	}

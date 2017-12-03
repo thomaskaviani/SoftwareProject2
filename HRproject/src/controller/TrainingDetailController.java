@@ -26,6 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -36,6 +37,7 @@ import model.Sessions;
 import model.Teacher;
 import model.Training;
 import application.CacheData;
+import application.Main;
 import application.Navigator;
 import dao.AddressDAO;
 import dao.SessionsDAO;
@@ -44,6 +46,8 @@ import dao.TeacherDAO;
 
 public class TrainingDetailController implements Initializable{
 
+	@FXML private Rectangle balk;
+	
 	public static Training training;
 	public static List<Employee> participationEmployees;
 	
@@ -220,6 +224,7 @@ public class TrainingDetailController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		balk.setFill(Color.valueOf(Main.color));
 		trainingName.setText(training.getName());
 		
 		SessionsDAO sdao = new SessionsDAO();

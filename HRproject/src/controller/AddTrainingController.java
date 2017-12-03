@@ -8,14 +8,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.Training;
 import application.CacheData;
+import application.Main;
 import application.Navigator;
 import dao.TrainingDAO;
 
 public class AddTrainingController implements Initializable {
 	
+	@FXML private Rectangle balk;
 	@FXML private TextArea trainingDesc;
 	@FXML private TextField trainingName;
 
@@ -37,6 +40,7 @@ public class AddTrainingController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		balk.setFill(Color.valueOf(Main.color));
 
 	}
 

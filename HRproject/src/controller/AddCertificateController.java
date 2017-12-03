@@ -26,6 +26,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 
 import model.Certificate;
@@ -34,6 +36,7 @@ import model.Training;
 
 public class AddCertificateController implements Initializable {
 
+	@FXML private Rectangle balk;
 	public static Employee employee;
 	private File certificateFile;
 	private final FileChooser fileChooser = new FileChooser();
@@ -129,6 +132,8 @@ public class AddCertificateController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		balk.setFill(Color.valueOf(Main.color));
 		
 		//titeltekst vullen
 		titleLabel.setText("Add Certificate - " + employee.getFullName());
