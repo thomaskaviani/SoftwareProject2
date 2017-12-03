@@ -41,8 +41,8 @@ public class HomeController implements Initializable {
 	}
 	
 	@FXML
-	protected void toCertificates(ActionEvent e) {
-		
+	protected void toTrainingRequests(ActionEvent e) {
+		Navigator.loadVista(Navigator.TrainingRequestView);
 	}
 	
 	@FXML

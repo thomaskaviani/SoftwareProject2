@@ -35,6 +35,7 @@
         <mapping class="model.Teacher"/>
         <mapping class="model.Participation"/>
         <mapping class="model.Certificate"/>
+        <mapping class="model.TrainingRequest"/>
         
         
  

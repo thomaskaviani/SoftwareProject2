@@ -43,6 +43,7 @@ public class Navigator {
     public static String StyleOptionsView = "/view/StyleOptionsView.fxml";
     public static String AddCertificateView = "/view/AddCertificateView.fxml";
     public static String ShowCertificateView = "/view/ShowCertificateView.fxml";
+    public static String TrainingRequestView = "/view/TrainingRequestView.fxml";
 
     
     
