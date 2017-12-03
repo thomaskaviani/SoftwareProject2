@@ -33,10 +33,10 @@
         <mapping class="model.Sessions"/>
         <mapping class="model.Address"/>
         <mapping class="model.Teacher"/>
-        <mapping class="model.Participation"/>
-        
-        
- 
+        <mapping class="model.Participation"/><mapping class="model.Survey"/><mapping class="model.Survey_q"/><mapping class="model.Survey_a"/>
+
+
+
     </session-factory>
 
 </hibernate-configuration>

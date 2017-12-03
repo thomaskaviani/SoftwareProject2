@@ -30,12 +30,17 @@ public class Navigator {
     public static final String TrainingView = "/view/TrainingView.fxml";
     public static final String HomeView = "/view/HomeView.fxml";
     public static final String GeneralSettingsView = "/view/GeneralSettingsView.fxml";
-    
-    
-    //todo
+ 
     public static final String AccountSettingsView = "/view/AccountSettingsView.fxml";
     public static final String StyleOptionsView = "/view/StyleOptionsView.fxml";
 
+    //added by Stijn
+    public static final String AddQuestionSurveyView = "/view/AddQuestionSurveyView.fxml";
+    public static final String SearchSurveyView = "/view/SearchSurveyView.fxml";
+    public static final String SurveyDetailView = "/view/SurveyDetailView.fxml";
+    public static final String QuestionResultView= "/view/QuestionResultView.fxml";
+    public static final String EditQuestionSurveyView= "/view/EditQuestionSurveyView.fxml";
+    
     
     
     public static final String TEST = "/view/test.fxml";
