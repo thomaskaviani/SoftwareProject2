@@ -4,19 +4,19 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+
 import application.CacheData;
 import application.Navigator;
 
 import dao.UserDAO;
 import model.User;
 import sha256.Encryption;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -29,8 +29,8 @@ public class LoginController implements Initializable {
 	public static User userLogged;
 	 
 	@FXML private Label username;
-	@FXML private TextField usernameField;
-	@FXML private PasswordField passwordField;
+	@FXML private JFXTextField usernameField;
+	@FXML private JFXPasswordField passwordField;
 	@FXML private Label errorLabel;
 	
 	//Loginfunctie voor de button
@@ -100,13 +100,7 @@ public class LoginController implements Initializable {
 		
 		userLogged = null;
 		
-		//focus leggen op usernameField
-		Platform.runLater(new Runnable() {
-		    @Override
-		    public void run() {
-		    	usernameField.requestFocus();
-		    }
-		});
+		
 	}
 	  
 }

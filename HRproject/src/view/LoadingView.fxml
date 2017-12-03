@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
@@ -25,7 +26,10 @@
             <RowConstraints maxHeight="574.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox fx:id="loadingContent" prefHeight="200.0" prefWidth="100.0" translateX="-100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <VBox fx:id="loadingContent" prefHeight="200.0" prefWidth="100.0" translateX="-100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <JFXSpinner fx:id="spinner" prefHeight="483.0" prefWidth="826.0" scaleX="0.7" scaleY="0.7" />
+               </children></VBox>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Loading... Please wait" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <font>
