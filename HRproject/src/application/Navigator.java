@@ -23,7 +23,6 @@ public class Navigator {
     public static String EmptyView = "/view/EmptyView.fxml";
     public static String MenuBoxView = "/view/MenuBoxView.fxml";
     public static String LoadingView = "/view/LoadingView.fxml";
-    public static String StartView = "/view/StartView.fxml";
     
 	//GELE BALK
     public static String LoginView = "/view/LoginView.fxml";

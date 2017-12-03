@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.CacheData;
+import application.Main;
 import application.Navigator;
 import dao.TrainingDAO;
 import dao.TrainingRequestDAO;
@@ -21,11 +22,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.Training;
 import model.TrainingRequest;
 
 public class TrainingRequestController implements Initializable {
 
+	@FXML private Rectangle balk;
 	@FXML private TableView<TrainingRequest> tableView;
 	
 	@FXML private TextField searchBar;
@@ -67,7 +70,9 @@ public class TrainingRequestController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		balk.setFill(Color.valueOf(Main.color));
 		errorLabel.setText("");
+		
 		TrainingRequestDAO tdao = new TrainingRequestDAO();
 		ObservableList<TrainingRequest> trainings = FXCollections.observableArrayList(tdao.getAll());
 		

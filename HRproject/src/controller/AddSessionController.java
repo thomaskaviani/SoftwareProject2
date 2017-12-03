@@ -16,16 +16,20 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.Address;
 import model.Sessions;
 import model.Teacher;
 import model.Training;
+import application.Main;
 import application.Navigator;
 import dao.AddressDAO;
 import dao.SessionsDAO;
 import dao.TeacherDAO;
 
 public class AddSessionController implements Initializable {
+	
+	@FXML private Rectangle balk;
 	
 	public static Training training;
 	
@@ -172,6 +176,8 @@ public class AddSessionController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		balk.setFill(Color.valueOf(Main.color));
 		
 		//teacherlijst vullen
 		TeacherDAO tdao = new TeacherDAO();

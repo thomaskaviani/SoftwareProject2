@@ -24,6 +24,7 @@ import controller.MainController;
 public class Main extends Application {
 	
 	public static Stage mainStage;
+	public static String color;
 	
 	@Override
 	public void start(Stage stage) throws Exception {

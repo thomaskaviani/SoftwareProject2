@@ -16,17 +16,19 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
-
+import javafx.scene.shape.Rectangle;
 import model.Employee;
 import model.Participation;
 import model.Sessions;
 import model.Training;
 import application.CacheData;
+import application.Main;
 import application.Navigator;
 import dao.ParticipationDAO;
 
 public class AddEmployeeToSessionController implements Initializable {
 
+	@FXML private Rectangle balk;
 	public static Training training;
 	public static Sessions session;
 	public static List<Employee> participationEmployees;
@@ -120,6 +122,8 @@ public class AddEmployeeToSessionController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		balk.setFill(Color.valueOf(Main.color));
 		
 		//Titel van de sessie bepalen
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");

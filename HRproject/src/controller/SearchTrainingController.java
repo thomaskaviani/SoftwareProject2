@@ -17,11 +17,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.Training;
 import application.CacheData;
+import application.Main;
 import application.Navigator;
 
 public class SearchTrainingController implements Initializable {
+	
+	@FXML private Rectangle balk;
 	
 	@FXML private TableView<Training> tableView;
 	
@@ -58,6 +62,7 @@ public class SearchTrainingController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		errorLabel.setText("");
+		balk.setFill(Color.valueOf(Main.color));
 		
 		ObservableList<Training> trainings = FXCollections.observableArrayList(CacheData.trainings);
 		

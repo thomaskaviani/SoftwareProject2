@@ -5,15 +5,17 @@ import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 public class UserBoxController implements Initializable {
 
+	@FXML private VBox balk;
 	
 	@FXML
 	private ImageView imgView;
@@ -26,6 +28,8 @@ public class UserBoxController implements Initializable {
 	@Override
     public void initialize(URL location, ResourceBundle resources) {
         
+		balk.setStyle("-fx-background-color: #" + Main.color + ";");
+		
 		byte[] imagedata = LoginController.userLogged.getImagefile();
 		
 		String filepath = "src/images/userimage_" + LoginController.userLogged.getUsername() + ".jpg";
