@@ -62,27 +62,33 @@ public class SearchTrainingController implements Initializable {
 		SurveyDAO sdao = new SurveyDAO();
 		Training t = tableView.getSelectionModel().getSelectedItem();
 		
+		if (t != null) {
+			
+			if(sdao.getByTraining(t.getTrainingId())!=null)
+			{
+				//bestaat het reeds
+				System.out.println("De survey van training: "+t.getTrainingId() + " bestaat al");
+				
+			}
+			else
+			{
+				String surveyNaam = t.getName() + " Survey";
+				Survey s = new Survey(t.getTrainingId(),surveyNaam);
+				s.setSurveyId(1);
+				
+				 sdao.insert(s);
+				 s=sdao.getByTraining(t.getTrainingId());
+				 AddQuestionSurveyController.training = t;  
+				 AddQuestionSurveyController.survey=s;
+					System.out.println("nieuwe vraag");
+				 
+				Navigator.loadVista(Navigator.AddQuestionSurveyView);
+			}
+		} else {
+			errorLabel.setText("No training selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
 	
-		if(sdao.getByTraining(t.getTrainingId())!=null)
-		{
-			//bestaat het reeds
-			System.out.println("De survey van training: "+t.getTrainingId() + " bestaat al");
-			
-		}
-		else
-		{
-			String surveyNaam = t.getName() + " Survey";
-			Survey s = new Survey(t.getTrainingId(),surveyNaam);
-			s.setSurveyId(1);
-			
-			 sdao.insert(s);
-			 s=sdao.getByTraining(t.getTrainingId());
-			 AddQuestionSurveyController.training = t;  
-			 AddQuestionSurveyController.survey=s;
-				System.out.println("nieuwe vraag");
-			 
-			Navigator.loadVista(Navigator.AddQuestionSurveyView);
-		}
 	}
 
 	@FXML protected void clickTrain(MouseEvent e) {

@@ -13,59 +13,57 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.Survey;
 import model.Survey_q;
-
+import application.Main;
 import application.Navigator;
 
 import dao.Survey_qDAO;
 
 public class SurveyDetailController implements Initializable {
-public static Survey survey;
-public static Survey_q sQuestions;
+	
+	public static Survey survey;
+	public static Survey_q sQuestions;
 	
 	@FXML
 	private TableView<Survey_q> questionTable;
 	
-	@FXML
-	private TableColumn<Survey_q, String> questionCol;
+	@FXML private TableColumn<Survey_q, String> questionCol;
 	@FXML private Label surveyName;
-	@FXML
-	protected void toSearchSurvey (ActionEvent e) {
-		
-		
-			Navigator.loadVista(Navigator.SearchSurveyView);
-		}
+	@FXML private Rectangle balk;
 	
-	@FXML
-	protected void toViewAnswer (ActionEvent e) {
-			
+	@FXML protected void toSearchSurvey (ActionEvent e) {
 		
+		Navigator.loadVista(Navigator.SearchSurveyView);
+	}
+	
+	@FXML protected void toViewAnswer (ActionEvent e) {
+			
 		Survey_q sq = questionTable.getSelectionModel().getSelectedItem();
 		QuestionResultController.sQuestions=sq;
 		QuestionResultController.survey=survey;
-			Navigator.loadVista(Navigator.QuestionResultView);
-					
+		Navigator.loadVista(Navigator.QuestionResultView);		
 			
-		}
-	@FXML
-	protected void editQuestion(ActionEvent e) {
+	}
+	
+	@FXML protected void editQuestion(ActionEvent e) {
 			
 		
 		Survey_q sq = questionTable.getSelectionModel().getSelectedItem();
 		EditQuestionSurveyController.sQuestions=sq;
 		EditQuestionSurveyController.survey=survey;
-			Navigator.loadVista(Navigator.EditQuestionSurveyView);
-					
-			
-		}
+		Navigator.loadVista(Navigator.EditQuestionSurveyView);
+						
+	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		 // s=sdao.getByTraining(t.getTrainingId());
-		  //getBySurveyId
-		surveyName.setText(survey.getSurveyName());
+		balk.setFill(Color.valueOf(Main.color));
+		
+		surveyName.setText("Questions - " + survey.getSurveyName());
 		Survey_qDAO qsdao = new Survey_qDAO();
 		
 		if (qsdao.getBySurveyId(survey.getSurveyId()) != null) {
