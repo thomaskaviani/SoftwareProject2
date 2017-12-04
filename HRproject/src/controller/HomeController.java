@@ -50,7 +50,9 @@ public class HomeController implements Initializable {
 	}
 	
 	@FXML
-	protected void toSurveys(ActionEvent e) {
+	protected void toSurvey(ActionEvent e) {
+		Navigator.loadVista(Navigator.SearchSurveyView);
+		
 		
 	}
 

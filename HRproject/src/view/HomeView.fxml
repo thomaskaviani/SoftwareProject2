@@ -55,6 +55,7 @@
                   <Insets bottom="20.0" />
                </GridPane.margin>
             </Button>
+           
             <Button mnemonicParsing="false" onAction="#toTrainingRequests" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Requests" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="28.0" />
@@ -66,7 +67,8 @@
                   <Insets bottom="20.0" left="-50.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Surveys" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+           
+            <Button mnemonicParsing="false" onAction="#toSurvey" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Surveys" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="28.0" />
                </font>
@@ -77,6 +79,7 @@
                   <Insets bottom="20.0" right="-50.0" />
                </GridPane.margin>
             </Button>
+           
             <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Books" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="28.0" />
