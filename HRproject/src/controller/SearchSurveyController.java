@@ -31,6 +31,8 @@ public class SearchSurveyController implements Initializable{
 	
 	@FXML
 	private TableColumn<Survey, String> surveyNameCol;
+	@FXML
+	private TableColumn<Survey, String> isClosedCol;
 	
 	@FXML
 	protected void toSurveyDetail(ActionEvent e) {
@@ -49,6 +51,17 @@ public class SearchSurveyController implements Initializable{
 			
 	
 }
+@FXML
+protected void closeSurvey(ActionEvent e) {
+
+
+	SurveyDAO sdao = new SurveyDAO();
+	Survey s = surveyTable.getSelectionModel().getSelectedItem();
+	sdao.setClosed(s);
+Navigator.loadVista(Navigator.SearchSurveyView);
+		
+
+}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -63,7 +76,8 @@ public class SearchSurveyController implements Initializable{
 			
 			surveyTable.setItems(surveys);
 			surveyNameCol.setCellValueFactory(new PropertyValueFactory<Survey, String>("surveyName"));
-		
+			isClosedCol.setCellValueFactory(new PropertyValueFactory<Survey, String>("isClosed"));
+			
 		}
 	}
 }
