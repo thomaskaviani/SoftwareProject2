@@ -83,8 +83,8 @@ public class AddQuestionSurveyController implements Initializable{
 			Survey_qDAO sqdao = new Survey_qDAO();
 			sqdao.insert(surveyQ);
 		 }
-		
-		Navigator.loadVista(Navigator.HomeView);	
+		SurveyDetailController.survey=survey;
+		Navigator.loadVista(Navigator.SurveyDetailView);	
 		
 	}
 	
