@@ -21,6 +21,7 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="80.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="80.0" minHeight="1.666656494140625" prefHeight="26.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
@@ -32,7 +33,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label alignment="CENTER" contentDisplay="TOP" text="Add Session" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
@@ -49,18 +50,18 @@
                   <Image url="@../images/addicon2.png" />
                </image>
             </ImageView>
-            <Label text="Date:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
-            <Label text="Starttime:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Endtime:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label text="Date:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+            <Label text="Starttime:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Endtime:" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="350.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Company:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Street:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="Bus:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Company:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="Street:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Bus:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             
-            <ChoiceBox fx:id="startUur" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ChoiceBox fx:id="startUur" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="75.0" right="350.0" />
                </GridPane.margin>
@@ -93,50 +94,50 @@
         			</FXCollections>
     			</items>
             </ChoiceBox>
-            <Label text="Teacher:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="teacherName" promptText="Teacher name" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label text="Teacher:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="teacherName" promptText="Teacher's name" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="75.0" right="350.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="teacherCompany" promptText="Teacher company" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="teacherCompany" promptText="Teacher's company" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="75.0" right="350.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="Contact:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label text="Contact:" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="350.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="teacherEmail" promptText="Teacher email" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="teacherEmail" promptText="Teacher's email" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="425.0" />
                </GridPane.margin>
             </TextField>
-            <DatePicker fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <DatePicker fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="75.0" right="350.0" />
                </GridPane.margin>
             </DatePicker>
-            <TextField fx:id="street" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="street" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="75.0" right="250.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="Number:" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Label text="Number:" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="450.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="number" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="number" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="525.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="City:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="Country:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#addSession" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+            <Label text="City:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="Country:" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#addSession" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -147,37 +148,37 @@
                   <Insets bottom="20.0" />
                </GridPane.margin>
             </Button>
-            <TextField fx:id="bus" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextField fx:id="bus" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets left="75.0" right="350.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="city" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextField fx:id="city" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets left="75.0" right="350.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="Zipcode:" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Label text="Zipcode:" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets left="350.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="zipcode" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextField fx:id="zipcode" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets left="425.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="country" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <TextField fx:id="country" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <GridPane.margin>
                   <Insets left="75.0" right="350.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="uur" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label text="uur" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="130.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox fx:id="startMinuten" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ChoiceBox fx:id="startMinuten" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <Integer fx:value="0" />
@@ -198,12 +199,12 @@
                   <Insets left="160.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <Label text="minuten" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label text="minuten" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="220.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox fx:id="endUur" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ChoiceBox fx:id="endUur" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <Integer fx:value="0" />
@@ -236,12 +237,12 @@
                   <Insets left="425.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <Label text="uur" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label text="uur" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="480.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox fx:id="endMinuten" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ChoiceBox fx:id="endMinuten" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <Integer fx:value="0" />
@@ -262,17 +263,17 @@
                   <Insets left="510.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <Label text="minuten" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label text="minuten" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="570.0" />
                </GridPane.margin>
             </Label>
-            <DatePicker fx:id="dateEnd" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <DatePicker fx:id="dateEnd" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="425.0" />
                </GridPane.margin>
             </DatePicker>
-            <Label text="End date:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label text="End date:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="350.0" />
                </GridPane.margin>
@@ -292,10 +293,24 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <ComboBox fx:id="teacherComboBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <ComboBox fx:id="addressComboBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Label text="Existing Teachers" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Label text="Existing Addresses" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+            <ComboBox fx:id="teacherComboBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <ComboBox fx:id="addressComboBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Label text="Existing Teachers" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+            <Label text="Existing Addresses" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+            <Label text="Session name:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="sessionName" promptText="Enter the session's name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="150.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.rowIndex="10">
+               <GridPane.margin>
+                  <Insets bottom="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

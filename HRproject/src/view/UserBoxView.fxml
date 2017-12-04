@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox style="-fx-background-color: #f5d6a6;" prefHeight="140.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserBoxController">
+<VBox fx:id="balk" prefHeight="140.0" prefWidth="200.0" style="-fx-background-color: b3b7a9" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserBoxController">
    <children>
       <GridPane prefHeight="204.0" prefWidth="247.0">
         <columnConstraints>
@@ -22,7 +23,10 @@
                <GridPane.margin>
                   <Insets top="30.0" />
                </GridPane.margin></ImageView>
-            <Label fx:id="username" text="Username" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="username" text="Username" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
          </children>
       </GridPane>
    </children>

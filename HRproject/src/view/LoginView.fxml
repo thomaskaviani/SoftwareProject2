@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
@@ -27,22 +28,9 @@
           <RowConstraints maxHeight="642.0" minHeight="10.0" prefHeight="247.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-         	
-         	<!-- USERNAME FIELD -->
-         	<TextField fx:id="usernameField" translateX="-100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets left="80.0" right="80.0" />
-               </GridPane.margin>
-            </TextField>
             
-            <!-- PASSWORD FIELD -->
-            <PasswordField fx:id="passwordField" translateX="-100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets left="80.0" right="80.0" />
-               </GridPane.margin>
-            </PasswordField>
-            
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-100.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <!-- TITELBALK -->
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-100.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label alignment="CENTER" contentDisplay="TOP" text="Login" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
@@ -60,38 +48,37 @@
                </image>
             </ImageView>
             
-            <Button mnemonicParsing="false" onAction="#doLogin" onKeyPressed="#doLogin2" prefHeight="43.0" prefWidth="121.0" style="-fx-background-color: #47525E;" text="Login" textFill="WHITE" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            
-            
-            <Label text="Username" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
-            	<font>
-            		<Font name="System Bold" size="18.0" />
-           		</font>
-            </Label>
-            <Label text="Password" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
-            	<font>
-            		<Font name="System Bold" size="18.0" />
-           		</font>
-            </Label>
             <Pane prefHeight="200.0" prefWidth="200.0" translateX="-100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Pane prefHeight="200.0" prefWidth="200.0" translateX="-100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label fx:id="errorLabel" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
             
-            <Label text="Forgot you password?" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+            <Label onMouseClicked="#toForgotPassword" text="Forgot you password?" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="50.0" />
                </GridPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
+            <JFXTextField fx:id="usernameField" promptText="Username" style="-jfx-label-float: true;" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="80.0" right="80.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <JFXPasswordField fx:id="passwordField" promptText="Password" style="-jfx-label-float: true;" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="80.0" right="80.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXButton onAction="#doLogin" onKeyPressed="#doLogin2" prefHeight="39.0" prefWidth="417.0" style="-fx-background-color: #47525E;" text="Login" textFill="WHITE" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            </JFXButton>
+            
             
          </children>
       </GridPane>

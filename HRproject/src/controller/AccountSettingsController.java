@@ -3,13 +3,18 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import application.Main;
+import application.Navigator;
 
 public class AccountSettingsController implements Initializable{
 
+	@FXML private Rectangle balk;
+	
 	@FXML
 	protected void toGeneral(ActionEvent e) {
 		
@@ -18,7 +23,7 @@ public class AccountSettingsController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		balk.setFill(Color.valueOf(Main.color));
 		
 	}
 }

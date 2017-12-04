@@ -25,7 +25,7 @@
           <RowConstraints maxHeight="642.0" minHeight="10.0" prefHeight="208.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label fx:id="trainingName" alignment="CENTER" contentDisplay="TOP" text="Trainingnaam" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
@@ -36,22 +36,23 @@
             </Label>
             <Label text="Session info" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
             	<font>
-              	<Font size="36.0" />
+              	<Font size="24.0" />
         		</font>
             </Label>
-            <TextField fx:id="sessionSearchBar" promptText="Search a session" GridPane.rowIndex="1">
+            <TextField fx:id="searchBar" promptText="Search a session" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </TextField>
             
-            <TableView fx:id="sessionTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="50.0" left="50.0" top="50.0" />
-               </GridPane.margin>
-               <columns>
-                  <TableColumn fx:id="sessionTableCol" prefWidth="256.0" text="Date &amp; time of session" />
-               </columns>
+            <TableView fx:id="sessionTable" onMouseClicked="#clickSession" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+            	<columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                <GridPane.margin>
+                	<Insets bottom="50.0" left="50.0" top="50.0" />
+                </GridPane.margin>
+                <columns>
+                	<TableColumn fx:id="sessionTableCol" prefWidth="256.0" text="Date &amp; time of session" />
+                </columns>
             </TableView>
             
             <Button mnemonicParsing="false" onAction="#toAddSession" prefHeight="39.0" prefWidth="533.0" text="Add Session" GridPane.halignment="CENTER" GridPane.rowIndex="3">
@@ -60,24 +61,18 @@
                </GridPane.margin>
             </Button>
             
-            <ListView prefHeight="511.0" prefWidth="756.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-               </GridPane.margin>
-            </ListView>
-            
             <Label text="Participants:" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font size="28.0" />
                </font>
                <GridPane.margin>
-                  <Insets right="50.0" />
+                  <Insets left="-50.0" right="50.0" />
                </GridPane.margin>
             </Label>
             
             <TableView fx:id="participantTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="50.0" right="50.0" top="50.0" />
+                  <Insets bottom="50.0" left="-50.0" right="50.0" top="50.0" />
                </GridPane.margin>
                <columns>
                   <TableColumn fx:id="participantFirstNameCol" prefWidth="107.0" text="First name" />
@@ -85,7 +80,7 @@
                </columns>
             </TableView>
             
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="467.0" text="View location" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#toLocation" prefHeight="39.0" prefWidth="467.0" text="View location" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="150.0" right="50.0" />
                </GridPane.margin>
@@ -110,6 +105,73 @@
                   <Insets />
                </opaqueInsets>
             </Button>
+            <Label text="Teacher" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" top="50.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="infoTeacher" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" top="80.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Address" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" top="120.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="infoAddress" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" top="150.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="infoAddress2" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" top="175.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="infoAddress3" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" top="200.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Start of session" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" top="240.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="infoTime1" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" top="270.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="End of session" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" top="310.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="infoTime2" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="50.0" top="340.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

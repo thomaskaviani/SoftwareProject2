@@ -24,7 +24,7 @@
             <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="143.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label alignment="CENTER" contentDisplay="TOP" text="Account Settings - accountname" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
@@ -75,39 +75,6 @@
                   <Insets top="180.0" />
                </GridPane.margin>
             </Button>
-            <Label text="Email settings:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets top="250.0" />
-               </GridPane.margin>
-            </Label>
-            <TextField promptText="Host" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets right="200.0" top="300.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField promptText="Email address" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets right="200.0" top="330.0" />
-               </GridPane.margin>
-            </TextField>
-            <PasswordField promptText="Email password" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets right="200.0" top="360.0" />
-               </GridPane.margin>
-            </PasswordField>
-            <Button maxHeight="39.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Change" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets top="360.0" />
-               </GridPane.margin>
-            </Button>
-            <Label text="Email Changed confirmation" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets top="400.0" />
-               </GridPane.margin>
-            </Label>
             <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="20.0" />

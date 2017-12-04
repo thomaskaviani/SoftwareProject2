@@ -26,7 +26,7 @@
         </rowConstraints>
          <children>
          
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label alignment="CENTER" contentDisplay="TOP" text="Employees" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
@@ -50,7 +50,7 @@
                </GridPane.margin>
             </TextField>
             
-            <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickEmp" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
               <columns>
                 <TableColumn fx:id="empIdCol" prefWidth="177.0" text="Employee ID" />
                 <TableColumn fx:id="empFirstNameCol" prefWidth="152.0" text="First Name" />
@@ -62,25 +62,17 @@
                   <Insets top="20.0" />
                </GridPane.margin>
             </TableView>
-            <Button mnemonicParsing="false" onAction="#toDetailEmployee" prefHeight="43.0" prefWidth="121.0" style="-fx-background-color: #47525E;" text="More Info" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#toDetailEmployee" prefHeight="43.0" prefWidth="121.0" style="-fx-background-color: #47525E;" text="More Info" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets />
+                  <Insets left="-120.0" />
                </GridPane.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label textFill="#47525e" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets bottom="4.0" right="4.0" />
-               </GridPane.margin>
-            </Label>
             <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toHome" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -96,6 +88,36 @@
                   <Insets />
                </opaqueInsets>
             </Button>
+            <Button mnemonicParsing="false" onAction="#toAddCert" prefHeight="43.0" prefWidth="175.0" style="-fx-background-color: #47525E;" text="Add Certificate" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="80.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#toShowCert" prefHeight="43.0" prefWidth="175.0" style="-fx-background-color: #47525E;" text="Show Certificates" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="-120.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="120.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

@@ -25,7 +25,7 @@
             <RowConstraints maxHeight="528.0" minHeight="0.0" prefHeight="528.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label alignment="CENTER" contentDisplay="TOP" text="Employee Info: " textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
