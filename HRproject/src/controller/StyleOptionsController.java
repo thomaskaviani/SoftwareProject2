@@ -82,6 +82,7 @@ public class StyleOptionsController implements Initializable{
 				
 				Navigator.loadVista(Navigator.StyleOptionsView);
 				Navigator.loadUserVista(Navigator.UserBoxView);
+				Navigator.loadMenuVista(Navigator.MenuBoxView);
 				
 			} else {
 				errorLabel.setText("No color selected");
@@ -100,6 +101,7 @@ public class StyleOptionsController implements Initializable{
 			
 			Navigator.loadVista(Navigator.StyleOptionsView);
 			Navigator.loadUserVista(Navigator.UserBoxView);
+			Navigator.loadMenuVista(Navigator.MenuBoxView);
 			
 			System.out.println("color changed to "+ colorComboBox.getValue().getCode());
 			

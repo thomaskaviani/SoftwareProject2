@@ -25,16 +25,19 @@ public class MainController implements Initializable {
     private VBox userBox;
     
     @FXML
-    private Button logoutButton;
+    private static Button logoutButton;
     
     @FXML
 	protected void doLogout(ActionEvent e) {
     	
-    	//TODO gebruiker uitloggen...
-    	
-		Navigator.loadVista(Navigator.LoginView);
-		Navigator.loadUserVista(Navigator.EmptyView);
-		Navigator.loadMenuVista(Navigator.EmptyView);
+    	if (LoginController.userLogged != null) {
+    		LoginController.userLogged = null;
+    		Navigator.loadVista(Navigator.LoginView);
+    		Navigator.loadUserVista(Navigator.EmptyView);
+    		Navigator.loadMenuVista(Navigator.EmptyView);
+    	}
+		
+		
 	}
     
 	
@@ -52,7 +55,7 @@ public class MainController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+   
     }
 
 }
