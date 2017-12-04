@@ -74,9 +74,6 @@ public class AddEmployeeToSessionController implements Initializable {
 				participantTable.setItems(parts);
 				
 				
-				
-				
-				
 				if (p1 == null) {
 					
 					Participation p2 = new Participation(training.getTrainingId(), emp.getEmployeeId(), 0, 0, session.getSessionId());
