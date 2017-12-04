@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 
 
 import model.Survey;
+import model.Training;
 
 
 
@@ -24,6 +25,17 @@ public void insert(Survey s) {
         
         
     }
+public void setClosed(Survey s) {
+	
+	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+	
+	s.setIsClosed(1);
+    session.beginTransaction();
+    session.update(s);
+    session.getTransaction().commit();
+    session.close();
+    
+}
 @SuppressWarnings({ "deprecation", "unchecked" })
 	public Survey  getByTraining(Integer trainingId) {
 		
