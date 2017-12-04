@@ -18,45 +18,27 @@ public class Certificate {
 	private int certificateId;
 	
 	@Column
-	private int empId;
+	private String empId;
 	@Column
-	private int trainingId = -1;//moet niet persee een trainingId hebben (kan ook een externe training geweest zijn)
+	private String trainingName;
 	@Column
-	private String file;
+	private byte[] file;
+	@Column
+	private String extension;
 	@Column
 	private int arch = 0;
 	
 	public Certificate() {};
 	
 	//alle params
-	public Certificate(int certificateId, int empId, int trainingId, String file, int arch) {
+	public Certificate(String empId, String trainingName, byte[] file, String extension) {
 		super();
-		this.certificateId = certificateId;
+		this.extension = extension;
 		this.empId = empId;
-		this.trainingId = trainingId;
-		this.file = file;
-		this.arch = arch;
-	}
-
-	//zonder arch
-	public Certificate(int certificateId, int empId, int trainingId, String file) {
-		super();
-		this.certificateId = certificateId;
-		this.empId = empId;
-		this.trainingId = trainingId;
+		this.trainingName = trainingName;
 		this.file = file;
 		this.arch = 0;
 	}
-	//zonder training, zonder arch
-	public Certificate(int certificateId, int empId, String file) {
-		super();
-		this.certificateId = certificateId;
-		this.empId = empId;
-		this.file = file;
-		this.trainingId = -1;
-		this.arch = 0;
-	}
-	
 
 	public int getCertificateId() {
 		return certificateId;
@@ -66,27 +48,27 @@ public class Certificate {
 		this.certificateId = certificateId;
 	}
 
-	public int getEmpId() {
+	public String getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(int empId) {
+	public void setEmpId(String empId) {
 		this.empId = empId;
 	}
 
-	public int getTrainingId() {
-		return trainingId;
+	public String getTrainingName() {
+		return trainingName;
 	}
 
-	public void setTrainingId(int trainingId) {
-		this.trainingId = trainingId;
+	public void setTrainingName(String trainingName) {
+		this.trainingName = trainingName;
 	}
 
-	public String getFile() {
+	public byte[] getFile() {
 		return file;
 	}
 
-	public void setFile(String file) {
+	public void setFile(byte[] file) {
 		this.file = file;
 	}
 
@@ -98,9 +80,18 @@ public class Certificate {
 		this.arch = arch;
 	}
 
-	@Override
-	public String toString() {
-		return "Certificate id: "+ getCertificateId() + '\n' + "Emp id: " + getEmpId() + '\n' +"Training id: "+ getTrainingId() + '\n'+"File:" + getFile() + '\n'+ "Arch: " + getArch();
+	public String getExtension() {
+		return extension;
 	}
+
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
+	
+	
+	
+
+	
+
 	
 }

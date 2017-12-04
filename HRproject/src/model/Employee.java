@@ -261,7 +261,9 @@ public class Employee {
 	public String toString() {
 		return "EmployeeID: "+ getEmployeeId()+'\n'+
 		"Last Name : " + getLastName() +'\n'+
-		"First Name : " +getFirstName()+'\n'+
+		"First Name : " +getFirstName()+'\n'+'\n';
+		
+		/*
 		"Title : " + getTitle()+'\n'+
 		"TitleOfCourtesy : "+getTitleOfCourtesy()+'\n'+
 		"BirthDate : " + getBirthDate()+'\n'+
@@ -277,6 +279,8 @@ public class Employee {
 		"Notes : " + getRegion()+'\n'+
 		"ReportsTo : " + getReportsTo()+'\n'+
 		"PhotoPath : " + getPhotoPath();
+		
+		*/
 	}
 
 	public String getEmail() {

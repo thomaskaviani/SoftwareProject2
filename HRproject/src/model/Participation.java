@@ -17,7 +17,7 @@ public class Participation {
 	private int participationId;
 	
 	@Column
-	private int sessionId;
+	private int trainingId;
 	@Column
 	private String empId;
 	@Column
@@ -26,13 +26,17 @@ public class Participation {
 	private int cancelled;
 	@Column
 	private int arch;
+	@Column
+	private int sessionId;
+	
 	
 	public Participation() {
 		
 	}
 	
-	public Participation(int sessionId, String empId, int isChecked, int cancelled) {
+	public Participation(int trainingId, String empId, int isChecked, int cancelled, int sessionId) {
 		
+		this.trainingId = trainingId;
 		this.sessionId = sessionId;
 		this.empId = empId;
 		this.isChecked = 0;
@@ -86,6 +90,20 @@ public class Participation {
 
 	public void setArch(int arch) {
 		this.arch = arch;
+	}
+
+	public int getTrainingId() {
+		return trainingId;
+	}
+
+	public void setTrainingId(int trainingId) {
+		this.trainingId = trainingId;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "TrainingId: " + getTrainingId() + "- EmpId: " + getEmpId() + " - SessionId: " + getSessionId() + "\n";
 	}
 	
 	

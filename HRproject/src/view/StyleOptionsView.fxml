@@ -1,70 +1,97 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?import javafx.geometry.*?><?import javafx.scene.image.*?><?import javafx.scene.*?><?import javafx.scene.shape.*?><?import javafx.scene.text.*?><?import javafx.scene.control.*?><?import java.lang.*?><?import javafx.scene.layout.*?><?import javafx.scene.layout.VBox?><VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" fx:controller="controller.StyleOptionsController" prefHeight="1021.0" prefWidth="1645.0">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StyleOptionsController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0"/>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875"/>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="396.0" minHeight="60.0" prefHeight="97.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="396.0" minHeight="60.0" prefHeight="97.0" vgrow="SOMETIMES"/>
-          <RowConstraints maxHeight="642.0" minHeight="10.0" prefHeight="334.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="346.0" minHeight="10.0" prefHeight="346.0" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="396.0" minHeight="60.0" prefHeight="97.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="396.0" minHeight="60.0" prefHeight="97.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="642.0" minHeight="10.0" prefHeight="334.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="346.0" minHeight="10.0" prefHeight="346.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle GridPane.columnIndex="1" GridPane.halignment="CENTER" arcHeight="5.0" arcWidth="5.0" fill="f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0"/>
-            <Label GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" alignment="CENTER" contentDisplay="TOP" text="Style options" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP">
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="TOP" text="Style options" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
-                  <Font size="24.0"/>
+                  <Font size="24.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="30.0"/>
+                  <Insets left="30.0" />
                </GridPane.margin>
             </Label>
-            <ImageView GridPane.columnIndex="1" GridPane.halignment="CENTER" fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <GridPane.margin>
-                  <Insets right="170.0"/>
+                  <Insets right="170.0" />
                </GridPane.margin>
                <image>
-                  <Image url="@../images/AddIcon.png"/>
+                  <Image url="@../images/AddIcon.png" />
                </image>
             </ImageView>
-            <Label GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" text="Color Theme">
+            <Label text="Theme" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets left="110.0"/>
+                  <Insets left="110.0" />
                </GridPane.margin>
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font></Label>
-            <Button GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" mnemonicParsing="false" onAction="#SaveTheme" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#SaveTheme" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <cursor>
-                  <Cursor fx:constant="HAND"/>
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets bottom="10.0"/>
+                  <Insets bottom="10.0" />
                </GridPane.margin>
             </Button>
-            <Button GridPane.halignment="RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toGeneralSettings" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true">
+            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toGeneralSettings" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
                <graphic>
-                  <ImageView fitHeight="42.0" fitWidth="64.0" fx:id="returnButton" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="returnButton" fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/BackButton.png"/>
+                        <Image url="@../images/BackButton.png" />
                      </image>
                   </ImageView>
                </graphic>
                <opaqueInsets>
-                  <Insets/>
+                  <Insets />
                </opaqueInsets>
                <cursor>
-                  <Cursor fx:constant="HAND"/>
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ComboBox GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" fx:id="colorComboBox" prefWidth="150.0" promptText="Colors"/>
+            <ComboBox fx:id="colorComboBox" prefWidth="150.0" promptText="Theme" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <JFXColorPicker fx:id="colorPicker" prefHeight="103.0" prefWidth="157.0" promptText="Select Color" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label text="Color" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="110.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

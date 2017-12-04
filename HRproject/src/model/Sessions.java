@@ -1,5 +1,7 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -21,6 +24,8 @@ public class Sessions {
 	@Column
 	private int trainingId;
 	@Column
+	private String sessionName;
+	@Column
 	private int addressId;
 	@Column
 	private int teacherId;
@@ -33,13 +38,17 @@ public class Sessions {
 	@Column
 	private int arch;
 	
+	@Transient
+	private String startTimeString;
+	
 	public Sessions() {
 		
 	}
 	
-	public Sessions(int trainingId, int addressId, int teacherId, Date startTime, Date endTime) {
+	public Sessions(int trainingId, String sessionName, int addressId, int teacherId, Date startTime, Date endTime) {
 		
 		this.trainingId = trainingId;
+		this.sessionName = sessionName;
 		this.addressId = addressId;
 		this.teacherId = teacherId;
 		this.startTime = startTime;
@@ -51,6 +60,18 @@ public class Sessions {
 
 	
 	
+	public String getSessionName() {
+		return sessionName;
+	}
+
+	public void setSessionName(String sessionName) {
+		this.sessionName = sessionName;
+	}
+
+	public void setStartTimeString(String startTimeString) {
+		this.startTimeString = startTimeString;
+	}
+
 	public int getSessionId() {
 		return sessionId;
 	}
@@ -88,6 +109,7 @@ public class Sessions {
 	}
 
 	public void setStartTime(Date startTime) {
+		System.out.println("WOOOOOOO");
 		this.startTime = startTime;
 	}
 
@@ -115,6 +137,15 @@ public class Sessions {
 		this.arch = arch;
 	}
 	
+	
+	public void setStartTimeString() {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		startTimeString = df.format(getStartTime());
+	}
+	
+	public String getStartTimeString() {
+		return startTimeString;
+	}
 	
 	@Override
 	public String toString() {

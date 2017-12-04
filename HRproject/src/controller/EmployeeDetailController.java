@@ -7,18 +7,24 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import application.CacheData;
+import application.Main;
 import application.Navigator;
+import model.Employee;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import model.Employee;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class EmployeeDetailController implements Initializable{
 
 	public static Employee employee;
-	public int managerId = Integer.parseInt(employee.getReportsTo()) - 1;
-	public String managerName = "";
+	public int managerId;
+	public String managerName = null;
+	
+	@FXML private Rectangle balk;
 	
 	@FXML private Label employeeName;
 	
@@ -42,10 +48,9 @@ public class EmployeeDetailController implements Initializable{
 	@FXML private Label empNotes;
 	
 	
-	
-	@FXML
-	protected void toEmployees(ActionEvent e) {
-		
+	//backbutton
+	@FXML protected void toEmployees(ActionEvent e) {
+		resetVars();
 		Navigator.loadVista(Navigator.EmployeeView);
 				
 	}
@@ -54,6 +59,9 @@ public class EmployeeDetailController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		balk.setFill(Color.valueOf(Main.color));
+		managerId = Integer.parseInt(employee.getReportsTo()) - 1;
 		
 		if(managerId>0) {
 			managerName = CacheData.employees.get(managerId).getFirstName() + " " +CacheData.employees.get(managerId).getLastName();
@@ -84,6 +92,12 @@ public class EmployeeDetailController implements Initializable{
 		empPostalcode.setText(employee.getPostalCode());
 		
 		empNotes.setText(employee.getNotes());
+	}
+	
+	public void resetVars() {
+		employee = null;
+		managerId = 0;
+		managerName = null;
 	}
 	
 }
