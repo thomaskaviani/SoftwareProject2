@@ -8,10 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.Survey;
 import model.Survey_q;
-
+import application.Main;
 import application.Navigator;
 import dao.Survey_qDAO;
 
@@ -23,6 +24,7 @@ public class EditQuestionSurveyController implements Initializable {
 	public static Survey_q sQuestions;
 		
 	@FXML private TextArea question;
+	@FXML private Rectangle balk;
 	
 	@FXML  private ComboBox<String> questionType; 	
 	@FXML
@@ -60,6 +62,9 @@ public class EditQuestionSurveyController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		balk.setFill(Color.valueOf(Main.color));
+		
 		String questiontype="";
 		if(sQuestions.getTypeId()==1)
 			questiontype="Open Question";

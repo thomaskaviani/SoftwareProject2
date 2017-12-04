@@ -12,9 +12,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.Survey;
-
+import application.Main;
 import application.Navigator;
 
 import dao.SurveyDAO;
@@ -23,6 +24,8 @@ public class SearchSurveyController implements Initializable{
 
 	public static Survey survey;
 	
+	@FXML private Rectangle balk;
+	
 	@FXML
 	private TableView<Survey> surveyTable;
 	
@@ -30,7 +33,7 @@ public class SearchSurveyController implements Initializable{
 	private TableColumn<Survey, String> surveyNameCol;
 	
 	@FXML
-protected void toSurveyDetail(ActionEvent e) {
+	protected void toSurveyDetail(ActionEvent e) {
 		
 		Survey s = surveyTable.getSelectionModel().getSelectedItem();
 		SurveyDetailController.survey=s;
@@ -39,17 +42,19 @@ protected void toSurveyDetail(ActionEvent e) {
 				
 	}	
 @FXML
-protected void toHome(ActionEvent e) {
+	protected void toHome(ActionEvent e) {
 	
 	
 	Navigator.loadVista(Navigator.HomeView);
 			
 	
 }
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-
+		balk.setFill(Color.valueOf(Main.color));
+		
 		SurveyDAO sdao = new SurveyDAO();
 		
 		if (sdao.getAll() != null) {
