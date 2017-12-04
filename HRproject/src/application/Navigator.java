@@ -15,17 +15,24 @@ import java.io.IOException;
 import controller.MainController;
 
 public class Navigator {
+
 	
-	private static MainController mainController;
+	  private static MainController mainController;
 	
-	public static String MainView    = "/view/MainView.fxml";
+	  public static String MainView    = "/view/MainView.fxml";
     public static String UserBoxView = "/view/UserBoxView.fxml";
     public static String EmptyView = "/view/EmptyView.fxml";
     public static String MenuBoxView = "/view/MenuBoxView.fxml";
     public static String LoadingView = "/view/LoadingView.fxml";
-    public static String StartView = "/view/StartView.fxml";
+  
+    public static final String AddQuestionSurveyView = "/view/AddQuestionSurveyView.fxml";
+    public static final String SearchSurveyView = "/view/SearchSurveyView.fxml";
+    public static final String SurveyDetailView = "/view/SurveyDetailView.fxml";
+    public static final String QuestionResultView= "/view/QuestionResultView.fxml";
+    public static final String EditQuestionSurveyView= "/view/EditQuestionSurveyView.fxml";
     
-	//GELE BALK
+    
+	  //GELE BALK
     public static String LoginView = "/view/LoginView.fxml";
     public static String EmployeeView = "/view/EmployeeView.fxml";
     public static String EmployeeDetailView = "/view/EmployeeDetailView.fxml";
@@ -43,6 +50,7 @@ public class Navigator {
     public static String StyleOptionsView = "/view/StyleOptionsView.fxml";
     public static String AddCertificateView = "/view/AddCertificateView.fxml";
     public static String ShowCertificateView = "/view/ShowCertificateView.fxml";
+    public static String TrainingRequestView = "/view/TrainingRequestView.fxml";
 
     
     

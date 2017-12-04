@@ -23,11 +23,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.Certificate;
 import model.Employee;
 
 public class ShowCertificateController implements Initializable {
 
+	@FXML private Rectangle balk;
+	
 	public static Employee employee;
 	
 	@FXML private Label empLabel;
@@ -83,6 +86,7 @@ public class ShowCertificateController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		balk.setFill(Color.valueOf(Main.color));
 		empLabel.setText(employee.getFullName());
 		
 		CertificateDAO cdao = new CertificateDAO();

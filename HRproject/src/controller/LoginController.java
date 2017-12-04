@@ -4,33 +4,37 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+
 import application.CacheData;
+import application.Main;
 import application.Navigator;
 
 import dao.UserDAO;
 import model.User;
 import sha256.Encryption;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 
 public class LoginController implements Initializable {
+	
+	@FXML private Rectangle balk;
 	
 	private UserDAO userManager = new UserDAO();
 	
 	public static User userLogged;
 	 
 	@FXML private Label username;
-	@FXML private TextField usernameField;
-	@FXML private PasswordField passwordField;
+	@FXML private JFXTextField usernameField;
+	@FXML private JFXPasswordField passwordField;
 	@FXML private Label errorLabel;
 	
 	//Loginfunctie voor de button
@@ -44,6 +48,7 @@ public class LoginController implements Initializable {
 				UserBoxController.user = x.getUsername();
 				CacheData.loggedIn = true;
 				userLogged = x;
+				Main.color = x.getColor();
 				
 				Navigator.loadVista(Navigator.HomeView);
 				Navigator.loadUserVista(Navigator.UserBoxView);
@@ -60,6 +65,8 @@ public class LoginController implements Initializable {
 	}
 	
 	@FXML protected void toForgotPassword(MouseEvent e) {
+		
+	
 		Navigator.loadVista(Navigator.ForgotPasswordView);
 	}
 	
@@ -75,6 +82,7 @@ public class LoginController implements Initializable {
 						UserBoxController.user = x.getUsername();
 						CacheData.loggedIn = true;
 						userLogged = x;
+						Main.color = x.getColor();
 						
 						Navigator.loadVista(Navigator.HomeView);
 						Navigator.loadUserVista(Navigator.UserBoxView);
@@ -99,14 +107,9 @@ public class LoginController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		userLogged = null;
+		balk.setFill(Color.valueOf("b3b7a9"));
 		
-		//focus leggen op usernameField
-		Platform.runLater(new Runnable() {
-		    @Override
-		    public void run() {
-		    	usernameField.requestFocus();
-		    }
-		});
+		
 	}
 	  
 }

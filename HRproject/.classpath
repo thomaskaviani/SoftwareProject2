@@ -14,6 +14,7 @@
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.44-bin.jar" sourcepath="lib/mysql-connector-java-5.1.44-bin.jar"/>
 	<classpathentry kind="lib" path="lib/activation.jar"/>
 	<classpathentry kind="lib" path="lib/javax.mail.jar"/>
+	<classpathentry kind="lib" path="lib/jfoenix.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

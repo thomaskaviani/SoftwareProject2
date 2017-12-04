@@ -50,7 +50,7 @@
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Requests" textFill="WHITE" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#toTrainingRequests" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Requests" textFill="WHITE" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="20.0" right="20.0" />
                </GridPane.margin>
@@ -58,7 +58,7 @@
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Surveys" textFill="WHITE" GridPane.rowIndex="4">
+            <Button mnemonicParsing="false" onAction="#toSurvey" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Surveys" textFill="WHITE" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="20.0" right="20.0" />
                </GridPane.margin>

@@ -19,10 +19,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import model.User;
 
 public class ForgotPasswordController implements Initializable {
 	
+	@FXML private Rectangle balk;
 	@FXML private TextField usernameField;
 
 	@FXML protected void toLogin(ActionEvent e) {
@@ -98,6 +101,7 @@ public class ForgotPasswordController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		balk.setFill(Color.valueOf("b3b7a9"));
 	}
 
 }

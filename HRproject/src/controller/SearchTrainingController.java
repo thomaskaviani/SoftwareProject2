@@ -17,11 +17,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+import model.Survey;
 import model.Training;
 import application.CacheData;
+import application.Main;
 import application.Navigator;
+import dao.SurveyDAO;
 
 public class SearchTrainingController implements Initializable {
+	
+	@FXML private Rectangle balk;
 	
 	@FXML private TableView<Training> tableView;
 	
@@ -50,6 +57,40 @@ public class SearchTrainingController implements Initializable {
 		Navigator.loadVista(Navigator.TrainingView);
 	}
 	
+	@FXML
+	protected void toSurvey(ActionEvent e) {
+		SurveyDAO sdao = new SurveyDAO();
+		Training t = tableView.getSelectionModel().getSelectedItem();
+		
+		if (t != null) {
+			
+			if(sdao.getByTraining(t.getTrainingId())!=null)
+			{
+				//bestaat het reeds
+				System.out.println("De survey van training: "+t.getTrainingId() + " bestaat al");
+				
+			}
+			else
+			{
+				String surveyNaam = t.getName() + " Survey";
+				Survey s = new Survey(t.getTrainingId(),surveyNaam);
+				s.setSurveyId(1);
+				
+				 sdao.insert(s);
+				 s=sdao.getByTraining(t.getTrainingId());
+				 AddQuestionSurveyController.training = t;  
+				 AddQuestionSurveyController.survey=s;
+					System.out.println("nieuwe vraag");
+				 
+				Navigator.loadVista(Navigator.AddQuestionSurveyView);
+			}
+		} else {
+			errorLabel.setText("No training selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
+	
+	}
+
 	@FXML protected void clickTrain(MouseEvent e) {
 		errorLabel.setText("");
 	}
@@ -58,10 +99,13 @@ public class SearchTrainingController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		errorLabel.setText("");
+		balk.setFill(Color.valueOf(Main.color));
+		
 		ObservableList<Training> trainings = FXCollections.observableArrayList(CacheData.trainings);
 		
 		trainingNameCol.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
 		trainingDescCol.setCellValueFactory(new PropertyValueFactory<Training, String>("goal"));
+		
 		
 		// 1. Wrap the ObservableList in a FilteredList (initially display all data).
 		FilteredList<Training> filteredTrainings = new FilteredList<>(trainings, p -> true);
@@ -99,6 +143,7 @@ public class SearchTrainingController implements Initializable {
 		
 	}
 
+	
 }
 
 

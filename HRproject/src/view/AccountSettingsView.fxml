@@ -1,128 +1,107 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?import javafx.geometry.*?><?import javafx.scene.image.*?><?import javafx.scene.*?><?import javafx.scene.shape.*?><?import javafx.scene.text.*?><?import javafx.scene.control.*?><?import java.lang.*?><?import javafx.scene.layout.*?><?import javafx.scene.layout.VBox?><VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" fx:controller="controller.AccountSettingsController" prefHeight="1021.0" prefWidth="1645.0">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountSettingsController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0"/>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875"/>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="410.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1016.0" minWidth="10.0" prefWidth="826.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.0" minWidth="10.0" prefWidth="408.666748046875" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="769.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="143.0" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="769.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="143.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle GridPane.columnIndex="1" GridPane.halignment="CENTER" arcHeight="5.0" arcWidth="5.0" fill="f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0"/>
-            <Label GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" alignment="CENTER" contentDisplay="TOP" text="Account Settings - accountname" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP">
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="TOP" text="Account Settings - accountname" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
-                  <Font size="24.0"/>
+                  <Font size="24.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="30.0"/>
+                  <Insets left="30.0" />
                </GridPane.margin>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" promptText="New account name">
+            <TextField promptText="New account name" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="200.0" top="50.0"/>
+                  <Insets right="200.0" top="50.0" />
                </GridPane.margin>
             </TextField>
-            <Button GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" maxHeight="39.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Change">
+            <Button maxHeight="39.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Change" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="50.0"/>
+                  <Insets top="50.0" />
                </GridPane.margin></Button>
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" text="Change accountname:">
+            <Label text="Change accountname:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
-                  <Font name="System Bold" size="24.0"/>
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" text="Change password:">
+            <Label text="Change password:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
-                  <Font name="System Bold" size="24.0"/>
+                  <Font name="System Bold" size="24.0" />
                </font>
                <GridPane.margin>
-                  <Insets top="100.0"/>
+                  <Insets top="100.0" />
                </GridPane.margin>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" promptText="Old password">
+            <TextField promptText="Old password" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="200.0" top="150.0"/>
+                  <Insets right="200.0" top="150.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" promptText="New password">
+            <TextField promptText="New password" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="200.0" top="180.0"/>
+                  <Insets right="200.0" top="180.0" />
                </GridPane.margin>
             </TextField>
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" text="Password Changed confirmation">
+            <Label text="Password Changed confirmation" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="220.0"/>
+                  <Insets top="220.0" />
                </GridPane.margin>
             </Label>
-            <Button GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" maxHeight="39.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Change">
+            <Button maxHeight="39.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Change" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="180.0"/>
+                  <Insets top="180.0" />
                </GridPane.margin>
             </Button>
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" text="Email settings:">
-               <font>
-                  <Font name="System Bold" size="24.0"/>
-               </font>
+            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets top="250.0"/>
-               </GridPane.margin>
-            </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" promptText="Host">
-               <GridPane.margin>
-                  <Insets right="200.0" top="300.0"/>
-               </GridPane.margin>
-            </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" promptText="Email address">
-               <GridPane.margin>
-                  <Insets right="200.0" top="330.0"/>
-               </GridPane.margin>
-            </TextField>
-            <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" promptText="Email password">
-               <GridPane.margin>
-                  <Insets right="200.0" top="360.0"/>
-               </GridPane.margin>
-            </PasswordField>
-            <Button GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" maxHeight="39.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Change">
-               <GridPane.margin>
-                  <Insets top="360.0"/>
-               </GridPane.margin>
-            </Button>
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" text="Email Changed confirmation">
-               <GridPane.margin>
-                  <Insets top="400.0"/>
-               </GridPane.margin>
-            </Label>
-            <Button GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="Save">
-               <GridPane.margin>
-                  <Insets bottom="20.0"/>
+                  <Insets bottom="20.0" />
                </GridPane.margin></Button>
-            <Button GridPane.halignment="RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toGeneral" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true">
+            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toGeneral" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
                <cursor>
-                  <Cursor fx:constant="HAND"/>
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <graphic>
-                  <ImageView fitHeight="42.0" fitWidth="64.0" fx:id="returnButton" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="returnButton" fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/BackButton.png"/>
+                        <Image url="@../images/BackButton.png" />
                      </image>
                   </ImageView>
                </graphic>
                <opaqueInsets>
-                  <Insets/>
+                  <Insets />
                </opaqueInsets>
             </Button>
          </children>
       </GridPane>
       <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toGeneral" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true">
          <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
          </cursor>
          <opaqueInsets>
-            <Insets/>
+            <Insets />
          </opaqueInsets>
       </Button>
    </children>

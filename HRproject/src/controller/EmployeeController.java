@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -27,13 +28,14 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 
 import application.CacheData;
+import application.Main;
 import application.Navigator;
 import model.Employee;
 
 
 public class EmployeeController implements Initializable {
 
-	
+	@FXML private Rectangle balk;
 	@FXML private TableView<Employee> tableView;
 	
 	@FXML private TextField searchBar;
@@ -97,6 +99,7 @@ public class EmployeeController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		balk.setFill(Color.valueOf(Main.color));
 		
 		ObservableList<Employee> emps = FXCollections.observableArrayList(CacheData.employees);
 		
