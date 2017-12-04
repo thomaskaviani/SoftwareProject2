@@ -28,8 +28,16 @@ public class User {
 	private String function;
 	
 	@Column
+	private String email;
+	
+	@Column
 	private int arch;
-
+	
+	@Column
+	private byte[] imagefile;
+	
+	@Column
+	private String color;
 	
 	
 	public User() {
@@ -42,6 +50,7 @@ public class User {
 		this.password = Encryption.sha256(password);
 		this.function = function;
 		this.arch = 0;
+		this.color = "81d8d0";
 	}
 	
 	
@@ -77,8 +86,31 @@ public class User {
 	public void setArch(int arch) {
 		this.arch = arch;
 	}
+	public byte[] getImagefile() {
+		return imagefile;
+	}
+	public void setImagefile(byte[] imagefile) {
+		this.imagefile = imagefile;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	
+	
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	
+
 	@Override 
 	public String toString() {
 		return "\n" + getUsername() + " " + getPassword() + " " + getFunction();
