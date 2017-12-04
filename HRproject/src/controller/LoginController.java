@@ -50,9 +50,10 @@ public class LoginController implements Initializable {
 				userLogged = x;
 				Main.color = x.getColor();
 				
-				Navigator.loadVista(Navigator.HomeView);
 				Navigator.loadUserVista(Navigator.UserBoxView);
 				Navigator.loadMenuVista(Navigator.MenuBoxView);
+				Navigator.loadVista(Navigator.HomeView);
+				
 				
 			} else {
 				errorLabel.setTextFill(Color.FIREBRICK);
@@ -84,9 +85,10 @@ public class LoginController implements Initializable {
 						userLogged = x;
 						Main.color = x.getColor();
 						
-						Navigator.loadVista(Navigator.HomeView);
 						Navigator.loadUserVista(Navigator.UserBoxView);
 						Navigator.loadMenuVista(Navigator.MenuBoxView);
+						Navigator.loadVista(Navigator.HomeView);
+						
 						
 					} else {
 						errorLabel.setTextFill(Color.FIREBRICK);

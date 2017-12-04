@@ -30,22 +30,30 @@ public class UserBoxController implements Initializable {
         
 		balk.setStyle("-fx-background-color: #" + Main.color + ";");
 		
+		
+		//userimage opvragen en tijdelijk opslaan "userimage_username.jpg"
 		byte[] imagedata = LoginController.userLogged.getImagefile();
 		
 		String filepath = "src/images/userimage_" + LoginController.userLogged.getUsername() + ".jpg";
 		
+		File file = new File(filepath);
+		file.getParentFile().mkdirs();
 		try {
-			FileOutputStream fos = new FileOutputStream(filepath);
+		file.createNewFile();
+
+		
+			FileOutputStream fos = new FileOutputStream(file);
 			fos.write(imagedata);
 			fos.close();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		File file = new File(filepath);
-		
         Image image = new Image(file.toURI().toString());
         imgView.setImage(image);
+        
+        
+        
         
         String str = user;
         String strUppercase = str.substring(0, 1).toUpperCase() + str.substring(1);
