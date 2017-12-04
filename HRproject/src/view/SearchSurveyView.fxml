@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchTrainingController">
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchSurveyController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
@@ -26,8 +26,9 @@
         </rowConstraints>
          <children>
          
-            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label alignment="CENTER" contentDisplay="TOP" text="Search Training" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         
+            <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="f5d6a6" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="TOP" text="Search Survey" textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -46,17 +47,16 @@
             
             
             
-            <TextField fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="1025.0" promptText="Search a training" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="1025.0" promptText="Search a survey" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </TextField>
             
             
-            <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickTrain" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <TableView fx:id="surveyTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
               <columns>
-                <TableColumn fx:id="trainingNameCol" prefWidth="177.0" text="Training" />
-                <TableColumn fx:id="trainingDescCol" prefWidth="584.3333740234375" text="Description" />
+                <TableColumn fx:id="surveyNameCol" prefWidth="883.0" text="Surveyname" />
               </columns>
                <GridPane.margin>
                   <Insets top="20.0" />
@@ -64,12 +64,12 @@
             </TableView>
             
             
-            <Button mnemonicParsing="false" onAction="#toTrainingDetail" prefHeight="43.0" prefWidth="121.0" style="-fx-background-color: #47525E;" text="More Info" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#toSurveyDetail" prefHeight="43.0" prefWidth="195.0" style="-fx-background-color: #47525E;" text="View Questions" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="-120.0" />
+                  <Insets />
                </GridPane.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -83,12 +83,12 @@
                   <Insets bottom="4.0" right="4.0" />
                </GridPane.margin>
             </Label>
-            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toTraining" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
+            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toHome" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <graphic>
-                  <ImageView fx:id="returnButton1" fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/BackButton.png" />
                      </image>
@@ -98,25 +98,6 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-
-            <Button mnemonicParsing="false" onAction="#toSurvey" prefHeight="43.0" prefWidth="155.0" style="-fx-background-color: #47525E;" text="Add Survey" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="500.0" />
-               </GridPane.margin>
-            </Button>
-
-            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-
          </children>
       </GridPane>
    </children>
