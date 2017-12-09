@@ -55,7 +55,7 @@ public class ShowCertificateController implements Initializable {
 		    	   x.printStackTrace();
 		    }
 		    
-		  //Temp file openen
+		    //Temp file openen
 		    File file = new File(path);
 		    Desktop desktop = Desktop.getDesktop();
 

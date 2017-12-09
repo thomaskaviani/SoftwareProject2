@@ -14,9 +14,11 @@
    <children>
       <GridPane prefHeight="448.0" prefWidth="200.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="9.0" prefWidth="14.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="186.0" />
         </columnConstraints>
         <rowConstraints>
+            <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -26,62 +28,114 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#toHome" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Home" textFill="WHITE">
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#toHome" prefHeight="39.0" prefWidth="145.0" style="-fx-background-color: lightgrey;" text="Home" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets right="20.0" />
                </GridPane.margin>
                <cursor>
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
+               <padding>
+                  <Insets left="-55.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toTrainings" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Trainings" textFill="WHITE" GridPane.rowIndex="2">
+            <Button fx:id="trainingButton" mnemonicParsing="false" onAction="#toTrainings" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: lightgrey;" text="Trainings" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets right="20.0" />
                </GridPane.margin>
                <cursor>
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
+               <padding>
+                  <Insets left="-50.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toEmployees" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Employees" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="employeeButton" mnemonicParsing="false" onAction="#toEmployees" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: lightgrey;" text="Employees" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets right="20.0" />
                </GridPane.margin>
                <cursor>
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
+               <padding>
+                  <Insets left="-40.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toTrainingRequests" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Requests" textFill="WHITE" GridPane.rowIndex="3">
+            <Button fx:id="requestButton" mnemonicParsing="false" onAction="#toTrainingRequests" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: lightgrey;" text="Requests" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets right="20.0" />
                </GridPane.margin>
                <cursor>
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
+               <padding>
+                  <Insets left="-50.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toSurvey" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Surveys" textFill="WHITE" GridPane.rowIndex="4">
+            <Button fx:id="surveyButton" mnemonicParsing="false" onAction="#toSurvey" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: lightgrey;" text="Surveys" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets right="20.0" />
                </GridPane.margin>
                <cursor>
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
+               <padding>
+                  <Insets left="-60.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: #47525E;" text="Books" textFill="WHITE" GridPane.rowIndex="5">
+            <Button fx:id="bookButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: lightgrey;" text="Books" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets right="20.0" />
                </GridPane.margin>
                <cursor>
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
+               <padding>
+                  <Insets left="-75.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#toSettings" prefHeight="39.0" prefWidth="394.0" style="-fx-background-color: #47525E;" text="Settings" textFill="WHITE" GridPane.rowIndex="6">
+            <Button fx:id="settingButton" mnemonicParsing="false" onAction="#toSettings" prefHeight="39.0" prefWidth="394.0" style="-fx-background-color: lightgrey;" text="Settings" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets right="20.0" />
                </GridPane.margin>
                <cursor>
 				   <Cursor fx:constant="HAND" />
 			   </cursor>
+               <padding>
+                  <Insets left="-60.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
+            <Pane fx:id="activePane1" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <Pane fx:id="activePaneEmployees" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+            <Pane fx:id="activePaneTraining" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
+            <Pane fx:id="activePaneRequest" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" />
+            <Pane fx:id="activePaneSurvey" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" />
+            <Pane fx:id="activePaneBook" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" />
+            <Pane fx:id="activePaneHome" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <Pane fx:id="activePaneSettings" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7" />
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
          </children>
       </GridPane>
    </children>
