@@ -56,7 +56,8 @@
             
             <TableView fx:id="surveyTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
               <columns>
-                <TableColumn fx:id="surveyNameCol" prefWidth="883.0" text="Surveyname" />
+                <TableColumn fx:id="surveyNameCol" prefWidth="783.0" text="Surveyname" />
+                <TableColumn fx:id="isClosedCol" prefWidth="100.0" text="IsClosed" />
               </columns>
                <GridPane.margin>
                   <Insets top="20.0" />
@@ -98,11 +99,22 @@
                   <Insets />
                </opaqueInsets>
             </Button>
+
             <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+
+            <Button mnemonicParsing="false" onAction="#closeSurvey" prefHeight="43.0" prefWidth="195.0" style="-fx-background-color: #47525E;" text="Close Survey" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+
          </children>
       </GridPane>
    </children>

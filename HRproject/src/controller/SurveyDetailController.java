@@ -47,6 +47,13 @@ public class SurveyDetailController implements Initializable {
 		Navigator.loadVista(Navigator.QuestionResultView);		
 			
 	}
+	@FXML protected void addQuestion (ActionEvent e) {
+		
+	
+		AddQuestionSurveyController.survey=survey;
+		Navigator.loadVista(Navigator.AddQuestionSurveyView);		
+			
+	}
 	
 	@FXML protected void editQuestion(ActionEvent e) {
 			
