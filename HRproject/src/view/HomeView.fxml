@@ -102,47 +102,53 @@
                   <Insets bottom="20.0" left="-50.0" />
                </GridPane.margin>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <image>
                   <Image url="@../images/homeEmployees.png" />
                </image>
                <GridPane.margin>
-                  <Insets left="50.0" />
+                  <Insets bottom="100.0" left="50.0" />
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <image>
                   <Image url="@../images/homeTrainings.png" />
                </image>
+               <GridPane.margin>
+                  <Insets bottom="100.0" />
+               </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <image>
                   <Image url="@../images/homeCertificates.png" />
                </image>
                <GridPane.margin>
-                  <Insets right="50.0" />
+                  <Insets bottom="100.0" right="50.0" />
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <image>
                   <Image url="@../images/homeSettings.png" />
                </image>
                <GridPane.margin>
-                  <Insets right="50.0" />
+                  <Insets bottom="100.0" right="50.0" />
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <image>
                   <Image url="@../images/homeSurveys.png" />
                </image>
                <GridPane.margin>
-                  <Insets left="50.0" />
+                  <Insets bottom="100.0" left="50.0" />
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <image>
                   <Image url="@../images/homeBooks.png" />
                </image>
+               <GridPane.margin>
+                  <Insets bottom="100.0" />
+               </GridPane.margin>
             </ImageView>
          </children>
       </GridPane>
