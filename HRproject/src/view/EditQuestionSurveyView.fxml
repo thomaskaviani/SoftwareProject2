@@ -61,14 +61,22 @@
             <ComboBox fx:id="questionType" prefWidth="150.0" promptText="Choose" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button mnemonicParsing="false" onAction="#saveEdit" text="Save Changes" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="250.0" top="100.0" />
+                  <Insets left="500.0" top="100.0" />
                </GridPane.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#cancelEdit" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="250.0" top="100.0" />
+                  <Insets right="500.0" top="100.0" />
                </GridPane.margin>
             </Button>
+            <Label fx:id="errorLabel" prefHeight="23.0" prefWidth="218.0" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="100.0" />
+               </GridPane.margin>
+            </Label>
        
          </children>
       </GridPane>

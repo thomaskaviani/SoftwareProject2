@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -25,6 +26,7 @@ public class EditQuestionSurveyController implements Initializable {
 		
 	@FXML private TextArea question;
 	@FXML private Rectangle balk;
+	@FXML private Label errorLabel;
 	
 	@FXML  private ComboBox<String> questionType; 	
 	@FXML
@@ -37,14 +39,22 @@ public class EditQuestionSurveyController implements Initializable {
 		else if(questionType.getValue()=="5-star rating")
 			myquestionType=2;
 		
+		 if(question.getText().trim().equals(""))
+		 {
+			 errorLabel.setText("Question cannot be blank");
+		 }
+		 else
+		 {
+			 Survey_q surveyQ=new Survey_q(sQuestions.getQuestionId(),sQuestions.getSurveyId(),myquestionType, myquestion,sQuestions.getArch());
+				
+				Survey_qDAO sqdao = new Survey_qDAO();
+				sqdao.update(surveyQ);
+				SurveyDetailController.sQuestions=surveyQ;
+				SurveyDetailController.survey=survey;
+				Navigator.loadVista(Navigator.SurveyDetailView);		
+		 }
 		
-			Survey_q surveyQ=new Survey_q(sQuestions.getQuestionId(),sQuestions.getSurveyId(),myquestionType, myquestion,sQuestions.getArch());
-		
-		Survey_qDAO sqdao = new Survey_qDAO();
-		sqdao.update(surveyQ);
-		SurveyDetailController.sQuestions=surveyQ;
-		SurveyDetailController.survey=survey;
-		Navigator.loadVista(Navigator.SurveyDetailView);		
+			
 		
 		
 	}
