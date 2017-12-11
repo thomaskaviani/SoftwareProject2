@@ -30,15 +30,14 @@ public class SearchTrainingController implements Initializable {
 	
 	@FXML private Rectangle balk;
 	
-	@FXML private TableView<Training> tableView;
-	
 	@FXML private TextField searchBar;
 	@FXML private Label errorLabel;
 	
+	@FXML private TableView<Training> tableView;
 	@FXML private TableColumn<Training, String> trainingNameCol;
-	
 	@FXML private TableColumn<Training, String> trainingDescCol;
 
+	
 	@FXML protected void toTrainingDetail(ActionEvent e) {
 		
 		Training t = tableView.getSelectionModel().getSelectedItem();
@@ -71,6 +70,7 @@ public class SearchTrainingController implements Initializable {
 	}
 	
 	@FXML protected void toSurvey(ActionEvent e) {
+		
 		SurveyDAO sdao = new SurveyDAO();
 		Training t = tableView.getSelectionModel().getSelectedItem();
 		
@@ -78,7 +78,7 @@ public class SearchTrainingController implements Initializable {
 			
 			if(sdao.getByTraining(t.getTrainingId())!=null)
 			{
-				errorLabel.setText("The survey for training: " + t.getTrainingId() + " already exists");
+				errorLabel.setText("The survey for this training already exists");
 				errorLabel.setTextFill(Color.FIREBRICK);
 			}
 			else
@@ -110,6 +110,7 @@ public class SearchTrainingController implements Initializable {
 		
 		errorLabel.setText("");
 		balk.setFill(Color.valueOf(Main.color));
+		
 		
 		ObservableList<Training> trainings = FXCollections.observableArrayList(CacheData.trainings);
 		

@@ -8,34 +8,33 @@ import org.hibernate.criterion.Restrictions;
 
 
 import model.Survey;
-import model.Training;
 
 
 
 public class SurveyDAO {
 
-public void insert(Survey s) {
-        
+	public void insert(Survey s) {
+	        
+			Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+	
+	        session.beginTransaction();
+	        session.save(s);
+	        session.getTransaction().commit();
+	        session.close();
+	        
+	        
+	    }
+	public void setClosed(Survey s) {
+		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        session.beginTransaction();
-        session.save(s);
-        session.getTransaction().commit();
-        session.close();
-        
-        
-    }
-public void setClosed(Survey s) {
-	
-	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-	
-	s.setIsClosed(1);
-    session.beginTransaction();
-    session.update(s);
-    session.getTransaction().commit();
-    session.close();
-    
-}
+		
+		s.setIsClosed(1);
+	    session.beginTransaction();
+	    session.update(s);
+	    session.getTransaction().commit();
+	    session.close();
+	    
+	}
 @SuppressWarnings({ "deprecation", "unchecked" })
 	public Survey  getByTraining(Integer trainingId) {
 		
@@ -57,7 +56,7 @@ public void setClosed(Survey s) {
 		
 	}
 @SuppressWarnings("unchecked")
-public List<Survey> getAll() {
+	public List<Survey> getAll() {
 	
 	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 	session.beginTransaction();
