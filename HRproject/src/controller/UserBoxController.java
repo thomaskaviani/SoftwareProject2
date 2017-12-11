@@ -55,7 +55,7 @@ public class UserBoxController implements Initializable {
         
         
         
-        String str = user;
+        String str = LoginController.userLogged.getUsername();
         String strUppercase = str.substring(0, 1).toUpperCase() + str.substring(1);
         username.setText(strUppercase);
         

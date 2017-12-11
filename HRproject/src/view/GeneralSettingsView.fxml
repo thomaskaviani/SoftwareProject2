@@ -40,10 +40,13 @@
 	                 	<Cursor fx:constant="HAND" />
 	                 </cursor>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <image>
                   <Image url="@../images/style2.png" />
                </image>
+               <GridPane.margin>
+                  <Insets bottom="250.0" />
+               </GridPane.margin>
             </ImageView>
             <Button mnemonicParsing="false" onAction="#toAccountSettings" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Account" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
@@ -56,12 +59,12 @@
                   <Insets left="50.0" />
                </GridPane.margin>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <image>
                   <Image url="@../images/Account.png" />
                </image>
                <GridPane.margin>
-                  <Insets left="50.0" />
+                  <Insets bottom="250.0" left="50.0" />
                </GridPane.margin>
             </ImageView>
             <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Extra's" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
@@ -75,12 +78,12 @@
                   <Insets right="50.0" />
                </GridPane.margin>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <image>
                   <Image url="@../images/extras.png" />
                </image>
                <GridPane.margin>
-                  <Insets right="50.0" />
+                  <Insets bottom="250.0" right="50.0" />
                </GridPane.margin>
             </ImageView>
          </children>

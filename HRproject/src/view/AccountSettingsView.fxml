@@ -21,7 +21,6 @@
         <rowConstraints>
           <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="769.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="143.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
@@ -33,12 +32,12 @@
                   <Insets left="30.0" />
                </GridPane.margin>
             </Label>
-            <TextField promptText="New account name" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <TextField fx:id="newName" promptText="New account name" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets right="200.0" top="50.0" />
                </GridPane.margin>
             </TextField>
-            <Button maxHeight="39.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Change" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button maxHeight="39.0" mnemonicParsing="false" onAction="#changeName" prefHeight="39.0" prefWidth="150.0" text="Change" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="50.0" />
                </GridPane.margin></Button>
@@ -47,7 +46,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label text="Change password:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Label text="Change password:" translateY="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -55,30 +54,29 @@
                   <Insets top="100.0" />
                </GridPane.margin>
             </Label>
-            <TextField promptText="Old password" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <PasswordField fx:id="oldPass" promptText="Old password" translateY="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets right="200.0" top="150.0" />
                </GridPane.margin>
-            </TextField>
-            <TextField promptText="New password" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            </PasswordField>
+            <PasswordField fx:id="newPass" promptText="New password" translateY="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="200.0" top="180.0" />
+                  <Insets right="200.0" top="200.0" />
                </GridPane.margin>
-            </TextField>
-            <Label text="Password Changed confirmation" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            </PasswordField>
+            <Label fx:id="errorLabel2" translateY="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="220.0" />
+                  <Insets top="300.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Label>
-            <Button maxHeight="39.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" text="Change" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button maxHeight="39.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="39.0" prefWidth="150.0" text="Change" translateY="100.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="180.0" />
+                  <Insets top="250.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-               <GridPane.margin>
-                  <Insets bottom="20.0" />
-               </GridPane.margin></Button>
             <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toGeneral" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true" GridPane.halignment="RIGHT">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -94,6 +92,19 @@
                   <Insets />
                </opaqueInsets>
             </Button>
+            <PasswordField fx:id="confirmPass" promptText="Confirm password" translateY="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="200.0" top="250.0" />
+               </GridPane.margin>
+            </PasswordField>
+            <Label fx:id="errorLabel1" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="100.0" />
+               </GridPane.margin>
+            </Label>
          </children>
       </GridPane>
       <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toGeneral" style="-fx-background-color: none; -fx-opacity: inherit; -fx-border: inherit;" wrapText="true">
