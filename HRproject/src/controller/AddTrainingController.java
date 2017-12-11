@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -21,14 +22,33 @@ public class AddTrainingController implements Initializable {
 	@FXML private Rectangle balk;
 	@FXML private TextArea trainingDesc;
 	@FXML private TextField trainingName;
+	@FXML private Label errorLabel;
 
 	@FXML protected void saveTraining(ActionEvent e) {
 		
-		Training train = new Training(trainingName.getText(),trainingDesc.getText());
+		
 		TrainingDAO tdao = new TrainingDAO();
-		tdao.insert(train);
-		CacheData.setTrainings();
-		Navigator.loadVista(Navigator.SearchTrainingView);
+		Training temp = tdao.getByName(trainingName.getText().trim());
+		
+		if (trainingName.getText().trim().isEmpty() || trainingDesc.getText().trim().isEmpty()) {
+			errorLabel.setTextFill(Color.FIREBRICK);
+			errorLabel.setText("Training name or description can not be empty");
+		} else if (trainingName.getText().trim().length() < 6) {
+			errorLabel.setTextFill(Color.FIREBRICK);
+			errorLabel.setText("Training name needs to be longer than 5 characters");
+		} else if (trainingDesc.getText().trim().length() < 16) {
+			errorLabel.setTextFill(Color.FIREBRICK);
+			errorLabel.setText("Training description needs to be longer than 15 characters");
+		} else if (temp != null){
+			errorLabel.setTextFill(Color.FIREBRICK);
+			errorLabel.setText("Training already exists!");
+		} else {
+			Training train = new Training(trainingName.getText(),trainingDesc.getText());
+			tdao.insert(train);
+			CacheData.setTrainings();
+			Navigator.loadVista(Navigator.SearchTrainingView);
+		}
+		
 				
 	}
 	

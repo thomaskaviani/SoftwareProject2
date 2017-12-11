@@ -6,11 +6,15 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -24,7 +28,10 @@ public class SearchSurveyController implements Initializable{
 
 	public static Survey survey;
 	
+	
+	@FXML private TextField searchBar;
 	@FXML private Rectangle balk;
+	@FXML private Label errorLabel;
 	
 	@FXML
 	private TableView<Survey> surveyTable;
@@ -36,8 +43,14 @@ public class SearchSurveyController implements Initializable{
 	protected void toSurveyDetail(ActionEvent e) {
 		
 		Survey s = surveyTable.getSelectionModel().getSelectedItem();
-		SurveyDetailController.survey=s;
-		Navigator.loadVista(Navigator.SurveyDetailView);
+		
+		if (s != null) {
+			SurveyDetailController.survey=s;
+			Navigator.loadVista(Navigator.SurveyDetailView);
+		} else {
+			errorLabel.setText("No survey selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
 				
 				
 	}	
@@ -53,6 +66,7 @@ public class SearchSurveyController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		errorLabel.setText("");
 		balk.setFill(Color.valueOf(Main.color));
 		
 		SurveyDAO sdao = new SurveyDAO();
@@ -61,9 +75,41 @@ public class SearchSurveyController implements Initializable{
 			
 			ObservableList<Survey> surveys = FXCollections.observableArrayList(sdao.getAll());
 			
-			surveyTable.setItems(surveys);
+			//surveyTable.setItems(surveys);
 			surveyNameCol.setCellValueFactory(new PropertyValueFactory<Survey, String>("surveyName"));
 		
+			
+			// 1. Wrap the ObservableList in a FilteredList (initially display all data).
+			FilteredList<Survey> filteredTrainings = new FilteredList<>(surveys, p -> true);
+					
+			// 2. Set the filter Predicate whenever the filter changes.
+			searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+				filteredTrainings.setPredicate(survey -> {
+					// If filter text is empty, display all persons.
+					if (newValue == null || newValue.isEmpty()) {
+						return true;
+					}
+							
+					// Compare first name and last name of every employee with filter text.
+					String lowerCaseFilter = newValue.toLowerCase();
+							
+					if (survey.getSurveyName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+						return true; // Filter matches training name.
+					}
+					
+					return false; // Does not match.
+				});
+			});
+					
+			// 3. Wrap the FilteredList in a SortedList. 
+			SortedList<Survey> sortedSurveys = new SortedList<>(filteredTrainings);
+							
+			// 4. Bind the SortedList comparator to the TableView comparator.
+			// 	  Otherwise, sorting the TableView would have no effect.
+			sortedSurveys.comparatorProperty().bind(surveyTable.comparatorProperty());
+							
+			// 5. Add sorted (and filtered) data to the table.
+			surveyTable.setItems(sortedSurveys);
 		}
 	}
 }
