@@ -64,17 +64,23 @@ public class SearchSurveyController implements Initializable{
 			
 	
 }
-@FXML
-protected void closeSurvey(ActionEvent e) {
+	
+	@FXML protected void closeSurvey(ActionEvent e) {
 
-
-	SurveyDAO sdao = new SurveyDAO();
-	Survey s = surveyTable.getSelectionModel().getSelectedItem();
-	sdao.setClosed(s);
-Navigator.loadVista(Navigator.SearchSurveyView);
+		
+		Survey s = surveyTable.getSelectionModel().getSelectedItem();
+		
+		if ( s != null) {
+			SurveyDAO sdao = new SurveyDAO();
+			sdao.setClosed(s);
+			Navigator.loadVista(Navigator.SearchSurveyView);
+		} else {
+			errorLabel.setText("No survey selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
 		
 
-}
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -88,18 +94,18 @@ Navigator.loadVista(Navigator.SearchSurveyView);
 			
 			ObservableList<Survey> surveys = FXCollections.observableArrayList(sdao.getAll());
 			
-			//surveyTable.setItems(surveys);
+			
 			surveyNameCol.setCellValueFactory(new PropertyValueFactory<Survey, String>("surveyName"));
-      isClosedCol.setCellValueFactory(new PropertyValueFactory<Survey, String>("isClosed"));
+			isClosedCol.setCellValueFactory(new PropertyValueFactory<Survey, String>("isClosed"));
       
 		
 			
 			// 1. Wrap the ObservableList in a FilteredList (initially display all data).
-			FilteredList<Survey> filteredTrainings = new FilteredList<>(surveys, p -> true);
+			FilteredList<Survey> filteredSurveys = new FilteredList<>(surveys, p -> true);
 					
 			// 2. Set the filter Predicate whenever the filter changes.
 			searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
-				filteredTrainings.setPredicate(survey -> {
+				filteredSurveys.setPredicate(survey -> {
 					// If filter text is empty, display all persons.
 					if (newValue == null || newValue.isEmpty()) {
 						return true;
@@ -117,7 +123,7 @@ Navigator.loadVista(Navigator.SearchSurveyView);
 			});
 					
 			// 3. Wrap the FilteredList in a SortedList. 
-			SortedList<Survey> sortedSurveys = new SortedList<>(filteredTrainings);
+			SortedList<Survey> sortedSurveys = new SortedList<>(filteredSurveys);
 							
 			// 4. Bind the SortedList comparator to the TableView comparator.
 			// 	  Otherwise, sorting the TableView would have no effect.
