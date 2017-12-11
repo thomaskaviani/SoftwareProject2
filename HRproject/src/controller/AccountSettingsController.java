@@ -15,12 +15,14 @@ public class AccountSettingsController implements Initializable{
 
 	@FXML private Rectangle balk;
 	
-	@FXML
-	protected void toGeneral(ActionEvent e) {
+	
+	
+	@FXML protected void toGeneral(ActionEvent e) {
 		
 		Navigator.loadVista(Navigator.GeneralSettingsView);
 	}
 
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		balk.setFill(Color.valueOf(Main.color));
