@@ -36,37 +36,44 @@ public class MenuBoxController implements Initializable {
 	@FXML protected void toHome(ActionEvent e) {
 		
 		setHome();
+		resetVars();
 		Navigator.loadVista(Navigator.HomeView);
 	}
     
     @FXML protected void toTrainings(ActionEvent e) {
     	
 		setTraining();
+		resetVars();
 		Navigator.loadVista(Navigator.TrainingView);		
 	}
 	
 	@FXML protected void toEmployees(ActionEvent e) {
 		
 		setEmps();
+		resetVars();
 		Navigator.loadVista(Navigator.EmployeeView);			
 	}
 	
 	@FXML protected void toSettings(ActionEvent e) {
 		
 		setSettings();
+		resetVars();
 		Navigator.loadVista(Navigator.GeneralSettingsView);			
 	}
 
 	@FXML protected void toSurvey(ActionEvent e) {
 		
 		setSurvey();
+		resetVars();
 		Navigator.loadVista(Navigator.SearchSurveyView);			
 	}
 	
 	@FXML protected void toTrainingRequests(ActionEvent e) {
 		
 		setRequest();
+		resetVars();
 		Navigator.loadVista(Navigator.TrainingRequestView);
+		
 	}
 
 	@Override
@@ -94,7 +101,6 @@ public class MenuBoxController implements Initializable {
 		bookButton.setTextFill(Color.BLACK);
 		
 	}
-
 	public void setEmps() { 
 
 		activePaneHome.setStyle("-fx-background-color: lightgrey");
@@ -133,7 +139,6 @@ public class MenuBoxController implements Initializable {
 		bookButton.setTextFill(Color.BLACK);
 		
 	}
-
 	public void setSettings() {
 
 		activePaneHome.setStyle("-fx-background-color: lightgrey");
@@ -190,5 +195,10 @@ public class MenuBoxController implements Initializable {
 		surveyButton.setTextFill(Color.BLACK);
 		bookButton.setTextFill(Color.BLACK);
 		
+	}
+
+	public void resetVars() {
+		TrainingDetailController.training = null;
+		EmployeeDetailController.employee = null;
 	}
 }

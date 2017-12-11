@@ -61,7 +61,7 @@
                   <Font size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets />
+                  <Insets right="-240.0" />
                </GridPane.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -97,6 +97,9 @@
                <font>
                   <Font size="18.0" />
                </font>
+               <GridPane.margin>
+                  <Insets right="-120.0" />
+               </GridPane.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#addQuestion" prefHeight="43.0" prefWidth="195.0" style="-fx-background-color: #47525E;" text="Add Question" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <cursor>

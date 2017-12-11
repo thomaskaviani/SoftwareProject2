@@ -57,8 +57,20 @@ public class SearchTrainingController implements Initializable {
 		Navigator.loadVista(Navigator.TrainingView);
 	}
 	
-	@FXML
-	protected void toSurvey(ActionEvent e) {
+	@FXML protected void toAddSession(ActionEvent e) {
+		
+		Training training = tableView.getSelectionModel().getSelectedItem();
+		
+		if (training != null) {
+			AddSessionController.training = training;
+			Navigator.loadVista(Navigator.AddSessionView);
+		} else {
+			errorLabel.setText("No training selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
+	}
+	
+	@FXML protected void toSurvey(ActionEvent e) {
 		SurveyDAO sdao = new SurveyDAO();
 		Training t = tableView.getSelectionModel().getSelectedItem();
 		
@@ -66,24 +78,22 @@ public class SearchTrainingController implements Initializable {
 			
 			if(sdao.getByTraining(t.getTrainingId())!=null)
 			{
-				//bestaat het reeds
-				System.out.println("De survey van training: "+t.getTrainingId() + " bestaat al");
-				
+				errorLabel.setText("The survey for training: " + t.getTrainingId() + " already exists");
+				errorLabel.setTextFill(Color.FIREBRICK);
 			}
 			else
 			{
 				String surveyNaam = t.getName() + " Survey";
 				Survey s = new Survey(t.getTrainingId(),surveyNaam);
-				s.setSurveyId(1);
 				
-				 sdao.insert(s);
-				 s=sdao.getByTraining(t.getTrainingId());
-				 AddQuestionSurveyController.training = t;  
-				 AddQuestionSurveyController.survey=s;
-					System.out.println("nieuwe vraag");
+				sdao.insert(s);
+				s=sdao.getByTraining(t.getTrainingId());
+				AddQuestionSurveyController.training = t;  
+				AddQuestionSurveyController.survey=s;
 				 
 				Navigator.loadVista(Navigator.AddQuestionSurveyView);
 			}
+			
 		} else {
 			errorLabel.setText("No training selected");
 			errorLabel.setTextFill(Color.FIREBRICK);

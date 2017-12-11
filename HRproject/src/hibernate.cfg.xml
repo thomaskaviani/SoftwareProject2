@@ -5,7 +5,7 @@
 <hibernate-configuration>
 
     <session-factory>
-
+    
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://dt5.ehb.be/SP2GR3_HRAPP</property>
