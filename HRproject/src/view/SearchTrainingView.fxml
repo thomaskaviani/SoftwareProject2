@@ -111,10 +111,13 @@
                </GridPane.margin>
             </Button>
 
-            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
             </Label>
             <Button mnemonicParsing="false" onAction="#toAddSession" prefHeight="43.0" prefWidth="155.0" style="-fx-background-color: #47525E;" text="Add Session" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <cursor>
