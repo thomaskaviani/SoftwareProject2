@@ -45,7 +45,8 @@ public class AccountSettingsController implements Initializable{
 
 	@FXML
 	protected void changeUsername(ActionEvent e) {
-		User x = userManager.getByUsername(usernameField.getText());
+		User x = userManager.getByUsername(userNameField.getText());
+		x.setUsername(userNameField.getText());
 		userManager.update(x);
 	}
 	

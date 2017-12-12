@@ -28,15 +28,15 @@ public class GeneralSettingsController implements Initializable{
 		Navigator.loadVista(Navigator.StyleOptionsView);
 	}
 	
-	/*
+	
 	
 	@FXML
-	protected void toStyleOptions(ActionEvent e) {
+	protected void toExtras(ActionEvent e) {
 			
 			Navigator.loadVista(Navigator.ExtrasView);
 	}
 	
-	*/
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

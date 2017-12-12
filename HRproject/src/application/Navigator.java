@@ -51,6 +51,8 @@ public class Navigator {
     public static String AddCertificateView = "/view/AddCertificateView.fxml";
     public static String ShowCertificateView = "/view/ShowCertificateView.fxml";
     public static String TrainingRequestView = "/view/TrainingRequestView.fxml";
+    public static  String ExtrasView = "/view/ExtrasView.fxml";
+
 
     
     
