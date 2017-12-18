@@ -32,15 +32,18 @@ public class HomeController implements Initializable {
 	}
 	
 	@FXML
-	protected void toSettings(ActionEvent e) {
+	protected void toBooks(ActionEvent e) {
 		
-		Navigator.loadVista(Navigator.GeneralSettingsView);
+		Navigator.loadVista(Navigator.BookView);
 				
 		
 	}
 	
 	@FXML
-	protected void toBooks(ActionEvent e) {
+	protected void toSettings(ActionEvent e) {
+		
+		Navigator.loadVista(Navigator.GeneralSettingsView);
+				
 		
 	}
 	
