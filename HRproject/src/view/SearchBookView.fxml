@@ -55,8 +55,9 @@
             
             <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickTrain" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
               <columns>
-                <TableColumn fx:id="bookTitleCol" prefWidth="418.0" text="Title" />
-                <TableColumn fx:id="bookAuthorCol" prefWidth="344.0" text="Author(s)" />
+                <TableColumn fx:id="bookTitleCol" prefWidth="377.0" text="Title" />
+                <TableColumn fx:id="bookAuthorCol" prefWidth="412.0" text="Author(s)" />
+                  <TableColumn fx:id="bookPriceCol" prefWidth="94.0" text="Price in €" />
               </columns>
                <GridPane.margin>
                   <Insets top="20.0" />

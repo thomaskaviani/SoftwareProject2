@@ -63,6 +63,7 @@ public class GoogleBooks {
 		// Set query string and filter only Google eBooks.
 		List volumesList = books.volumes().list(query);
 		volumesList.setFilter("full");
+		volumesList.setMaxResults((long)40);
 
 		// Execute the query.
 		Volumes volumes = volumesList.execute();

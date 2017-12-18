@@ -36,6 +36,8 @@ public class SearchBookController implements Initializable {
 	@FXML private TableColumn<Book, String> bookTitleCol;
 	
 	@FXML private TableColumn<Book, String> bookAuthorCol;
+	
+	@FXML private TableColumn<Book, String> bookPriceCol;
 
 	@FXML protected void toBook(ActionEvent e) {
 		Navigator.loadVista(Navigator.BookView);
@@ -50,6 +52,7 @@ public class SearchBookController implements Initializable {
 		
 		bookTitleCol.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
 		bookAuthorCol.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
+		bookPriceCol.setCellValueFactory(new PropertyValueFactory<Book, String>("price"));
 		
 		tableView.setItems(books);
 
