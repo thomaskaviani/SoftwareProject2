@@ -144,16 +144,6 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="306.0" layoutY="377.0" text="email2" textFill="#47525e" translateY="-70.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="306.0" layoutY="414.0" text="email3" textFill="#47525e" translateY="-70.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
                   <Label layoutX="51.0" layoutY="473.0" text="Notes:" textFill="#47525e" translateY="-60.0">
                      <font>
                         <Font size="18.0" />
@@ -197,11 +187,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="202.0" fitWidth="211.0" layoutX="517.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0">
-                     <image>
-                        <Image url="@../images/MalePP.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="empImage" fitHeight="202.0" fitWidth="211.0" layoutX="517.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0" />
                   <Label fx:id="empAddress" layoutX="669.0" layoutY="233.0" text="address" textFill="#47525e" translateX="-50.0" translateY="-30.0">
                      <font>
                         <Font size="18.0" />
