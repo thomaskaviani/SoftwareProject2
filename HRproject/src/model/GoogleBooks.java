@@ -102,8 +102,6 @@ public class GoogleBooks {
 			}
 			boeken.add(b);
 		}
-		System.out.println(volumes.getTotalItems());
-		System.out.println(boeken.size());
 		return boeken;
 	}
 

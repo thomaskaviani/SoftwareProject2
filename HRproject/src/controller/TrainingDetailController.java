@@ -75,7 +75,12 @@ public class TrainingDetailController implements Initializable{
 			AddSessionController.training = training;
 			Navigator.loadVista(Navigator.AddSessionView);
 	}
-
+	
+	@FXML protected void toAddBook(ActionEvent e) {
+		Navigator.loadVista(Navigator.BookView);
+	}
+	
+	
 	//backbutton
 	@FXML protected void toTrainingView(ActionEvent e) {
 			resetVars();

@@ -54,43 +54,25 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label text="Name" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Label text="Name" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets left="110.0" />
                </GridPane.margin></Label>
-            <TextField fx:id="trainingName" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField fx:id="trainingName" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets left="200.0" right="200.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="200.0" right="200.0" />
-               </GridPane.margin></TextField>
             <TextArea fx:id="trainingDesc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="20.0" left="200.0" right="200.0" top="20.0" />
                </GridPane.margin>
             </TextArea>
-            <Label text="Books" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="110.0" />
-               </GridPane.margin>
-            </Label>
             <Label text="Description" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets left="110.0" top="20.0" />
                </GridPane.margin>
             </Label>
-            <MenuButton mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-               <GridPane.margin>
-                  <Insets right="120.0" />
-               </GridPane.margin>
-            </MenuButton>
             <Button mnemonicParsing="false" onAction="#saveTraining" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #47525E;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
