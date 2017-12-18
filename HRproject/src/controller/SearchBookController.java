@@ -39,8 +39,8 @@ public class SearchBookController implements Initializable {
 	
 	@FXML private TableColumn<Book, String> bookPriceCol;
 
-	@FXML protected void toBook(ActionEvent e) {
-		Navigator.loadVista(Navigator.BookView);
+	@FXML protected void toHome(ActionEvent e) {
+		Navigator.loadVista(Navigator.HomeView);
 	}
 
 	@FXML protected void clickTrain(MouseEvent e) {
@@ -62,6 +62,10 @@ public class SearchBookController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		errorLabel.setText("");
 		balk.setFill(Color.valueOf(Main.color));		
+	}
+	
+	@FXML protected void addBook() {
+		
 	}
 
 	

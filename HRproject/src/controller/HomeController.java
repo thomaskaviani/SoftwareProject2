@@ -34,7 +34,7 @@ public class HomeController implements Initializable {
 	@FXML
 	protected void toBooks(ActionEvent e) {
 		
-		Navigator.loadVista(Navigator.BookView);
+		Navigator.loadVista(Navigator.SearchBookView);
 				
 		
 	}

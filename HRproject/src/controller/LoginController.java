@@ -14,6 +14,7 @@ import application.Navigator;
 import dao.UserDAO;
 import model.User;
 import sha256.Encryption;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -103,9 +104,20 @@ public class LoginController implements Initializable {
 		}
 	}
 
+	@FXML
+	public void onEnter(ActionEvent ae){
+		doLogin(ae);
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		Platform.runLater(new Runnable() {
+	        @Override
+	        public void run() {
+	        	usernameField.requestFocus();
+	        }
+	    });
+
 		userLogged = null;
 		balk.setFill(Color.valueOf("b3b7a9"));
 		
