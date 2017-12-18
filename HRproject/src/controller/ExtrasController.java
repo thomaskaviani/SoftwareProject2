@@ -1,123 +1,120 @@
 /*
  * 
- * bron : https://stackoverflow.com/questions/14924770/simple-backup-and-restore-for-mysql-database-from-java
- * 
- * 
- * 
+ * https://stackoverflow.com/questions/14924770/simple-backup-and-restore-for-mysql-database-from-java
  * */
-
 package controller;
 
 
 
 
 import java.io.IOException;
-import java.net.URISyntaxException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
-import java.security.CodeSource;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
 
-import java.io.File;
+import org.hibernate.Session;
 
-import application.Navigator;
+import java.io.FileOutputStream;
+
+import dao.HibernateUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class ExtrasController implements Initializable {
 
+	@SuppressWarnings({ "unchecked", "resource" })
 	@FXML
-	protected void backupDB(ActionEvent e) {
+	protected void backupDB(ActionEvent e) throws IOException{
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		// for every table, have the bean implement Serializable and use the next 4 lines
+		
+		@SuppressWarnings("deprecation")
+		List <model.Employee> tblCollectionEmployee = session.createCriteria(model.Employee.class).list();
+		FileOutputStream backupEmployees = new FileOutputStream("backupOf"+model.Employee.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Address> tblCollectionAddress = session.createCriteria(model.Address.class).list();
+		FileOutputStream backupAddress = new FileOutputStream("backupOf"+model.Address.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Book> tblCollectionBook = session.createCriteria(model.Book.class).list();
+		FileOutputStream backupBook = new FileOutputStream("backupOf"+model.Book.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Certificate> tblCollectionCertificate = session.createCriteria(model.Certificate.class).list();
+		FileOutputStream backupCertificate = new FileOutputStream("backupOf"+model.Certificate.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Participation> tblCollectionParticipation = session.createCriteria(model.Participation.class).list();
+		FileOutputStream backupParticipation = new FileOutputStream("backupOf"+model.Participation.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Sessions> tblCollectionSession = session.createCriteria(model.Sessions.class).list();
+		FileOutputStream backupSessions = new FileOutputStream("backupOf"+model.Sessions.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Survey_a> tblCollectionSurvey_a = session.createCriteria(model.Survey_a.class).list();
+		FileOutputStream backupSurvey_a = new FileOutputStream("backupOf"+model.Survey_a.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Survey_q> tblCollectionSurvey_q = session.createCriteria(model.Survey_q.class).list();
+		FileOutputStream backupSurvey_q = new FileOutputStream("backupOf"+model.Survey_q.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Survey> tblCollectionSurvey = session.createCriteria(model.Survey.class).list();
+		FileOutputStream backupSurvey = new FileOutputStream("backupOf"+model.Survey.class+".sql");
+		
+		@SuppressWarnings("deprecation")
+		List <model.Teacher> tblCollectionTeacher = session.createCriteria(model.Teacher.class).list();
+		FileOutputStream backupTeacher = new FileOutputStream("backupOf"+model.Teacher.class+".sql");
+		
+		
+		
+		ObjectOutputStream backupWriterEmployee = new ObjectOutputStream(backupEmployees);
+		ObjectOutputStream backupWriterAddress = new ObjectOutputStream(backupAddress);
+		ObjectOutputStream backupWriterBook = new ObjectOutputStream(backupBook);
+		ObjectOutputStream backupWriterCertificate = new ObjectOutputStream(backupCertificate);
+		ObjectOutputStream backupWriterParticipation = new ObjectOutputStream(backupParticipation);
+		ObjectOutputStream backupWriterSessions = new ObjectOutputStream(backupSessions);
+		ObjectOutputStream backupWriterSurvey_a = new ObjectOutputStream(backupSurvey_a);
+		ObjectOutputStream backupWriterSurvey_q = new ObjectOutputStream(backupSurvey_q);
+		ObjectOutputStream backupWriterSurvey = new ObjectOutputStream(backupSurvey);
+		ObjectOutputStream backupWriterTeacher = new ObjectOutputStream(backupTeacher);
+
+		
+		
+		
+		backupWriterEmployee.writeObject(tblCollectionEmployee);
+		backupWriterAddress.writeObject(tblCollectionAddress);
+		backupWriterBook.writeObject(tblCollectionBook);
+		backupWriterCertificate.writeObject(tblCollectionCertificate);
+		backupWriterParticipation.writeObject(tblCollectionParticipation);
+		backupWriterSessions.writeObject(tblCollectionSession);
+		backupWriterSurvey_a.writeObject(tblCollectionSurvey_a);
+		backupWriterSurvey_q.writeObject(tblCollectionSurvey_q);
+		backupWriterSurvey.writeObject(tblCollectionSurvey);
+		backupWriterTeacher.writeObject(tblCollectionTeacher);
+
 	
-//		    try
-//		      {
-//
-//		        /*NOTE: Getting path to the Jar file being executed*/
-//		        /*NOTE: YourImplementingClass-> replace with the class executing the code*/
-//		        CodeSource codeSource = ExtrasController.class.getProtectionDomain().getCodeSource();
-//		        File jarFile = new File(codeSource.getLocation().toURI().getPath());
-//		        String jarDir = jarFile.getParentFile().getPath();
-//
-//
-//		        /*NOTE: Creating Database Constraints*/
-//		        String dbName = "SP2GR3_HRAPP";
-//		        String dbUser = "SP2GR3_HRAPP";
-//		        String dbPass = "CupRYb";
-//
-//		        /*NOTE: Creating Path Constraints for folder saving*/
-//		        /*NOTE: Here the backup folder is created for saving inside it*/
-//		        String folderPath = jarDir + "\\backup";
-//
-//		        /*NOTE: Creating Folder if it does not exist*/
-//		        File f1 = new File(folderPath);
-//		        f1.mkdir();
-//
-//		        /*NOTE: Creating Path Constraints for backup saving*/
-//		        /*NOTE: Here the backup is saved in a folder called backup with the name backup.sql*/
-//		         String savePath = "\"" + jarDir + "\\backup\\" + "backup.sql\"";
-//
-//		        /*NOTE: Used to create a cmd command*/
-//		        String executeCmd = "mysqldump -u" + dbUser + " -p" + dbPass + " --database " + dbName + " -r " + savePath;
-//
-//		        /*NOTE: Executing the command here*/
-//		        Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
-//		        int processComplete = runtimeProcess.waitFor();
-//
-//		        /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
-//		        if (processComplete == 0) {
-//		            System.out.println("Backup Complete");
-//		        } else {
-//		            System.out.println("Backup Failure");
-//		        }
-//
-//		    } catch (URISyntaxException | IOException | InterruptedException ex) {
-//		        JOptionPane.showMessageDialog(null, "Error at Backuprestore" + ex.getMessage());
-//		    }
-		}
+	}
 	
 
 	@FXML
 	protected void restoreDB(ActionEvent e) {
-		public static void Restoredbfromsql(String s) {
-	        try {
-	            /*NOTE: String s is the mysql file name including the .sql in its name*/
-	            /*NOTE: Getting path to the Jar file being executed*/
-	            /*NOTE: YourImplementingClass-> replace with the class executing the code*/
-	            CodeSource codeSource = ExtrasController.class.getProtectionDomain().getCodeSource();
-	            File jarFile = new File(codeSource.getLocation().toURI().getPath());
-	            String jarDir = jarFile.getParentFile().getPath();
-
-	            /*NOTE: Creating Database Constraints*/
-	             String dbName = "SP2GR3_HRAPP";
-	             String dbUser = "SP2GR3_HRAPP";
-	             String dbPass = "CupRYb";
-
-	            /*NOTE: Creating Path Constraints for restoring*/
-	            String restorePath = jarDir + "\\backup" + "\\" + s;
-
-	            /*NOTE: Used to create a cmd command*/
-	            /*NOTE: Do not create a single large string, this will cause buffer locking, use string array*/
-	            String[] executeCmd = new String[]{"mysql", dbName, "-u" + dbUser, "-p" + dbPass, "-e", " source " + restorePath};
-
-	            /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
-	            Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
-	            int processComplete = runtimeProcess.waitFor();
-
-	            /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
-	            if (processComplete == 0) {
-	                JOptionPane.showMessageDialog(null, "Successfully restored from SQL : " + s);
-	            } else {
-	                JOptionPane.showMessageDialog(null, "Error at restoring");
-	            }
-
-
-	        } catch (URISyntaxException | IOException | InterruptedException | HeadlessException ex) {
-	            JOptionPane.showMessageDialog(null, "Error at Restoredbfromsql" + ex.getMessage());
-	        }
-
-	    }
+		
+		/*
+		 * 
+		 * 
+		 * analyse: werken met file chooser en die files laten runnen
+		 * 
+		 * */
+		
+		
+	    
 	}
 	
 	@Override
@@ -129,3 +126,12 @@ public class ExtrasController implements Initializable {
 	
 	
 }
+
+
+
+
+
+
+
+
+
