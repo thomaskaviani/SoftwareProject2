@@ -59,7 +59,7 @@ public class AddTrainingController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		trainingDesc.setWrapText(true);
 		balk.setFill(Color.valueOf(Main.color));
 
 	}

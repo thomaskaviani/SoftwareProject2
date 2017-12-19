@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
 import controller.MainController;
@@ -31,6 +32,7 @@ public class Main extends Application {
 		 
 		mainStage = stage;
 		mainStage.setTitle("HR - Application");
+		mainStage.getIcons().add(new Image("images/BooksIcon.png"));
 		mainStage.setScene(createScene(loadMainPane()));
 		mainStage.setMaximized(true);
 		
