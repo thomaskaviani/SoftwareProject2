@@ -15,6 +15,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -44,6 +46,7 @@ public class EmployeeDetailController implements Initializable{
 	@FXML private Label empPostalcode;
 	@FXML private Label empCountry;
 
+	@FXML private ImageView empImage;
 
 	@FXML private Label empNotes;
 	
@@ -66,6 +69,13 @@ public class EmployeeDetailController implements Initializable{
 		if(managerId>0) {
 			managerName = CacheData.employees.get(managerId).getFirstName() + " " +CacheData.employees.get(managerId).getLastName();
 		}
+		
+		if (employee.getTitleOfCourtesy().equals("Ms.") || employee.getTitleOfCourtesy().equals("Mrs.")) {
+			empImage.setImage(new Image("/images/FemalePP.png"));
+		}
+		else {
+			empImage.setImage(new Image("/images/MalePP.png"));
+}
 		
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date birthDate = employee.getBirthDate();

@@ -146,12 +146,12 @@
                   <Font name="System Bold" size="20.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="50.0" top="240.0" />
+                  <Insets left="50.0" top="230.0" />
                </GridPane.margin>
             </Label>
             <Label fx:id="infoTime1" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="50.0" top="270.0" />
+                  <Insets left="50.0" top="264.0" />
                </GridPane.margin>
             </Label>
             <Label text="End of session" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
@@ -159,12 +159,12 @@
                   <Font name="System Bold" size="20.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="50.0" top="310.0" />
+                  <Insets left="50.0" top="295.0" />
                </GridPane.margin>
             </Label>
             <Label fx:id="infoTime2" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="50.0" top="340.0" />
+                  <Insets left="50.0" top="330.0" />
                </GridPane.margin>
             </Label>
             <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
@@ -172,6 +172,29 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            
+            <Button mnemonicParsing="false" onAction="#toAddBook" prefHeight="39.0" prefWidth="107.0" text="Add Book" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Label text="Books" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" top="350.0" />
+               </GridPane.margin>
+            </Label>
+            <Label GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="50.0" top="400.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+			</Label>
+
          </children>
       </GridPane>
    </children>

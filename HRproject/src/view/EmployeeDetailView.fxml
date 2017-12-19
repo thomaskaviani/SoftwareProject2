@@ -26,20 +26,12 @@
         </rowConstraints>
          <children>
             <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label alignment="CENTER" contentDisplay="TOP" text="Employee Info: " textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets right="115.0" />
-               </GridPane.margin>
-            </Label>
             <Label fx:id="employeeName" text="EmployeeName" textFill="#47525e" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="225.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
             <Pane prefHeight="392.0" prefWidth="410.0" GridPane.rowIndex="1">
@@ -134,26 +126,6 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="125.0" layoutY="342.0" text="Email:" textFill="#47525e" translateY="-70.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="306.0" layoutY="340.0" text="email1" textFill="#47525e" translateY="-70.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="306.0" layoutY="377.0" text="email2" textFill="#47525e" translateY="-70.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="306.0" layoutY="414.0" text="email3" textFill="#47525e" translateY="-70.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
                   <Label layoutX="51.0" layoutY="473.0" text="Notes:" textFill="#47525e" translateY="-60.0">
                      <font>
                         <Font size="18.0" />
@@ -197,7 +169,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="202.0" fitWidth="211.0" layoutX="517.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0">
+                  <ImageView fx:id="empImage" fitHeight="202.0" fitWidth="211.0" layoutX="517.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0">
                      <image>
                         <Image url="@../images/MalePP.png" />
                      </image>
