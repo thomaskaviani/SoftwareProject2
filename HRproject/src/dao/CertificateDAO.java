@@ -92,6 +92,21 @@ public class CertificateDAO {
 	}
 	
 	@SuppressWarnings({ "deprecation", "unchecked" })
+	public int getAmountByEmpId(String foo) {
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		Criteria cr = session.createCriteria(Certificate.class);
+		cr.add(Restrictions.eq("empId", foo));
+		
+		List<Certificate> certlist = cr.list();
+		session.close();
+		
+		return certlist.size();
+	}
+	
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public Address getByStreetAndNumber(String street, String number) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();

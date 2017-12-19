@@ -17,9 +17,9 @@ import controller.MainController;
 public class Navigator {
 
 	
-	  private static MainController mainController;
+	private static MainController mainController;
 	
-	  public static String MainView    = "/view/MainView.fxml";
+	public static String MainView    = "/view/MainView.fxml";
     public static String UserBoxView = "/view/UserBoxView.fxml";
     public static String EmptyView = "/view/EmptyView.fxml";
     public static String MenuBoxView = "/view/MenuBoxView.fxml";
@@ -51,7 +51,8 @@ public class Navigator {
     public static String AddCertificateView = "/view/AddCertificateView.fxml";
     public static String ShowCertificateView = "/view/ShowCertificateView.fxml";
     public static String TrainingRequestView = "/view/TrainingRequestView.fxml";
-
+    
+    public static String StatisticsView = "/view/StatisticsView.fxml";
     
     
     public static void setMainController(MainController mainController) {

@@ -22,6 +22,7 @@ public class MenuBoxController implements Initializable {
 	@FXML private Pane activePaneSurvey;
 	@FXML private Pane activePaneBook;
 	@FXML private Pane activePaneSettings;
+	@FXML private Pane activePaneStats;
 	
 	@FXML private Button homeButton;
 	@FXML private Button employeeButton;
@@ -30,6 +31,7 @@ public class MenuBoxController implements Initializable {
 	@FXML private Button settingButton;
 	@FXML private Button surveyButton;
 	@FXML private Button bookButton;
+	@FXML private Button statsButton;
 	
 	
 	
@@ -40,6 +42,11 @@ public class MenuBoxController implements Initializable {
 		Navigator.loadVista(Navigator.HomeView);
 	}
     
+	@FXML protected void toStats(ActionEvent e) {
+		setStats();
+		resetVars();
+		Navigator.loadVista(Navigator.StatisticsView);
+	}
     @FXML protected void toTrainings(ActionEvent e) {
     	
 		setTraining();
@@ -76,6 +83,7 @@ public class MenuBoxController implements Initializable {
 		
 	}
 
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setHome();
@@ -91,6 +99,7 @@ public class MenuBoxController implements Initializable {
 		activePaneSurvey.setStyle("-fx-background-color: lightgrey");
 		activePaneBook.setStyle("-fx-background-color: lightgrey");
 		activePaneSettings.setStyle("-fx-background-color: lightgrey");
+		activePaneStats.setStyle("-fx-background-color: lightgrey");
 		
 		homeButton.setTextFill(Color.valueOf(Main.color));
 		employeeButton.setTextFill(Color.BLACK);
@@ -99,6 +108,7 @@ public class MenuBoxController implements Initializable {
 		settingButton.setTextFill(Color.BLACK);
 		surveyButton.setTextFill(Color.BLACK);
 		bookButton.setTextFill(Color.BLACK);
+		statsButton.setTextFill(Color.BLACK);
 		
 	}
 	public void setEmps() { 
@@ -110,7 +120,8 @@ public class MenuBoxController implements Initializable {
 		activePaneSurvey.setStyle("-fx-background-color: lightgrey");
 		activePaneBook.setStyle("-fx-background-color: lightgrey");
 		activePaneSettings.setStyle("-fx-background-color: lightgrey");
-		
+		activePaneStats.setStyle("-fx-background-color: lightgrey");
+		statsButton.setTextFill(Color.BLACK);
 		homeButton.setTextFill(Color.BLACK);
 		employeeButton.setTextFill(Color.valueOf(Main.color));
 		trainingButton.setTextFill(Color.BLACK);
@@ -129,7 +140,8 @@ public class MenuBoxController implements Initializable {
 		activePaneSurvey.setStyle("-fx-background-color: lightgrey");
 		activePaneBook.setStyle("-fx-background-color: lightgrey");
 		activePaneSettings.setStyle("-fx-background-color: lightgrey");
-		
+		activePaneStats.setStyle("-fx-background-color: lightgrey");
+		statsButton.setTextFill(Color.BLACK);
 		homeButton.setTextFill(Color.BLACK);
 		employeeButton.setTextFill(Color.BLACK);
 		trainingButton.setTextFill(Color.valueOf(Main.color));
@@ -148,7 +160,8 @@ public class MenuBoxController implements Initializable {
 		activePaneSurvey.setStyle("-fx-background-color: lightgrey");
 		activePaneBook.setStyle("-fx-background-color: lightgrey");
 		activePaneSettings.setStyle("-fx-background-color: #" + Main.color + ";");
-		
+		activePaneStats.setStyle("-fx-background-color: lightgrey");
+		statsButton.setTextFill(Color.BLACK);
 		homeButton.setTextFill(Color.BLACK);
 		employeeButton.setTextFill(Color.BLACK);
 		trainingButton.setTextFill(Color.BLACK);
@@ -167,7 +180,8 @@ public class MenuBoxController implements Initializable {
 		activePaneSurvey.setStyle("-fx-background-color: #" + Main.color + ";");
 		activePaneBook.setStyle("-fx-background-color: lightgrey");
 		activePaneSettings.setStyle("-fx-background-color: lightgrey");
-		
+		activePaneStats.setStyle("-fx-background-color: lightgrey");
+		statsButton.setTextFill(Color.BLACK);
 		homeButton.setTextFill(Color.BLACK);
 		employeeButton.setTextFill(Color.BLACK);
 		trainingButton.setTextFill(Color.BLACK);
@@ -186,7 +200,8 @@ public class MenuBoxController implements Initializable {
 		activePaneSurvey.setStyle("-fx-background-color: lightgrey");
 		activePaneBook.setStyle("-fx-background-color: lightgrey");
 		activePaneSettings.setStyle("-fx-background-color: lightgrey");
-		
+		activePaneStats.setStyle("-fx-background-color: lightgrey");
+		statsButton.setTextFill(Color.BLACK);
 		homeButton.setTextFill(Color.BLACK);
 		employeeButton.setTextFill(Color.BLACK);
 		trainingButton.setTextFill(Color.BLACK);
@@ -196,7 +211,26 @@ public class MenuBoxController implements Initializable {
 		bookButton.setTextFill(Color.BLACK);
 		
 	}
-
+	public void setStats() {
+		
+		activePaneHome.setStyle("-fx-background-color: lightgrey");
+		activePaneEmployees.setStyle("-fx-background-color: lightgrey");
+		activePaneTraining.setStyle("-fx-background-color: lightgrey");
+		activePaneRequest.setStyle("-fx-background-color: lightgrey");
+		activePaneSurvey.setStyle("-fx-background-color: lightgrey");
+		activePaneBook.setStyle("-fx-background-color: lightgrey");
+		activePaneSettings.setStyle("-fx-background-color: lightgrey");
+		activePaneStats.setStyle("-fx-background-color: #" + Main.color + ";");
+		statsButton.setTextFill(Color.valueOf(Main.color));
+		homeButton.setTextFill(Color.BLACK);
+		employeeButton.setTextFill(Color.BLACK);
+		trainingButton.setTextFill(Color.BLACK);
+		requestButton.setTextFill(Color.BLACK);
+		settingButton.setTextFill(Color.BLACK);
+		surveyButton.setTextFill(Color.BLACK);
+		bookButton.setTextFill(Color.BLACK);
+	}
+	
 	public void resetVars() {
 		TrainingDetailController.training = null;
 		EmployeeDetailController.employee = null;
