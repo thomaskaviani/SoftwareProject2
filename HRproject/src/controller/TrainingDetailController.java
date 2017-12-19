@@ -87,9 +87,6 @@ public class TrainingDetailController implements Initializable{
 			Navigator.loadVista(Navigator.SearchTrainingView);
 	}
 	
-	@FXML protected void toAddBook(ActionEvent e) {
-		Navigator.loadVista(Navigator.SearchBookView);
-	}
 	
 	@FXML protected void toLocation(ActionEvent event) throws IOException {
 				
