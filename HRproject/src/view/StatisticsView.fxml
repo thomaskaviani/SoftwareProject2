@@ -56,7 +56,7 @@
                 <CategoryAxis side="BOTTOM" fx:id="xAxis" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" />
+                <NumberAxis fx:id="yAxis" side="LEFT"/>
               </yAxis>
             </BarChart>
          </children>

@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -23,8 +24,9 @@ import dao.CertificateDAO;
 public class StatisticsController implements Initializable{
 
 	@FXML private Rectangle balk;
-	@FXML private BarChart<String, Integer> barChart;
 	@FXML private CategoryAxis xAxis;
+	@FXML private NumberAxis yAxis;
+	@FXML private BarChart<String, Integer> barChart;
 	
 	private ObservableList<String> empNames = FXCollections.observableArrayList();
 	private ObservableList<Integer> empCerts = FXCollections.observableArrayList();
@@ -41,6 +43,7 @@ public class StatisticsController implements Initializable{
 		balk.setFill(Color.valueOf(Main.color));
 		
 		
+        
 		CertificateDAO cdao = new CertificateDAO();
 		
 		for (Employee x : CacheData.employees) {
@@ -48,24 +51,41 @@ public class StatisticsController implements Initializable{
 			empCerts.add(cdao.getAmountByEmpId(x.getEmployeeId()));
 		}
 		
+		//X-as
+		xAxis.setLabel("Employee");       
 		xAxis.setCategories(empNames);
 		xAxis.setTickLabelRotation(-90);
+
+
 		
-		// Count the number of people having their birthday in a specific month.
+		//Y-as
+		yAxis.setLabel("Certificates");
+		yAxis.setMinorTickVisible(false);
+		yAxis.setAutoRanging(false);
+		yAxis.setTickUnit(1.0);
+		
+		int max = 0;
         int[] certCounter = new int[empNames.size()];
-        
         for (int i = 0; i < empCerts.size(); i++) {
             certCounter[i] = empCerts.get(i);
+            if (certCounter[i] > max) {
+            	max = certCounter[i];
+            }
         }
+        max++;
+        
+        yAxis.setUpperBound(max);
 		
+        //XYchart
         XYChart.Series<String, Integer> series = new XYChart.Series<>();
-
-        // Create a XYChart.Data object for each month. Add it to the series.
+        
         for (int i = 0; i < certCounter.length; i++) {
             series.getData().add(new XYChart.Data<>(empNames.get(i), certCounter[i]));
         }
         
-       barChart.getData().add(series);
+        barChart.setLegendVisible(false);
+        barChart.setTitle("Certificates per employee");
+        barChart.getData().add(series);
 	}
 	
 
