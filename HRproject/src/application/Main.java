@@ -32,7 +32,7 @@ public class Main extends Application {
 		 
 		mainStage = stage;
 		mainStage.setTitle("HR - Application");
-		mainStage.getIcons().add(new Image("images/BooksIcon.png"));
+		mainStage.getIcons().add(new Image("images/reflex_icon.png"));
 		mainStage.setScene(createScene(loadMainPane()));
 		mainStage.setMaximized(true);
 		

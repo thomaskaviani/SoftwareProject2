@@ -115,7 +115,6 @@ public class Navigator {
         AddCertificateView = "/view/AddCertificateView.fxml";
         ShowCertificateView = "/view/ShowCertificateView.fxml";
         
-        BookView = "/view/BookView.fxml";
         SearchBookView = "/view/SearchBookView.fxml";
         
         
