@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -28,6 +29,7 @@ public class AddQuestionSurveyController implements Initializable{
 	@FXML private Rectangle balk;
 	
 	@FXML private TextArea question;
+	@FXML private Label errorLabel;
 	
 	@FXML  private ComboBox<String> questionType; 	
 	
@@ -42,21 +44,25 @@ public class AddQuestionSurveyController implements Initializable{
 		else if(questionType.getValue()=="5-star rating")
 			myquestionType=2;
 		
-		
-		//nieuwe vraag 
-		Survey_q surveyQ = new Survey_q(survey.getSurveyId(),myquestionType, myquestion);
-		//inserten in db
-		Survey_qDAO sqdao = new Survey_qDAO();
-		sqdao.insert(surveyQ);
-		
-		
-		/*
-		 AddQuestionSurveyController.training = training;  
-		 AddQuestionSurveyController.survey = survey;
-		 
-		 */
+		if(question.getText().trim().equals(""))
+		 {
+			errorLabel.setText("Question cannot be blank"); 
+		 }
+		else
+		{
+			Survey_q surveyQ = new Survey_q(survey.getSurveyId(),myquestionType, myquestion);
+			//inserten in db
+			Survey_qDAO sqdao = new Survey_qDAO();
+			sqdao.insert(surveyQ);
 			
-		 Navigator.loadVista(Navigator.AddQuestionSurveyView);		
+	
+			 Navigator.loadVista(Navigator.AddQuestionSurveyView);	
+		}
+		
+	
+		
+
+			
 		 
 	}
 	
@@ -83,8 +89,8 @@ public class AddQuestionSurveyController implements Initializable{
 			Survey_qDAO sqdao = new Survey_qDAO();
 			sqdao.insert(surveyQ);
 		 }
-		
-		Navigator.loadVista(Navigator.HomeView);	
+		SurveyDetailController.survey=survey;
+		Navigator.loadVista(Navigator.SurveyDetailView);	
 		
 	}
 	

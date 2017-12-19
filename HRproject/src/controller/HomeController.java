@@ -19,8 +19,6 @@ public class HomeController implements Initializable {
 	protected void toTrainings(ActionEvent e) {
 		
 		Navigator.loadVista(Navigator.TrainingView);
-				
-		
 	}
 	
 	@FXML
@@ -61,7 +59,9 @@ public class HomeController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		balk.setFill(Color.valueOf(Main.color));
+		Navigator.loadMenuVista(Navigator.MenuBoxView);
 		
 	}
 }

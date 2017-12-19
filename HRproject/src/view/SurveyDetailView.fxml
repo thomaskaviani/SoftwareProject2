@@ -39,7 +39,7 @@
             
             
             
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="1025.0" promptText="Search a question" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="1025.0" promptText="Search a question" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -61,7 +61,7 @@
                   <Font size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets />
+                  <Insets right="-240.0" />
                </GridPane.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -97,7 +97,29 @@
                <font>
                   <Font size="18.0" />
                </font>
+               <GridPane.margin>
+                  <Insets right="-120.0" />
+               </GridPane.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#addQuestion" prefHeight="43.0" prefWidth="195.0" style="-fx-background-color: #47525E;" text="Add Question" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="-120.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="errorLabel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="100.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

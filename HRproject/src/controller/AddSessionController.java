@@ -168,8 +168,13 @@ public class AddSessionController implements Initializable {
 	
 	//backbutton
 	@FXML protected void toTrainingDetail(ActionEvent e) {
+		
 		resetVars();
-		Navigator.loadVista(Navigator.TrainingDetailView);
+		if (TrainingDetailController.training != null) {
+			Navigator.loadVista(Navigator.TrainingDetailView);
+		} else {
+			Navigator.loadVista(Navigator.SearchTrainingView);
+		}
 				
 		
 	}
