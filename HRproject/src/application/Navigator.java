@@ -50,11 +50,10 @@ public class Navigator {
     public static String AddCertificateView = "/view/AddCertificateView.fxml";
     public static String ShowCertificateView = "/view/ShowCertificateView.fxml";
     public static String TrainingRequestView = "/view/TrainingRequestView.fxml";
-    public static String BookView = "/view/BookView.fxml";
+    public static String StatisticsView = "/view/StatisticsView.fxml";
     public static String SearchBookView = "/view/SearchBookView.fxml";
     
 
-    public static String SearchBookView = "/view/SearchBookView.fxml";
     
     
     public static void setMainController(MainController mainController) {
