@@ -22,7 +22,8 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="865.0" minHeight="1.666656494140625" prefHeight="865.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="865.0" minHeight="1.666656494140625" prefHeight="637.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="865.0" minHeight="10.0" prefHeight="265.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="642.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
@@ -50,34 +51,14 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <TabPane prefHeight="721.0" prefWidth="1026.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1" GridPane.rowIndex="1">
-              <tabs>
-                <Tab text="Untitled Tab 1">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <BarChart layoutX="319.0" layoutY="56.0" prefHeight="325.0" prefWidth="389.0">
-                                <xAxis>
-                                  <CategoryAxis side="BOTTOM" fx:id="xAxis" />
-                                </xAxis>
-                                <yAxis>
-                                  <NumberAxis side="LEFT" />
-                                </yAxis>
-                              </BarChart>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                <Tab text="Untitled Tab 2">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </Tab>
-              </tabs>
-               <GridPane.margin>
-                  <Insets bottom="100.0" left="-100.0" right="-100.0" />
-               </GridPane.margin>
-            </TabPane>
+            <BarChart fx:id="barChart" prefHeight="485.0" prefWidth="826.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
          </children>
       </GridPane>
    </children>

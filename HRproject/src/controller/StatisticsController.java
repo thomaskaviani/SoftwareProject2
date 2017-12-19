@@ -40,11 +40,6 @@ public class StatisticsController implements Initializable{
 		
 		balk.setFill(Color.valueOf(Main.color));
 		
-		int certOne;
-		int certTwo;
-		int certThree;
-		int certFour;
-		int certFive;
 		
 		CertificateDAO cdao = new CertificateDAO();
 		
