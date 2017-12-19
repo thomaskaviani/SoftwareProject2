@@ -23,8 +23,12 @@ import com.google.api.services.books.Books.Volumes.List;
 import com.google.api.services.books.model.Volume;
 import com.google.api.services.books.model.Volumes;
 
+import java.io.IOException;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -51,7 +55,7 @@ public class GoogleBooks {
 
 	private static ArrayList<Book> queryGoogleBooks(JsonFactory jsonFactory, String query) throws Exception {
 		ClientCredentials.errorIfNotSpecified();
- 
+
 		// Set up Books client.
 		final Books books = new Books.Builder(GoogleNetHttpTransport.newTrustedTransport(), jsonFactory, null)
 				.setApplicationName(APPLICATION_NAME)

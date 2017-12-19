@@ -106,7 +106,6 @@ public class LoginController implements Initializable {
 		}
 	}
 
-	
 	@FXML
 	public void onEnter(ActionEvent ae){
 		doLogin(ae);
@@ -114,7 +113,13 @@ public class LoginController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		Platform.runLater(new Runnable() {
+	        @Override
+	        public void run() {
+	        	usernameField.requestFocus();
+	        }
+	    });
+
 		userLogged = null;
 		balk.setFill(Color.valueOf("b3b7a9"));
 		

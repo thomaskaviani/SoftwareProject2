@@ -28,7 +28,6 @@ package model;
  * 
  * @author Ravi Mistry
  */
-
 public class ClientCredentials {
 
   /** Value of the "API key" shown under "Simple API Access". */

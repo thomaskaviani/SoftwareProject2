@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -58,8 +59,6 @@ public class EmployeeDetailController implements Initializable{
 				
 	}
 	
-	
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -75,7 +74,7 @@ public class EmployeeDetailController implements Initializable{
 		}
 		else {
 			empImage.setImage(new Image("/images/MalePP.png"));
-}
+		}
 		
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date birthDate = employee.getBirthDate();
