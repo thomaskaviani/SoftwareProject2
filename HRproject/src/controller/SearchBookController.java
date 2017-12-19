@@ -70,5 +70,3 @@ public class SearchBookController implements Initializable {
 
 	
 }
-
-

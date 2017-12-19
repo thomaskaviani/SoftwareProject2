@@ -54,6 +54,7 @@ public class Navigator {
     public static String SearchBookView = "/view/SearchBookView.fxml";
     
 
+    public static String SearchBookView = "/view/SearchBookView.fxml";
     
     
     public static void setMainController(MainController mainController) {

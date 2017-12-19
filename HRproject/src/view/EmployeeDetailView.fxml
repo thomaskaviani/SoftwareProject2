@@ -26,20 +26,12 @@
         </rowConstraints>
          <children>
             <Rectangle fx:id="balk" arcHeight="5.0" arcWidth="5.0" fill="b3b7a9" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label alignment="CENTER" contentDisplay="TOP" text="Employee Info: " textAlignment="CENTER" textFill="#47525e" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets right="115.0" />
-               </GridPane.margin>
-            </Label>
             <Label fx:id="employeeName" text="EmployeeName" textFill="#47525e" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="225.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
             <Pane prefHeight="392.0" prefWidth="410.0" GridPane.rowIndex="1">
@@ -177,7 +169,9 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+                 
                   <ImageView fx:id="empImage" fitHeight="202.0" fitWidth="211.0" layoutX="517.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0" />
+
                   <Label fx:id="empAddress" layoutX="669.0" layoutY="233.0" text="address" textFill="#47525e" translateX="-50.0" translateY="-30.0">
                      <font>
                         <Font size="18.0" />

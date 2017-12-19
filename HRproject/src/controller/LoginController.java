@@ -123,6 +123,13 @@ public class LoginController implements Initializable {
 		userLogged = null;
 		balk.setFill(Color.valueOf("b3b7a9"));
 		
+		Platform.runLater(new Runnable() {
+	        @Override
+	        public void run() {
+	        	usernameField.requestFocus();
+	        }
+	    });
+		
 		
 	}
 	  
