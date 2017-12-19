@@ -7,8 +7,6 @@ import application.Main;
 import application.Navigator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,7 +38,7 @@ public class SearchBookController implements Initializable {
 	@FXML private TableColumn<Book, String> bookPriceCol;
 
 	@FXML protected void toHome(ActionEvent e) {
-		Navigator.loadVista(Navigator.HomeView);
+		Navigator.loadVista(Navigator.TrainingDetailView);
 	}
 
 	@FXML protected void clickTrain(MouseEvent e) {
@@ -57,6 +55,11 @@ public class SearchBookController implements Initializable {
 		tableView.setItems(books);
 
 	}
+	
+	@FXML
+	public void onEnter(ActionEvent ae){
+		Search();
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -65,7 +68,16 @@ public class SearchBookController implements Initializable {
 	}
 	
 	@FXML protected void addBook() {
+		Book b = tableView.getSelectionModel().getSelectedItem();
 		
+		if (b != null) {
+			TrainingDetailController.book = b;  
+			Navigator.loadVista(Navigator.TrainingDetailView);
+			
+		} else {
+			errorLabel.setText("No book selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
 	}
 
 	

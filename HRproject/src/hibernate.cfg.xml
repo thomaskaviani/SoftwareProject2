@@ -39,6 +39,9 @@
         <mapping class="model.Participation"/>
         <mapping class="model.Certificate"/>
         <mapping class="model.TrainingRequest"/>
+        <mapping class="model.Book"/>
+        <mapping class="model.Necessity"/>
+        
        
     </session-factory>
 
