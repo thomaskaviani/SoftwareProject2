@@ -119,6 +119,7 @@ public class AddCertificateController implements Initializable {
 			
 			//terug naar employees gaan
 			resetVars();
+			Main.stats = false;
 			Navigator.loadVista(Navigator.EmployeeView);
 			
 		}

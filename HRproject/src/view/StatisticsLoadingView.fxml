@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticsController">
+<VBox alignment="CENTER" prefHeight="1021.0" prefWidth="1645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticsLoadingController">
    <children>
       <GridPane prefHeight="1022.0" prefWidth="1645.0">
         <columnConstraints>
@@ -50,43 +50,12 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1" GridPane.rowIndex="1">
-              <tabs>
-                <Tab text="Chart">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <BarChart fx:id="barChart" prefHeight="492.0" prefWidth="826.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <xAxis>
-                                  <CategoryAxis side="BOTTOM" fx:id="xAxis" />
-                                </xAxis>
-                                <yAxis>
-                                  <NumberAxis fx:id="yAxis" side="LEFT" />
-                                </yAxis>
-                              </BarChart>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                <Tab text="Table">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TableView fx:id="empTable" layoutX="413.0" layoutY="253.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <columns>
-                                  <TableColumn fx:id="empFirstCol" prefWidth="196.0" text="First name" />
-                                    <TableColumn fx:id="empLastCol" minWidth="0.0" prefWidth="211.0" text="Last name" />
-                                    <TableColumn fx:id="certCol" prefWidth="347.0" text="Number of certificates" />
-                                </columns>
-                              </TableView>
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
-              </tabs>
-               <GridPane.margin>
-                  <Insets left="-100.0" right="-100.0" />
-               </GridPane.margin>
-            </TabPane>
+            <JFXSpinner scaleX="0.5" scaleY="0.5" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Loading statistics... Please wait" translateY="-50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

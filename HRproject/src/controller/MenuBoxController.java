@@ -33,8 +33,6 @@ public class MenuBoxController implements Initializable {
 	@FXML private Button bookButton;
 	@FXML private Button statsButton;
 	
-	
-	
 	@FXML protected void toHome(ActionEvent e) {
 		
 		setHome();
@@ -45,7 +43,11 @@ public class MenuBoxController implements Initializable {
 	@FXML protected void toStats(ActionEvent e) {
 		setStats();
 		resetVars();
-		Navigator.loadVista(Navigator.StatisticsView);
+		if (Main.stats) {
+			Navigator.loadVista(Navigator.StatisticsView);
+		} else {
+			Navigator.loadVista(Navigator.StatisticsLoadingView);
+		}
 	}
     @FXML protected void toTrainings(ActionEvent e) {
     	

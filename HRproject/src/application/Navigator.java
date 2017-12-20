@@ -52,7 +52,7 @@ public class Navigator {
     public static String TrainingRequestView = "/view/TrainingRequestView.fxml";
     public static String StatisticsView = "/view/StatisticsView.fxml";
     public static String SearchBookView = "/view/SearchBookView.fxml";
-    
+    public static String StatisticsLoadingView = "/view/StatisticsLoadingView.fxml";
 
     
     

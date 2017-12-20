@@ -33,6 +33,8 @@ public class Employee {
 	
 	private String photoPath;
 	
+	private int amountCertificates;
+	
 	
 	//private String email;
 	
@@ -293,6 +295,14 @@ public class Employee {
 	
 	public String getFullName() {
 		return getFirstName() + " " + getLastName();
+	}
+
+	public int getAmountCertificates() {
+		return amountCertificates;
+	}
+
+	public void setAmountCertificates(int amountCertificates) {
+		this.amountCertificates = amountCertificates;
 	}
 	
 	
