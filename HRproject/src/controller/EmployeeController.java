@@ -45,7 +45,7 @@ public class EmployeeController implements Initializable {
 	@FXML private TableColumn<Employee, String> empFirstNameCol;
 	@FXML private TableColumn<Employee, String> empLastNameCol;
 	@FXML private TableColumn<Employee, String> empFunctionCol;
-	@FXML private TableColumn<Employee, String> empEmailCol;
+	//@FXML private TableColumn<Employee, String> empEmailCol;
 	
 	
 	@FXML protected void toDetailEmployee(ActionEvent e) {
@@ -107,7 +107,7 @@ public class EmployeeController implements Initializable {
 		empFirstNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("firstName"));
 		empLastNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
 		empFunctionCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("title"));
-		empEmailCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("email"));
+		//empEmailCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("email"));
 		
 		// 1. Wrap the ObservableList in a FilteredList (initially display all data).
 		FilteredList<Employee> filteredEmps = new FilteredList<>(emps, p -> true);

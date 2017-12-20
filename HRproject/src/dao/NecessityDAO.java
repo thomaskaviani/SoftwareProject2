@@ -6,28 +6,27 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import model.Address;
-import model.Certificate;
+import model.Necessity;
 
-public class CertificateDAO {
+public class NecessityDAO {
 
-	public void insert(Certificate cert) {
+	public void insert(Necessity necessity) {
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
         session.beginTransaction();
-        session.save(cert);
+        session.save(necessity);
         session.getTransaction().commit();
         session.close();
     }
 	
-	public void delete(Certificate cert) {
+	public void delete(Necessity necessity) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
-		cert.setArch(1);
+		necessity.setArch(1);
         session.beginTransaction();
-        session.update(cert);
+        session.update(necessity);
         session.getTransaction().commit();
         session.close();
         
@@ -39,97 +38,73 @@ public class CertificateDAO {
 		
 	}
 	
-	public void update(Certificate a) {
+	public void update(Necessity n) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
         session.beginTransaction();
-        session.update(a);
+        session.update(n);
         session.getTransaction().commit();
         session.close();
 	}
 	
 	
-	public Certificate getById(Integer id) {
+	public Necessity getById(Integer id) {
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        Certificate cert = (Certificate) session.get(Certificate.class, id);
+        Necessity necessity = (Necessity) session.get(Necessity.class, id);
         session.getTransaction().commit();
         session.close();
 
-        return cert;
+        return necessity;
     }
 	
 	@SuppressWarnings("unchecked")
-	public List<Certificate> getAll() {
+	public List<Necessity> getAll() {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		List<Certificate> certlijst = (List<Certificate>) session.createQuery("from Certificate").list();
+		List<Necessity> nList = (List<Necessity>) session.createQuery("from Necessity").list();
 		session.getTransaction().commit();
 		session.close();
 		
-		return certlijst;
+		return nList;
 	}
 	
+	
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	public List<Certificate> getByEmpId(String foo){
+	public List<Necessity> getByBookId(int searchBook){
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		Criteria cr = session.createCriteria(Certificate.class);
-		cr.add(Restrictions.eq("empId", foo));
-		
-		List<Certificate> certlist = cr.list();
-		session.close();
-		
-		return certlist;
-		
-	}
-	
-	@SuppressWarnings({ "deprecation", "unchecked" })
-	public int getAmountByEmpId(String foo) {
-		
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		
-		Criteria cr = session.createCriteria(Certificate.class);
-		cr.add(Restrictions.eq("empId", foo));
-		
-		List<Certificate> certlist = cr.list();
-		session.close();
-		
-		return certlist.size();
-	}
-	
-	@SuppressWarnings({ "deprecation", "unchecked" })
-	public Address getByStreetAndNumber(String street, String number) {
-		
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		
-		Criteria cr = session.createCriteria(Address.class);
-		cr.add(Restrictions.eq("street", street));
-		cr.add(Restrictions.eq("number", number));
+		Criteria cr = session.createCriteria(Necessity.class);
+		cr.add(Restrictions.eq("bookId", searchBook));
 				
-		List<Address> adreslist = cr.list();
+		List<Necessity> nList = cr.list();
 		
 		session.close();
 		
-		if (adreslist.size() == 1) {
-			return adreslist.get(0);
-		} else {
-			return null;
-		}
-		
+		return nList;
 	}
 	
-	
-	
-	
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	public List<Necessity> getByTrainingId(int searchTraining){
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		Criteria cr = session.createCriteria(Necessity.class);
+		cr.add(Restrictions.eq("trainingId", searchTraining));
+				
+		List<Necessity> nList = cr.list();
+		
+		session.close();
+		
+		return nList;
+	}
 	
 }

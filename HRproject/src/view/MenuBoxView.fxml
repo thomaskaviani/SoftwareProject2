@@ -18,12 +18,13 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="186.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="2.0" prefHeight="2.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
@@ -98,7 +99,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="bookButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: lightgrey;" text="Books" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Button fx:id="bookButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="305.0" style="-fx-background-color: lightgrey;" text="Books" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
@@ -112,7 +113,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="settingButton" mnemonicParsing="false" onAction="#toSettings" prefHeight="39.0" prefWidth="394.0" style="-fx-background-color: lightgrey;" text="Settings" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Button fx:id="settingButton" mnemonicParsing="false" onAction="#toSettings" prefHeight="39.0" prefWidth="394.0" style="-fx-background-color: lightgrey;" text="Settings" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
@@ -131,12 +132,24 @@
             <Pane fx:id="activePaneTraining" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
             <Pane fx:id="activePaneRequest" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" />
             <Pane fx:id="activePaneSurvey" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" />
-            <Pane fx:id="activePaneBook" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" />
+            <Pane fx:id="activePaneBook" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7" />
             <Pane fx:id="activePaneHome" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-            <Pane fx:id="activePaneSettings" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7" />
+            <Pane fx:id="activePaneSettings" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8" />
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Pane fx:id="activePaneStats" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" />
+            <Button fx:id="statsButton" mnemonicParsing="false" onAction="#toStats" prefHeight="39.0" prefWidth="145.0" style="-fx-background-color: lightgrey;" text="     Statistics" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="-55.0" />
+               </padding>
+            </Button>
          </children>
       </GridPane>
+      <Pane fx:id="activePaneSurvey1" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </VBox>

@@ -80,7 +80,7 @@
                </GridPane.margin>
             </Button>
            
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Books" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button mnemonicParsing="false" onAction="#toBooks" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Books" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="28.0" />
                </font>

@@ -17,9 +17,9 @@ import controller.MainController;
 public class Navigator {
 
 	
-	  private static MainController mainController;
+	private static MainController mainController;
 	
-	  public static String MainView    = "/view/MainView.fxml";
+	public static String MainView    = "/view/MainView.fxml";
     public static String UserBoxView = "/view/UserBoxView.fxml";
     public static String EmptyView = "/view/EmptyView.fxml";
     public static String MenuBoxView = "/view/MenuBoxView.fxml";
@@ -32,7 +32,6 @@ public class Navigator {
     public static final String EditQuestionSurveyView= "/view/EditQuestionSurveyView.fxml";
     
     
-	  //GELE BALK
     public static String LoginView = "/view/LoginView.fxml";
     public static String EmployeeView = "/view/EmployeeView.fxml";
     public static String EmployeeDetailView = "/view/EmployeeDetailView.fxml";
@@ -51,6 +50,11 @@ public class Navigator {
     public static String AddCertificateView = "/view/AddCertificateView.fxml";
     public static String ShowCertificateView = "/view/ShowCertificateView.fxml";
     public static String TrainingRequestView = "/view/TrainingRequestView.fxml";
+    public static String BookView = "/view/BookView.fxml";
+    public static String StatisticsView = "/view/StatisticsView.fxml";
+    public static String SearchBookView = "/view/SearchBookView.fxml";
+    public static String StatisticsLoadingView = "/view/StatisticsLoadingView.fxml";
+
 
     
     
@@ -95,7 +99,6 @@ public class Navigator {
         MenuBoxView = "/view/MenuBoxView.fxml";
         LoadingView = "/view/LoadingView.fxml";
         
-    	//GELE BALK
         LoginView = "/view/LoginView.fxml";
         EmployeeView = "/view/EmployeeView.fxml";
         EmployeeDetailView = "/view/EmployeeDetailView.fxml";
@@ -113,6 +116,9 @@ public class Navigator {
         StyleOptionsView = "/view/StyleOptionsView.fxml";
         AddCertificateView = "/view/AddCertificateView.fxml";
         ShowCertificateView = "/view/ShowCertificateView.fxml";
+        
+        SearchBookView = "/view/SearchBookView.fxml";
+        
         
     }
     

@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
 import controller.MainController;
@@ -25,15 +26,17 @@ public class Main extends Application {
 	
 	public static Stage mainStage;
 	public static String color;
+	public static boolean stats;
 	
 	@Override
 	public void start(Stage stage) throws Exception {
 		 
+		Main.stats = false;
 		mainStage = stage;
 		mainStage.setTitle("HR - Application");
+		mainStage.getIcons().add(new Image("images/reflex_icon.png"));
 		mainStage.setScene(createScene(loadMainPane()));
 		mainStage.setMaximized(true);
-		
 		mainStage.show();
 		
 		mainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
