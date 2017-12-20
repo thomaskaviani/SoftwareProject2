@@ -10,25 +10,28 @@ import model.Book;
 
 public class BookDAO {
 
-	public void insert(Book book) {
+
+public void insert(Book b) {
+
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
         session.beginTransaction();
-        session.save(book);
+
+        session.save(b);
         session.getTransaction().commit();
         session.close();
     }
-	
-	public void delete(Book book) {
+
+	public void delete(Book b) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
-		book.setArch(1);
-        session.beginTransaction();
-        session.update(book);
-        session.getTransaction().commit();
-        session.close();
+		b.setArch(1);
+    session.beginTransaction();
+    session.update(b);
+    session.getTransaction().commit();
+    session.close();
         
 	}
 	
@@ -53,12 +56,12 @@ public class BookDAO {
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-
-        Book book = (Book) session.get(Book.class, id);
+        Book b = (Book) session.get(Book.class, id);
         session.getTransaction().commit();
         session.close();
 
-        return book;
+        return b;
+
     }
 	
 	@SuppressWarnings("unchecked")

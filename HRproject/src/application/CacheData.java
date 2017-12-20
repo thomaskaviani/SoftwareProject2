@@ -11,11 +11,15 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import dao.AddressDAO;
+import dao.BookDAO;
+import dao.CertificateDAO;
 import dao.ParticipationDAO;
 import dao.SessionsDAO;
 import dao.TeacherDAO;
 import dao.TrainingDAO;
 import model.Address;
+import model.Book;
+import model.Certificate;
 import model.Employee;
 import model.Participation;
 import model.Sessions;
@@ -39,6 +43,10 @@ public class CacheData {
 	
 	public static List<Sessions> sessions;
 	
+	public static List<Certificate> certificates;
+	
+	public static List<Book> books;
+	
 	public static void setEmployees() throws IOException, ParserConfigurationException, SAXException, ParseException {
 		
 		Document doc;
@@ -47,7 +55,6 @@ public class CacheData {
 		emps = XMLReader.getAllEmps(doc);
 		
 		CacheData.employees = emps;
-		
 	}
 	
 	public static void setSessions() {
@@ -74,6 +81,16 @@ public class CacheData {
 	public static void setParticipations() {
 		ParticipationDAO pdao = new ParticipationDAO();
 		participations = pdao.getAll();
+	}
+	
+	public static void setCertificates() {
+		CertificateDAO cdao = new CertificateDAO();
+		certificates = cdao.getAll();
+	}
+	
+	public static void setBooks() {
+		BookDAO bdao = new BookDAO();
+		books = bdao.getAll();
 	}
 	
 }
