@@ -12,13 +12,15 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import model.Employee;
 import application.CacheData;
 import application.Main;
 import application.Navigator;
-import dao.CertificateDAO;
 
 
 public class StatisticsController implements Initializable{
@@ -27,6 +29,11 @@ public class StatisticsController implements Initializable{
 	@FXML private CategoryAxis xAxis;
 	@FXML private NumberAxis yAxis;
 	@FXML private BarChart<String, Integer> barChart;
+	
+	@FXML private TableView<Employee> empTable;
+	@FXML private TableColumn<Employee, String> empFirstCol;
+	@FXML private TableColumn<Employee, String> empLastCol;
+	@FXML private TableColumn<Employee, Integer> certCol;
 	
 	private ObservableList<String> empNames = FXCollections.observableArrayList();
 	private ObservableList<Integer> empCerts = FXCollections.observableArrayList();
@@ -43,12 +50,9 @@ public class StatisticsController implements Initializable{
 		balk.setFill(Color.valueOf(Main.color));
 		
 		
-        
-		CertificateDAO cdao = new CertificateDAO();
-		
 		for (Employee x : CacheData.employees) {
 			empNames.add(x.getFullName());
-			empCerts.add(cdao.getAmountByEmpId(x.getEmployeeId()));
+			empCerts.add(x.getAmountCertificates());
 		}
 		
 		//X-as
@@ -86,6 +90,19 @@ public class StatisticsController implements Initializable{
         barChart.setLegendVisible(false);
         barChart.setTitle("Certificates per employee");
         barChart.getData().add(series);
+        
+        
+        //TABEL
+        ObservableList<Employee> emps = FXCollections.observableArrayList(CacheData.employees);
+        
+		empFirstCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("firstName"));
+		empLastCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
+		certCol.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("amountCertificates"));
+		
+		empTable.setItems(emps);
+		certCol.setComparator(certCol.getComparator().reversed());
+		empTable.getSortOrder().add(certCol);
+        
 	}
 	
 

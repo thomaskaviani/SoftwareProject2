@@ -40,8 +40,10 @@ public class LoadingController implements Initializable {
 
 	public void setCache() {
 		
+		
 		CacheData.setAddresses();
 		CacheData.setTeachers();
+		
 		
 		try {
 			CacheData.setEmployees();
@@ -49,8 +51,9 @@ public class LoadingController implements Initializable {
 			e.printStackTrace();
 		}
     	
-        CacheData.setTrainings();
+		CacheData.setTrainings();
         CacheData.setParticipations();
+        CacheData.setBooks();
         
         PauseTransition delay = new PauseTransition(Duration.seconds(0.1));
     	delay.setOnFinished( event -> Navigator.loadVista(Navigator.LoginView) );
