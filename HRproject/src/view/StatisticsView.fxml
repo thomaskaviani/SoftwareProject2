@@ -52,7 +52,7 @@
             </Button>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <tabs>
-                <Tab text="Chart">
+                <Tab text="Employees Chart">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -68,7 +68,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Table">
+                <Tab text="Employees Table">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -82,6 +82,34 @@
                            </children></AnchorPane>
                   </content>
                 </Tab>
+                  <Tab text="Trainings Chart">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BarChart fx:id="barChart2" prefHeight="492.0" prefWidth="826.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <xAxis>
+                                    <NumberAxis side="BOTTOM" fx:id="xAxis2" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <CategoryAxis fx:id="yAxis2" side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Trainings Table">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="trainTable" prefHeight="708.0" prefWidth="1026.0">
+                                <columns>
+                                  <TableColumn fx:id="trainNameCol" prefWidth="301.0" text="Training name" />
+                                  <TableColumn fx:id="empAmountCol" prefWidth="392.0" text="Number of participants" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
               </tabs>
                <GridPane.margin>
                   <Insets left="-100.0" right="-100.0" />
