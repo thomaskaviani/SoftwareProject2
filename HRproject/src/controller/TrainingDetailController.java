@@ -32,16 +32,20 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import model.Address;
 import model.Employee;
+import model.Necessity;
 import model.Participation;
 import model.Sessions;
 import model.Teacher;
 import model.Training;
+import model.Book;
 import application.CacheData;
 import application.Main;
 import application.Navigator;
 import dao.AddressDAO;
 import dao.SessionsDAO;
 import dao.TeacherDAO;
+import dao.BookDAO;
+import dao.NecessityDAO;
 
 
 public class TrainingDetailController implements Initializable{
@@ -49,6 +53,9 @@ public class TrainingDetailController implements Initializable{
 	@FXML private Rectangle balk;
 	
 	public static Training training;
+	public static Book book = null;
+	@FXML private TextField aantalBooks;
+	
 	public static List<Employee> participationEmployees;
 	
 	@FXML private Label errorLabel;
@@ -60,6 +67,8 @@ public class TrainingDetailController implements Initializable{
 	@FXML private Label infoAddress3;
 	@FXML private Label infoTime1;
 	@FXML private Label infoTime2;
+	@FXML private Label bookPrint;
+	@FXML private Label succesSave;
 	
 	@FXML private TableView<Sessions> sessionTable;
 	@FXML private TableView<Employee> participantTable;
@@ -74,10 +83,6 @@ public class TrainingDetailController implements Initializable{
 			
 			AddSessionController.training = training;
 			Navigator.loadVista(Navigator.AddSessionView);
-	}
-	
-	@FXML protected void toAddBook(ActionEvent e) {
-		Navigator.loadVista(Navigator.SearchBookView);
 	}
 	
 	
@@ -228,6 +233,7 @@ public class TrainingDetailController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		bookPrint.setText("");
 		
 		balk.setFill(Color.valueOf(Main.color));
 		trainingName.setText(training.getName());
@@ -277,7 +283,14 @@ public class TrainingDetailController implements Initializable{
 			// 5. Add sorted (and filtered) data to the table.
 			sessionTable.setItems(sortedSessions);
 			
+			if (TrainingDetailController.book != null) {
+				bookPrint.setText(TrainingDetailController.book.getTitle() + " - " + TrainingDetailController.book.getAuthor());
+			}
+			else {
+				bookPrint.setText("");
+			}
 		}
+		
 		
 	}
 	
@@ -303,9 +316,35 @@ public class TrainingDetailController implements Initializable{
 		return x;
 	}
 	
+	@FXML protected void Save() {
+		if (aantalBooks.getText() != null && bookPrint.getText() != "") {
+		aantalBooks.getText();
+		TrainingDetailController.book.setCount(Integer.parseInt(aantalBooks.getText()));
+		BookDAO bookDao = new BookDAO();
+		bookDao.insert(TrainingDetailController.book);
+		NecessityDAO nDAO = new NecessityDAO();
+		Necessity nc = new Necessity();
+		Training t = null;
+		for (Training x : CacheData.trainings) {
+			if (x.getTrainingId() == TrainingDetailController.training.getTrainingId()) {
+				t = x;
+			}
+		}
+		//hier kan geen exception zijn (je zit altijd in een training voor je een boek kan toevoegen)
+		nc.setTrainingId(t.getTrainingId());
+		//IDs binnenhalen
+		errorLabel.setText("Book is saved!");
+		errorLabel.setTextFill(Color.GREEN);
+		} else {
+			errorLabel.setText("Something went wrong, try again");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
+		
+	}
 	
 	public void resetVars() {
 		training = null;
+		book = null;
 		participationEmployees = null;
 	}
 

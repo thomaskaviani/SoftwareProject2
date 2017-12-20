@@ -212,6 +212,37 @@
                   <Font size="13.0" />
                </font>
             </Label>
+            <Label fx:id="bookPrint" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="110.0" top="420.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="aantalBooks" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="40.0" promptText="Nr." GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="50.0" top="420.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label text="X" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="92.0" top="420.0" />
+               </GridPane.margin>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#Save" prefHeight="25.0" prefWidth="48.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="50.0" top="490.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="succesSave" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="100.0" top="490.0" />
+               </GridPane.margin>
+            </Label>
 
          </children>
       </GridPane>
