@@ -240,7 +240,7 @@ public class TrainingDetailController implements Initializable{
 		Boolean bookCheck = false;
 		CacheData.setNecessity();
 		for (Necessity x : CacheData.necessity) {
-			if (x.getTrainingId() == TrainingDetailController.training.getTrainingId()) {
+			if (x.getTrainingId() == TrainingDetailController.training.getTrainingId() && x.getArch() != 1) {
 				bookCheck = true;
 				this.amountBooks = true;
 				aantalBooks.setPromptText(Integer.toString(x.getAmount()));
@@ -258,8 +258,11 @@ public class TrainingDetailController implements Initializable{
 		if (bookCheck == false){
 			bookPrint.setText("");
 		}
-		if (TrainingDetailController.book != null) {
+		if (TrainingDetailController.book != null && TrainingDetailController.book.getAuthor() != null) {
 			bookPrint.setText(TrainingDetailController.book.getTitle() + " - " + TrainingDetailController.book.getAuthor());
+		}
+		if (TrainingDetailController.book != null && TrainingDetailController.book.getAuthor() == null) {
+			bookPrint.setText(TrainingDetailController.book.getTitle());
 		}
 
 
@@ -337,32 +340,52 @@ public class TrainingDetailController implements Initializable{
 
 		return x;
 	}
-
+	@FXML protected void Delete() {
+		NecessityDAO nDAO = new NecessityDAO();
+		for (Necessity x : CacheData.necessity) {
+			if (TrainingDetailController.training.getTrainingId() == x.getTrainingId())
+				nDAO.delete(nDAO.getById(x.getNecessityId()));
+		}
+		bookPrint.setText("");
+		aantalBooks.setPromptText("Nr.");
+		errorLabel.setText("Book is deleted!");
+		errorLabel.setTextFill(Color.GREEN);
+	}
 	@FXML protected void Save() {
 		//change amount!
-			if (aantalBooks.getText() != null && bookPrint.getText() != "") {
-				BookDAO bookDao = new BookDAO();
-				bookDao.insert(TrainingDetailController.book);
-				NecessityDAO nDAO = new NecessityDAO();
-				Necessity nc = new Necessity();
-				Training t = null;
+		if (aantalBooks.getText() != null && bookPrint.getText() != "") {
 
-				for (Training x : CacheData.trainings) {
-					if (x.getTrainingId() == TrainingDetailController.training.getTrainingId()) {
-						t = x;
-						nc.setTrainingId(t.getTrainingId());
-					}
+			BookDAO bookDao = new BookDAO();
+			bookDao.insert(TrainingDetailController.book);
+			NecessityDAO nDAO = new NecessityDAO();
+			Necessity nc = new Necessity();
+			Training t = null;
+			Boolean exists = false;
+
+			for (Training x : CacheData.trainings) {
+				if (x.getTrainingId() == TrainingDetailController.training.getTrainingId()) {
+					t = x;
+					nc.setTrainingId(t.getTrainingId());
 				}
-				List<Book> books = bookDao.getAll();
-				for (Book x : books) {
-					if (x.getBookId() == TrainingDetailController.book.getBookId()) {
-						nc.setBookId(x.getBookId());
-					}
+			}
+			List<Book> books = bookDao.getAll();
+			for (Book x : books) {
+				if (x.getBookId() == TrainingDetailController.book.getBookId()) {
+					nc.setBookId(x.getBookId());
 				}
+			}
+			for (Necessity x : CacheData.necessity) {
+				if (x.getTrainingId() == nc.getTrainingId() && x.getArch() != 1) {
+					exists = true;
+					x.setAmount(Integer.parseInt(aantalBooks.getText()));
+					nDAO.update(x);
+				}
+			}
+			if (exists == false) {
 				nc.setAmount(Integer.parseInt(aantalBooks.getText()));
 				nDAO.insert(nc);
-			
-				
+			}
+
 			errorLabel.setText("Book is saved!");
 			errorLabel.setTextFill(Color.GREEN);
 		} else {
