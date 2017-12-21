@@ -342,6 +342,7 @@ public class TrainingDetailController implements Initializable{
 	}
 	@FXML protected void Delete() {
 		NecessityDAO nDAO = new NecessityDAO();
+		CacheData.setNecessity();
 		for (Necessity x : CacheData.necessity) {
 			if (TrainingDetailController.training.getTrainingId() == x.getTrainingId())
 				nDAO.delete(nDAO.getById(x.getNecessityId()));
