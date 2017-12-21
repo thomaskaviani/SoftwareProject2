@@ -51,10 +51,9 @@ public class LoadingController implements Initializable {
 			e.printStackTrace();
 		}
     	
-		  CacheData.setTrainings();
+		CacheData.setTrainings();
         CacheData.setParticipations();
         CacheData.setNecessity();
-        CacheData.setBooks();
         CacheData.setCertificates();
 
         

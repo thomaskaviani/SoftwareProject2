@@ -237,10 +237,15 @@ public class TrainingDetailController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		Boolean bookCheck = false;
+		
 		CacheData.setNecessity();
+		
 		for (Necessity x : CacheData.necessity) {
+			
 			if (x.getTrainingId() == TrainingDetailController.training.getTrainingId() && x.getArch() != 1) {
+				
 				bookCheck = true;
 				this.amountBooks = true;
 				aantalBooks.setPromptText(Integer.toString(x.getAmount()));

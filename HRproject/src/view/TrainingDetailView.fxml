@@ -230,14 +230,14 @@
                   <Insets left="92.0" top="420.0" />
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#Save" prefHeight="25.0" prefWidth="48.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#Save" prefHeight="39.0" prefWidth="49.0" text="Save" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="50.0" top="490.0" />
+                  <Insets right="200.0" top="420.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="60.0" text="Delete" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#Delete" prefHeight="39.0" prefWidth="62.0" text="Delete" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="110.0" top="490.0" />
+                  <Insets right="120.0" top="420.0" />
                </GridPane.margin>
             </Button>
 
