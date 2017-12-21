@@ -54,7 +54,7 @@ public class Navigator {
     public static String StatisticsView = "/view/StatisticsView.fxml";
     public static String SearchBookView = "/view/SearchBookView.fxml";
     public static String StatisticsLoadingView = "/view/StatisticsLoadingView.fxml";
-
+    public static String ExtrasView = "/view/ExtrasView.fxml";
 
     
     

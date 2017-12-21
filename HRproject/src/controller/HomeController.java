@@ -17,18 +17,21 @@ public class HomeController implements Initializable {
 	
 	@FXML
 	protected void toTrainings(ActionEvent e) {
-		
+		MenuBoxController.active = "trainings";
+		Navigator.loadMenuVista(Navigator.MenuBoxView);
 		Navigator.loadVista(Navigator.TrainingView);
 	}
 	
 	@FXML
 	protected void toEmployees(ActionEvent e) {
-		
+		MenuBoxController.active = "employees";
+		Navigator.loadMenuVista(Navigator.MenuBoxView);
 		Navigator.loadVista(Navigator.EmployeeView);
 				
 		
 	}
 	
+	//MOET NOG WEG
 	@FXML
 	protected void toBooks(ActionEvent e) {
 		
@@ -39,7 +42,8 @@ public class HomeController implements Initializable {
 	
 	@FXML
 	protected void toSettings(ActionEvent e) {
-		
+		MenuBoxController.active = "settings";
+		Navigator.loadMenuVista(Navigator.MenuBoxView);
 		Navigator.loadVista(Navigator.GeneralSettingsView);
 				
 		
@@ -47,20 +51,23 @@ public class HomeController implements Initializable {
 	
 	@FXML
 	protected void toTrainingRequests(ActionEvent e) {
+		MenuBoxController.active = "requests";
 		Navigator.loadVista(Navigator.TrainingRequestView);
 	}
 	
 	@FXML
 	protected void toSurvey(ActionEvent e) {
-		Navigator.loadVista(Navigator.SearchSurveyView);
-		
-		
+		MenuBoxController.active = "surveys";
+		Navigator.loadMenuVista(Navigator.MenuBoxView);
+		Navigator.loadVista(Navigator.SearchSurveyView);		
 	}
 
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		balk.setFill(Color.valueOf(Main.color));
+		MenuBoxController.active = "home";
 		Navigator.loadMenuVista(Navigator.MenuBoxView);
 		
 	}

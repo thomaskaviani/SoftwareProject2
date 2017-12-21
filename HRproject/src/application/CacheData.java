@@ -12,6 +12,7 @@ import org.xml.sax.SAXException;
 
 import dao.AddressDAO;
 import dao.CertificateDAO;
+import dao.EmployeeDAO;
 import dao.NecessityDAO;
 import dao.ParticipationDAO;
 import dao.SessionsDAO;
@@ -20,6 +21,7 @@ import dao.TrainingDAO;
 import model.Address;
 import model.Certificate;
 import model.Employee;
+import model.EmployeeDB;
 import model.Necessity;
 import model.Participation;
 import model.Sessions;
@@ -29,8 +31,6 @@ import odata.XMLReader;
 
 public class CacheData {
 	
-	public static boolean loggedIn = false;
-
 	public static ArrayList<Employee> employees;
 	
 	public static List<Participation> participations;
@@ -44,6 +44,8 @@ public class CacheData {
 	public static List<Sessions> sessions;
 	
 	public static List<Certificate> certificates;
+	
+	public static List<EmployeeDB> employeesDB;
 	
 	public static List<Necessity> necessity;
 	
@@ -91,6 +93,11 @@ public class CacheData {
 	public static void setNecessity() {
 		NecessityDAO ndao = new NecessityDAO();
 		necessity = ndao.getAll();
+	}
+	
+	public static void setEmployeesDB() {
+		EmployeeDAO edao = new EmployeeDAO();
+		employeesDB = edao.getAll();
 	}
 	
 }

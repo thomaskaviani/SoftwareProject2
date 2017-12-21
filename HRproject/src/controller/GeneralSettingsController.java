@@ -16,32 +16,23 @@ public class GeneralSettingsController implements Initializable{
 
 	@FXML private Rectangle balk;
 	
-	@FXML
-	protected void toAccountSettings(ActionEvent e) {
+	@FXML protected void toAccountSettings(ActionEvent e) {
 		
 		Navigator.loadVista(Navigator.AccountSettingsView);
 	}
 	
-	@FXML
-	protected void toGeneral(ActionEvent e) {
+	@FXML protected void toGeneral(ActionEvent e) {
 			
 		Navigator.loadVista(Navigator.HomeView);
 	}
-	@FXML
-	protected void toStyleOptions(ActionEvent e) {
+	@FXML protected void toStyleOptions(ActionEvent e) {
 			
 		Navigator.loadVista(Navigator.StyleOptionsView);
 	}
-	
-	/*
-	
-	@FXML
-	protected void toStyleOptions(ActionEvent e) {
-			
-			Navigator.loadVista(Navigator.ExtrasView);
+	@FXML protected void toExtras(ActionEvent e) {
+		Navigator.loadVista(Navigator.ExtrasView);
 	}
 	
-	*/
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
