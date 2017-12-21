@@ -96,7 +96,6 @@ public class AddCertificateController implements Initializable {
 			if (i > 0) {
 			    extension = filename.substring(i);
 			}
-			System.out.println(extension);
 			
 			//fileinputstream
 			try {

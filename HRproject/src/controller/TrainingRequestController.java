@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import application.CacheData;
 import application.Main;
 import application.Navigator;
-import dao.EmployeeDAO;
 import dao.TrainingDAO;
 import dao.TrainingRequestDAO;
 import javafx.collections.FXCollections;
@@ -24,8 +23,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import model.Employee;
-import model.EmployeeDB;
 import model.Training;
 import model.TrainingRequest;
 
@@ -77,24 +74,7 @@ public class TrainingRequestController implements Initializable {
 		balk.setFill(Color.valueOf(Main.color));
 		errorLabel.setText("");
 		
-		//MANAGERS VAN DE EMPLOYEES INSTELLEN
-		CacheData.setEmployeesDB();
 		
-		for (Employee e : CacheData.employees) {
-			
-			int foo = Integer.parseInt(e.getEmployeeId());
-			if (e.getReportsTo().equals("0") || e.getReportsTo().equals("-1")) {
-				CacheData.employeesDB.get(foo).setManager(-1);
-			} else {
-				int foo2 = Integer.parseInt(e.getReportsTo());
-				CacheData.employeesDB.get(foo).setManager(foo2);
-			}
-		}
-		
-		EmployeeDAO edao = new EmployeeDAO();
-		for (EmployeeDB e : CacheData.employeesDB) {
-			edao.update(e);
-		}
 		
 		
 		//TABEL

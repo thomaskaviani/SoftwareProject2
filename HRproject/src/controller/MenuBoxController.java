@@ -108,6 +108,9 @@ public class MenuBoxController implements Initializable {
 		case "requests":
 			setRequest();
 			break;
+		case "stats":
+			setStats();
+			break;
 		}
 	}
 

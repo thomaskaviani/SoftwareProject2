@@ -31,6 +31,18 @@ public class HomeController implements Initializable {
 		
 	}
 	
+	@FXML
+	protected void toStats(ActionEvent e) {
+		
+		MenuBoxController.active = "stats";
+		Navigator.loadMenuVista(Navigator.MenuBoxView);
+		if (Main.stats) {
+			Navigator.loadVista(Navigator.StatisticsView);
+		} else {
+			Navigator.loadVista(Navigator.StatisticsLoadingView);
+		}
+	}
+	
 	//MOET NOG WEG
 	@FXML
 	protected void toBooks(ActionEvent e) {

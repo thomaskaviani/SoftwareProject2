@@ -47,6 +47,19 @@
                   <Insets />
                </opaqueInsets>
             </Button>
+            <Button maxWidth="300.0" minWidth="300.0" mnemonicParsing="false" onAction="#updateManagers" prefHeight="39.0" prefWidth="300.0" text="Update managers from odata" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="updateLabel" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="-0.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>
