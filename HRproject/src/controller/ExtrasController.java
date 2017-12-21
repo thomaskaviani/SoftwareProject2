@@ -1,122 +1,117 @@
 /*
  * 
- * https://stackoverflow.com/questions/14924770/simple-backup-and-restore-for-mysql-database-from-java
+ * bronnen: https://www.youtube.com/watch?v=fq1alQY9iLk&index=5&list=LLAEkIkIY1AWlm-_N7rl1S7A, 
+ * http://java-buddy.blogspot.be/2012/05/save-file-with-javafx-filechooser.html
  * */
 package controller;
 
 
 
 
+import java.awt.Label;
+import java.io.File;
+
+
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
-
-import org.hibernate.Session;
-
-import java.io.FileOutputStream;
-
-import dao.HibernateUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 
-public class ExtrasController implements Initializable {
 
-	@SuppressWarnings({ "unchecked", "resource" })
+
+
+public class ExtrasController implements Initializable{
+
+	String path = null;
+	String filename;
+	
+
+	@FXML
+	private TextField textField;
+	//private Label errorLabel;
 	@FXML
 	protected void backupDB(ActionEvent e) throws IOException{
-		
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		// for every table, have the bean implement Serializable and use the next 4 lines
-		
-		@SuppressWarnings("deprecation")
-		List <model.Employee> tblCollectionEmployee = session.createCriteria(model.Employee.class).list();
-		FileOutputStream backupEmployees = new FileOutputStream("backupOf"+model.Employee.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Address> tblCollectionAddress = session.createCriteria(model.Address.class).list();
-		FileOutputStream backupAddress = new FileOutputStream("backupOf"+model.Address.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Book> tblCollectionBook = session.createCriteria(model.Book.class).list();
-		FileOutputStream backupBook = new FileOutputStream("backupOf"+model.Book.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Certificate> tblCollectionCertificate = session.createCriteria(model.Certificate.class).list();
-		FileOutputStream backupCertificate = new FileOutputStream("backupOf"+model.Certificate.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Participation> tblCollectionParticipation = session.createCriteria(model.Participation.class).list();
-		FileOutputStream backupParticipation = new FileOutputStream("backupOf"+model.Participation.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Sessions> tblCollectionSession = session.createCriteria(model.Sessions.class).list();
-		FileOutputStream backupSessions = new FileOutputStream("backupOf"+model.Sessions.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Survey_a> tblCollectionSurvey_a = session.createCriteria(model.Survey_a.class).list();
-		FileOutputStream backupSurvey_a = new FileOutputStream("backupOf"+model.Survey_a.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Survey_q> tblCollectionSurvey_q = session.createCriteria(model.Survey_q.class).list();
-		FileOutputStream backupSurvey_q = new FileOutputStream("backupOf"+model.Survey_q.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Survey> tblCollectionSurvey = session.createCriteria(model.Survey.class).list();
-		FileOutputStream backupSurvey = new FileOutputStream("backupOf"+model.Survey.class+".sql");
-		
-		@SuppressWarnings("deprecation")
-		List <model.Teacher> tblCollectionTeacher = session.createCriteria(model.Teacher.class).list();
-		FileOutputStream backupTeacher = new FileOutputStream("backupOf"+model.Teacher.class+".sql");
-		
-		
-		
-		ObjectOutputStream backupWriterEmployee = new ObjectOutputStream(backupEmployees);
-		ObjectOutputStream backupWriterAddress = new ObjectOutputStream(backupAddress);
-		ObjectOutputStream backupWriterBook = new ObjectOutputStream(backupBook);
-		ObjectOutputStream backupWriterCertificate = new ObjectOutputStream(backupCertificate);
-		ObjectOutputStream backupWriterParticipation = new ObjectOutputStream(backupParticipation);
-		ObjectOutputStream backupWriterSessions = new ObjectOutputStream(backupSessions);
-		ObjectOutputStream backupWriterSurvey_a = new ObjectOutputStream(backupSurvey_a);
-		ObjectOutputStream backupWriterSurvey_q = new ObjectOutputStream(backupSurvey_q);
-		ObjectOutputStream backupWriterSurvey = new ObjectOutputStream(backupSurvey);
-		ObjectOutputStream backupWriterTeacher = new ObjectOutputStream(backupTeacher);
+		Process p = null;
+		if (textField ==null) {
+			System.out.println("Please select path !!");
+		} else {
 
+			try {
+				Runtime runtime = Runtime.getRuntime(); 
+				p = runtime.exec("C:/Program Files (x86)/mysql-5.7.20-winx64/bin/mysqldump.exe -uSP2GR3_HRAPP -h localhost -pCupRYb --add-drop-database -B SP2GR3_HRAPP -r"+ path);
+			
+			int processComplete = p.waitFor();
+			if (processComplete==0) {
+				System.out.println("Backup complete");
+			}
+			else {
+				System.out.println("Backup Failed");
+			}
+			} 
+			catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 		
-		
-		
-		backupWriterEmployee.writeObject(tblCollectionEmployee);
-		backupWriterAddress.writeObject(tblCollectionAddress);
-		backupWriterBook.writeObject(tblCollectionBook);
-		backupWriterCertificate.writeObject(tblCollectionCertificate);
-		backupWriterParticipation.writeObject(tblCollectionParticipation);
-		backupWriterSessions.writeObject(tblCollectionSession);
-		backupWriterSurvey_a.writeObject(tblCollectionSurvey_a);
-		backupWriterSurvey_q.writeObject(tblCollectionSurvey_q);
-		backupWriterSurvey.writeObject(tblCollectionSurvey);
-		backupWriterTeacher.writeObject(tblCollectionTeacher);
-
 	
+		
+		
+		
+		
+		System.out.println("test");
+
+		
 	}
 	
 
 	@FXML
-	protected void restoreDB(ActionEvent e) {
+	protected void browseFile(ActionEvent e) {
+		FileChooser fc = new FileChooser();
 		
-		/*
-		 * 
-		 * 
-		 * analyse: werken met file chooser en die files laten runnen
-		 * 
-		 * */
+		FileChooser.ExtensionFilter ex = new FileChooser.ExtensionFilter("SQL Files", "*.sql");
+		fc.getExtensionFilters().add(ex);
 		
 		
-	    
-	}
+		
+		
+		//String date = new SimpleDateFormat("yyyy-mm-dd").format(new Date(0));
+		
+		try {
+			File f = fc.showSaveDialog(null);
+			path = f.getAbsolutePath();
+			path = path.replace('\\', '/');
+			//path = path;
+			textField.setText(path);
+			
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		
+		
+		
+		System.out.println("test");
+        }
+        
+		
 	
+		
+		
+	/*private static void configureFileChooser(final FileChooser fileChooser) {      
+        fileChooser.setTitle("Select Files");
+        
+        fileChooser.setInitialDirectory(
+            new File(System.getProperty("user.home"))
+        );          
+        
+        fileChooser.getExtensionFilters().add(
+            new FileChooser.ExtensionFilter("SQL", "(*.sql)")
+        );
+}*/
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
