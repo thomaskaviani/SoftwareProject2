@@ -6,32 +6,29 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import model.Book;
+import model.Necessity;
 
-public class BookDAO {
+public class NecessityDAO {
 
-
-public void insert(Book b) {
-
+	public void insert(Necessity necessity) {
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
         session.beginTransaction();
-
-        session.save(b);
+        session.save(necessity);
         session.getTransaction().commit();
         session.close();
     }
-
-	public void delete(Book b) {
+	
+	public void delete(Necessity necessity) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
-		b.setArch(1);
-    session.beginTransaction();
-    session.update(b);
-    session.getTransaction().commit();
-    session.close();
+		necessity.setArch(1);
+        session.beginTransaction();
+        session.update(necessity);
+        session.getTransaction().commit();
+        session.close();
         
 	}
 	
@@ -41,73 +38,73 @@ public void insert(Book b) {
 		
 	}
 	
-	public void update(Book b) {
+	public void update(Necessity n) {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
         session.beginTransaction();
-        session.update(b);
+        session.update(n);
         session.getTransaction().commit();
         session.close();
 	}
 	
 	
-	public Book getById(Integer id) {
+	public Necessity getById(Integer id) {
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Book b = (Book) session.get(Book.class, id);
+
+        Necessity necessity = (Necessity) session.get(Necessity.class, id);
         session.getTransaction().commit();
         session.close();
 
-        return b;
-
+        return necessity;
     }
 	
 	@SuppressWarnings("unchecked")
-	public List<Book> getAll() {
+	public List<Necessity> getAll() {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		List<Book> bookList = (List<Book>) session.createQuery("from Book").list();
+		List<Necessity> nList = (List<Necessity>) session.createQuery("from Necessity").list();
 		session.getTransaction().commit();
 		session.close();
 		
-		return bookList;
+		return nList;
 	}
 	
 	
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	public List<Book> getByTitle(String searchstring){
+	public List<Necessity> getByBookId(int searchBook){
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		Criteria cr = session.createCriteria(Book.class);
-		cr.add(Restrictions.eq("title", searchstring));
+		Criteria cr = session.createCriteria(Necessity.class);
+		cr.add(Restrictions.eq("bookId", searchBook));
 				
-		List<Book> bookList = cr.list();
+		List<Necessity> nList = cr.list();
 		
 		session.close();
 		
-		return bookList;
+		return nList;
 	}
 	
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	public List<Book> getByAuthor(String searchstring){
+	public List<Necessity> getByTrainingId(int searchTraining){
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		Criteria cr = session.createCriteria(Book.class);
-		cr.add(Restrictions.eq("author", searchstring));
+		Criteria cr = session.createCriteria(Necessity.class);
+		cr.add(Restrictions.eq("trainingId", searchTraining));
 				
-		List<Book> bookList = cr.list();
+		List<Necessity> nList = cr.list();
 		
 		session.close();
 		
-		return bookList;
+		return nList;
 	}
 	
 }
