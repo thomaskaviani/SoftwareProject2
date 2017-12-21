@@ -359,7 +359,7 @@ public class TrainingDetailController implements Initializable{
 	}
 	@FXML protected void Save() {
 		//change amount!
-		if (aantalBooks.getText() != null && bookPrint.getText() != "") {
+		if (aantalBooks.getText().isEmpty() != true && bookPrint.getText().isEmpty() != true) {
 
 			BookDAO bookDao = new BookDAO();
 			bookDao.insert(TrainingDetailController.book);
@@ -395,7 +395,7 @@ public class TrainingDetailController implements Initializable{
 			errorLabel.setText("Book is saved!");
 			errorLabel.setTextFill(Color.GREEN);
 		} else {
-			errorLabel.setText("Something went wrong, try again");
+			errorLabel.setText("Number required");
 			errorLabel.setTextFill(Color.FIREBRICK);
 		}
 	}
