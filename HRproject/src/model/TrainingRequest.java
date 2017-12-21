@@ -73,13 +73,15 @@ public class TrainingRequest {
 		this.updated_at = updated_at;
 	}
 
-	public int getUser_id() {
+	public int getEmpId() {
 		return empId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.empId = user_id;
+	public void setEmpId(int empId) {
+		this.empId = empId;
 	}
+
+	
 	
 	
 	
