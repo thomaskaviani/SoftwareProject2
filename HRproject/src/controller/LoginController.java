@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import application.CacheData;
 import application.Main;
 import application.Navigator;
 
@@ -19,7 +18,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -38,7 +36,6 @@ public class LoginController implements Initializable {
 	@FXML private JFXPasswordField passwordField;
 	@FXML private Label errorLabel;
 	
-	//Loginfunctie voor de button
 	@FXML protected void doLogin(ActionEvent e) {
 		
 		User x = userManager.getByUsername(usernameField.getText());
@@ -47,12 +44,12 @@ public class LoginController implements Initializable {
 			if (Encryption.sha256(passwordField.getText()).equals(x.getPassword())) {
 				
 				UserBoxController.user = x.getUsername();
-				CacheData.loggedIn = true;
 				userLogged = x;
 				Main.color = x.getColor();
+				MenuBoxController.active = "home";
 				
 				Navigator.loadUserVista(Navigator.UserBoxView);
-				Navigator.loadMenuVista(Navigator.MenuBoxView);
+				//Navigator.loadMenuVista(Navigator.MenuBoxView);
 				Navigator.loadVista(Navigator.HomeView);
 				
 				
@@ -72,42 +69,7 @@ public class LoginController implements Initializable {
 		Navigator.loadVista(Navigator.ForgotPasswordView);
 	}
 	
-	//Loginfunctie voor ENTER pressed
-	@FXML protected void doLogin2(KeyEvent e) {
-		switch(e.getCode()) {
-			case ENTER: 
-				User x = userManager.getByUsername(usernameField.getText());
-
-				if(x != null) {
-					if (Encryption.sha256(passwordField.getText()).equals(x.getPassword())) {
-						
-						UserBoxController.user = x.getUsername();
-						CacheData.loggedIn = true;
-						userLogged = x;
-						Main.color = x.getColor();
-						
-						Navigator.loadUserVista(Navigator.UserBoxView);
-						Navigator.loadMenuVista(Navigator.MenuBoxView);
-						Navigator.loadVista(Navigator.HomeView);
-						
-						
-					} else {
-						errorLabel.setTextFill(Color.FIREBRICK);
-						errorLabel.setText("Invalid username or password");
-					}
-				} else {
-					errorLabel.setTextFill(Color.FIREBRICK);
-					errorLabel.setText("No user found");
-				}
-				
-				break;
-			default:
-				break;
-		}
-	}
-
-	@FXML
-	public void onEnter(ActionEvent ae){
+	@FXML public void onEnter(ActionEvent ae){
 		doLogin(ae);
 	}
 	
