@@ -235,14 +235,11 @@
                   <Insets left="50.0" top="490.0" />
                </GridPane.margin>
             </Button>
-            <Label fx:id="succesSave" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font size="13.0" />
-               </font>
+            <Button mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="60.0" text="Delete" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="100.0" top="490.0" />
+                  <Insets left="110.0" top="490.0" />
                </GridPane.margin>
-            </Label>
+            </Button>
 
          </children>
       </GridPane>
