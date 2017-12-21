@@ -1,5 +1,6 @@
 package model;
 
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,34 +12,38 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class TrainingRequest {
+public class EmployeeDB {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-	private int trainingId;
-
+	private int empId;
+	
 	@Column
 	private String name;
 	@Column
-	private String goal;
+	private String email;
+	@Column 
+	private String password;
+	@Column
+	private String remember_token;
 	@Column
 	private Date created_at;
 	@Column
 	private Date updated_at;
 	@Column
-	private int empId;
+	private int manager;
 	
-	public TrainingRequest() {
+	public EmployeeDB() {
 		
 	}
 
-	public int getTrainingId() {
-		return trainingId;
+	public int getEmpId() {
+		return empId;
 	}
 
-	public void setTrainingId(int trainingId) {
-		this.trainingId = trainingId;
+	public void setEmpId(int empId) {
+		this.empId = empId;
 	}
 
 	public String getName() {
@@ -49,12 +54,28 @@ public class TrainingRequest {
 		this.name = name;
 	}
 
-	public String getGoal() {
-		return goal;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setGoal(String goal) {
-		this.goal = goal;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRemember_token() {
+		return remember_token;
+	}
+
+	public void setRemember_token(String remember_token) {
+		this.remember_token = remember_token;
 	}
 
 	public Date getCreated_at() {
@@ -73,15 +94,13 @@ public class TrainingRequest {
 		this.updated_at = updated_at;
 	}
 
-	public int getEmpId() {
-		return empId;
+	public int getManager() {
+		return manager;
 	}
 
-	public void setEmpId(int empId) {
-		this.empId = empId;
+	public void setManager(int manager) {
+		this.manager = manager;
 	}
-
-	
 	
 	
 	
