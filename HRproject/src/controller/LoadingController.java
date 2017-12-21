@@ -51,9 +51,12 @@ public class LoadingController implements Initializable {
 			e.printStackTrace();
 		}
     	
-		CacheData.setTrainings();
+		  CacheData.setTrainings();
         CacheData.setParticipations();
         CacheData.setNecessity();
+        CacheData.setBooks();
+        CacheData.setCertificates();
+
         
         PauseTransition delay = new PauseTransition(Duration.seconds(0.1));
     	delay.setOnFinished( event -> Navigator.loadVista(Navigator.LoginView) );
