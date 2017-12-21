@@ -17,7 +17,7 @@ public class Survey_a {
 	private int answerId;
 	
 	@Column
-	private int employeeId;
+	private int empId;
 	@Column
 	private int surveyId;
 	@Column
@@ -29,7 +29,7 @@ public class Survey_a {
 	}
 	public Survey_a(int employeeId, int surveyId, int questionId, String answer) {
 		super();
-		this.employeeId = employeeId;
+		this.empId = employeeId;
 		this.surveyId = surveyId;
 		this.questionId = questionId;
 		this.answer = answer;
@@ -37,7 +37,7 @@ public class Survey_a {
 	public Survey_a(int answerId, int employeeId, int surveyId, int questionId, String answer) {
 		super();
 		this.answerId = answerId;
-		this.employeeId = employeeId;
+		this.empId = employeeId;
 		this.surveyId = surveyId;
 		this.questionId = questionId;
 		this.answer = answer;
@@ -49,10 +49,10 @@ public class Survey_a {
 		this.answerId = answerId;
 	}
 	public int getEmployeeId() {
-		return employeeId;
+		return empId;
 	}
 	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+		this.empId = employeeId;
 	}
 	public int getSurveyId() {
 		return surveyId;
@@ -76,7 +76,7 @@ public class Survey_a {
 	
 	@Override
 	public String toString() {
-		return "Survey_a [answerId=" + answerId + ", employeeId=" + employeeId + ", surveyId=" + surveyId
+		return "Survey_a [answerId=" + answerId + ", employeeId=" + empId + ", surveyId=" + surveyId
 				+ ", questionId=" + questionId + ", answer=" + answer + "]";
 	}
 	
