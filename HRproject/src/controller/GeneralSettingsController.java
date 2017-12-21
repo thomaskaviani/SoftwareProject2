@@ -23,6 +23,11 @@ public class GeneralSettingsController implements Initializable{
 	}
 	
 	@FXML
+	protected void toGeneral(ActionEvent e) {
+			
+		Navigator.loadVista(Navigator.HomeView);
+	}
+	@FXML
 	protected void toStyleOptions(ActionEvent e) {
 			
 		Navigator.loadVista(Navigator.StyleOptionsView);

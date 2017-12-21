@@ -23,6 +23,8 @@ public class Training {
 	@Column
 	private int arch;
 	
+	private int participators = 0;	
+	
 	public Training() {
 	}
 	
@@ -69,6 +71,14 @@ public class Training {
 	@Override
 	public String toString() {
 		return getName();
+	}
+
+	public int getParticipators() {
+		return participators;
+	}
+
+	public void setParticipators(int participators) {
+		this.participators = participators;
 	}
 	
 }

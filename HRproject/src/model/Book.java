@@ -26,8 +26,6 @@ public class Book {
 	@Column
 	private double price;
 	@Column
-	private int count;
-	@Column
 	private int arch;
 	
 	public Book () {
@@ -42,18 +40,9 @@ public class Book {
 		this.author = author;
 		this.price = price;
 		this.description = description;
-		this.count = 0;
 		this.arch = 0;
 	}
 	
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
-
 	public int getBookId() {
 		return bookId;
 	}

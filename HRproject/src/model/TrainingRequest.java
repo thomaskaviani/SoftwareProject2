@@ -27,7 +27,7 @@ public class TrainingRequest {
 	@Column
 	private Date updated_at;
 	@Column
-	private int user_id;
+	private int empId;
 	
 	public TrainingRequest() {
 		
@@ -74,11 +74,11 @@ public class TrainingRequest {
 	}
 
 	public int getUser_id() {
-		return user_id;
+		return empId;
 	}
 
 	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+		this.empId = user_id;
 	}
 	
 	

@@ -22,6 +22,8 @@ public class Necessity {
 	@Column
 	private int bookId;
 	@Column
+	private int amount;
+	@Column
 	private int arch;
 	
 	public Necessity() {
@@ -32,6 +34,14 @@ public class Necessity {
 		return necessityId;
 	}
 
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 
 	public void setNecessityId(int necessityId) {
 		this.necessityId = necessityId;
@@ -63,6 +73,11 @@ public class Necessity {
 	}
 	public void setArch(int arch) {
 		this.arch = arch;
+	}
+	public String toString() {
+		return "tr"+trainingId +'\n'+
+				"b"+bookId+'\n'+
+				"am"+amount;
 	}
 	
 }

@@ -15,7 +15,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import model.Certificate;
 import model.Employee;
+import model.Training;
 
 public class StatisticsLoadingController implements Initializable {
 
@@ -50,6 +52,16 @@ public class StatisticsLoadingController implements Initializable {
 			numberCerts = cdao.getAmountByEmpId(x.getEmployeeId());
 			x.setAmountCertificates(numberCerts);
 		}
+		
+		for (Training t : CacheData.trainings) {
+			for (Certificate c : CacheData.certificates) {
+				if (c.getTrainingName().equals(t.getName())) {
+					t.setParticipators(t.getParticipators() + 1);
+				}
+			}
+		}
+		
+		
 		Main.stats = true;
 		
 		PauseTransition delay = new PauseTransition(Duration.seconds(0.1));
