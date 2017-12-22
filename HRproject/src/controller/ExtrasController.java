@@ -6,9 +6,6 @@
 package controller;
 
 
-
-
-import java.awt.Label;
 import java.io.File;
 
 
@@ -43,7 +40,7 @@ public class ExtrasController implements Initializable{
 
 			try {
 				Runtime runtime = Runtime.getRuntime(); 
-				p = runtime.exec("C:/Program Files (x86)/mysql-5.7.20-winx64/bin/mysqldump.exe -uSP2GR3_HRAPP -h localhost -pCupRYb --add-drop-database -B SP2GR3_HRAPP -r"+ path);
+				p = runtime.exec("C://Program Files//MySQL//MySQL Server 5.7//bin//mysqldump.exe -P3306 -h 172.20.0.27 -uSP2GR3_HRAPP -pCupRYb --add-drop-database SP2GR3_HRAPP -r "+ path);
 			
 			int processComplete = p.waitFor();
 			if (processComplete==0) {

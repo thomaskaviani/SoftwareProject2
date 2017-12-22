@@ -39,7 +39,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Button layoutX="194.0" layoutY="275.0" mnemonicParsing="false" onAction="#browseFile" prefHeight="83.0" prefWidth="283.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" style="-fx-background-color: #414953;" text="Browse" textFill="WHITE" translateY="50.0">
+                  <Button layoutX="194.0" layoutY="275.0" mnemonicParsing="false" onAction="#browseFile" prefHeight="83.0" prefWidth="283.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" style="-fx-background-color: #414953;" text="Save file" textFill="WHITE" translateY="50.0">
                      <font>
                         <Font size="28.0" />
                      </font>
