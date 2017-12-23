@@ -34,12 +34,13 @@
             </Label>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <TextField fx:id="textField" layoutX="168.0" layoutY="352.0" prefHeight="31.0" prefWidth="380.0" />
+                  <TextField fx:id="textField" layoutX="115.0" layoutY="106.0" prefHeight="31.0" prefWidth="380.0" />
+                  <Label fx:id="errorLabel" layoutX="248.0" layoutY="160.0" text="Backup confirmation" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Button layoutX="194.0" layoutY="275.0" mnemonicParsing="false" onAction="#browseFile" prefHeight="83.0" prefWidth="283.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" style="-fx-background-color: #414953;" text="Save file" textFill="WHITE" translateY="50.0">
+                  <Button layoutX="92.0" layoutY="19.0" mnemonicParsing="false" onAction="#browseFile" prefHeight="83.0" prefWidth="282.0" scaleX="0.7" scaleY="0.7" scaleZ="0.7" style="-fx-background-color: #414953;" text="Save file" textFill="WHITE" translateY="50.0">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -47,14 +48,29 @@
 	                 	<Cursor fx:constant="HAND" />
 	                 </cursor>
                   </Button>
-                  <Label fx:id="errorLabel" layoutX="235.0" layoutY="572.0" text="Backup confirmation" />
-                  <Button layoutX="233.0" layoutY="431.0" mnemonicParsing="false" onAction="#backupDB" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Backup" textFill="WHITE">
+                  <Button layoutX="134.0" layoutY="153.0" mnemonicParsing="false" onAction="#backupDB" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Backup" textFill="WHITE">
                      <font>
                         <Font size="28.0" />
                      </font>
                      <cursor>
 	                 	<Cursor fx:constant="HAND" />
 	                 </cursor>
+                  </Button>
+                  <Button layoutX="122.0" layoutY="272.0" mnemonicParsing="false" onAction="#browse" prefHeight="78.0" prefWidth="223.0" style="-fx-background-color: #414953;" text="Browse file" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="121.0" layoutY="398.0" mnemonicParsing="false" onAction="#restoreDB" prefHeight="60.0" prefWidth="223.0" style="-fx-background-color: #414953;" text="Restore" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="28.0" />
+                     </font>
                   </Button>
                </children>
             </Pane>
