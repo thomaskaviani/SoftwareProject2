@@ -80,7 +80,7 @@
                </GridPane.margin>
             </Button>
            
-            <Button mnemonicParsing="false" onAction="#toBooks" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Books" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button mnemonicParsing="false" onAction="#toStats" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #414953;" text="Statistics" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="28.0" />
                </font>
@@ -144,7 +144,7 @@
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <image>
-                  <Image url="@../images/homeBooks.png" />
+                  <Image url="@../images/homeStats.png" />
                </image>
                <GridPane.margin>
                   <Insets bottom="100.0" />

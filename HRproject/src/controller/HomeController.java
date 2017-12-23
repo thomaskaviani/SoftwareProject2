@@ -15,6 +15,7 @@ public class HomeController implements Initializable {
 
 	@FXML private Rectangle balk;
 	
+	
 	@FXML
 	protected void toTrainings(ActionEvent e) {
 		MenuBoxController.active = "trainings";
@@ -29,6 +30,18 @@ public class HomeController implements Initializable {
 		Navigator.loadVista(Navigator.EmployeeView);
 				
 		
+	}
+	
+	@FXML
+	protected void toStats(ActionEvent e) {
+		
+		MenuBoxController.active = "stats";
+		Navigator.loadMenuVista(Navigator.MenuBoxView);
+		if (Main.stats) {
+			Navigator.loadVista(Navigator.StatisticsView);
+		} else {
+			Navigator.loadVista(Navigator.StatisticsLoadingView);
+		}
 	}
 	
 	//MOET NOG WEG

@@ -10,24 +10,32 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import application.CacheData;
+
 @Entity
 public class TrainingRequest {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
+	private int requestId;
+	
+	@Column
 	private int trainingId;
-
 	@Column
 	private String name;
 	@Column
 	private String goal;
+	@Column
+	private int approval;
 	@Column
 	private Date created_at;
 	@Column
 	private Date updated_at;
 	@Column
 	private int empId;
+	@Column
+	private int forManager;
 	
 	public TrainingRequest() {
 		
@@ -73,7 +81,12 @@ public class TrainingRequest {
 		this.updated_at = updated_at;
 	}
 
-	public int getEmpId() {
+	//CHECK
+	public String getEmpId() {
+		return CacheData.employees.get(empId-1).getFullName();
+	}
+	
+	public int getRealEmpId() {
 		return empId;
 	}
 
@@ -81,6 +94,31 @@ public class TrainingRequest {
 		this.empId = empId;
 	}
 
+	public int getRequestId() {
+		return requestId;
+	}
+
+	public void setRequestId(int requestId) {
+		this.requestId = requestId;
+	}
+
+	public int getApproval() {
+		return approval;
+	}
+
+	public void setApproval(int approval) {
+		this.approval = approval;
+	}
+
+	public int getForManager() {
+		return forManager;
+	}
+
+	public void setForManager(int forManager) {
+		this.forManager = forManager;
+	}
+
+	
 	
 	
 	

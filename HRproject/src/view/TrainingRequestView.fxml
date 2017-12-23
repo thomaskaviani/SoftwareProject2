@@ -58,7 +58,8 @@
             <TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickTrain" prefHeight="414.0" prefWidth="884.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP">
               <columns>
                 <TableColumn fx:id="trainingNameCol" prefWidth="177.0" text="Training" />
-                <TableColumn fx:id="trainingDescCol" prefWidth="584.3333740234375" text="Description" />
+                <TableColumn fx:id="trainingDescCol" prefWidth="398.0" text="Description" />
+                  <TableColumn fx:id="employeeCol" prefWidth="234.0" text="Employee" />
               </columns>
                <GridPane.margin>
                   <Insets top="20.0" />
@@ -92,7 +93,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <JFXButton onAction="#acceptTraining" prefHeight="47.0" prefWidth="184.0" style="-fx-background-color: #47525E;" text="Accept" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+            <JFXButton onAction="#assignTraining" prefHeight="47.0" prefWidth="184.0" style="-fx-background-color: #47525E;" text="Assign" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="-120.0" />
                </GridPane.margin>

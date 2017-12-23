@@ -35,6 +35,8 @@ public class CacheData {
 	
 	public static List<Participation> participations;
 	
+	//public static List<TrainingRequest> requests;
+	
 	public static List<Training> trainings;
 	
 	public static List<Teacher> teachers;
