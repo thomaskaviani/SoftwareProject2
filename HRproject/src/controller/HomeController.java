@@ -15,6 +15,7 @@ public class HomeController implements Initializable {
 
 	@FXML private Rectangle balk;
 	
+	
 	@FXML
 	protected void toTrainings(ActionEvent e) {
 		MenuBoxController.active = "trainings";

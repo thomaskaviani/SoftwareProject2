@@ -38,6 +38,8 @@ public class TrainingRequestController implements Initializable {
 	
 	@FXML private TableColumn<TrainingRequest, String> trainingDescCol;
 	
+	@FXML private TableColumn<TrainingRequest, String> employeeCol; 
+	
 	@FXML protected void clickTrain(MouseEvent e) {
 		errorLabel.setText("");
 	}
@@ -67,6 +69,18 @@ public class TrainingRequestController implements Initializable {
 		}
 	}
 	
+	@FXML protected void assignTraining(ActionEvent e) {
+		
+		TrainingRequest request = tableView.getSelectionModel().getSelectedItem();
+		if (request != null) {
+			AssignRequestController.trainingRequest = request;
+			Navigator.loadVista(Navigator.AssignRequestView);
+		} else {
+			errorLabel.setText("No trainingrequest selected");
+			errorLabel.setTextFill(Color.FIREBRICK);
+		}
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -75,15 +89,14 @@ public class TrainingRequestController implements Initializable {
 		errorLabel.setText("");
 		
 		
-		
-		
 		//TABEL
 		TrainingRequestDAO tdao = new TrainingRequestDAO();
 		ObservableList<TrainingRequest> trainings = FXCollections.observableArrayList(tdao.getAll());
 		
 		trainingNameCol.setCellValueFactory(new PropertyValueFactory<TrainingRequest, String>("name"));
 		trainingDescCol.setCellValueFactory(new PropertyValueFactory<TrainingRequest, String>("goal"));
-
+		employeeCol.setCellValueFactory(new PropertyValueFactory<TrainingRequest, String>("empId"));
+		
 		// 1. Wrap the ObservableList in a FilteredList (initially display all data).
 		FilteredList<TrainingRequest> filteredTrainings = new FilteredList<>(trainings, p -> true);
 						

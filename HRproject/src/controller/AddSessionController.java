@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -30,13 +31,16 @@ import dao.TeacherDAO;
 public class AddSessionController implements Initializable {
 	
 	@FXML private Rectangle balk;
+	@FXML private Button returnButton;
 	
 	public static Training training;
+	public static boolean normal = true;
 	
 	@FXML private TextField sessionName;
 	@FXML private Label errorLabel;
 	@FXML private DatePicker date;
 	@FXML private DatePicker dateEnd;
+	
 	
 	@FXML private ChoiceBox<Integer> startUur;
 	@FXML private ChoiceBox<Integer> startMinuten;
@@ -157,9 +161,18 @@ public class AddSessionController implements Initializable {
 			SessionsDAO sdao = new SessionsDAO();
 			sdao.insert(sesh);
 		
-			//terugkeren naar TrainingDetail
+			//terugkeren
 			resetVars();
-			Navigator.loadVista(Navigator.TrainingDetailView);
+			
+			if (normal) {
+				Navigator.loadVista(Navigator.TrainingDetailView);
+			} else {
+				//TrainingRequestDAO tdao = new TrainingRequestDAO();
+				//AssignRequestController.trainingRequest.setTrainingId(training.getTrainingId());
+				//System.out.println(training);
+				//tdao.update(AssignRequestController.trainingRequest);
+				Navigator.loadVista(Navigator.AssignRequestView);
+			}
 		}
 		
 				
@@ -183,6 +196,9 @@ public class AddSessionController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		balk.setFill(Color.valueOf(Main.color));
+		if (!normal) {
+			returnButton.setVisible(false);
+		}
 		
 		//teacherlijst vullen
 		TeacherDAO tdao = new TeacherDAO();
