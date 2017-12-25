@@ -41,7 +41,7 @@
         <mapping class="model.TrainingRequest"/>
         <mapping class="model.Book"/>
         <mapping class="model.Necessity"/>
-
+		<mapping class="model.EmployeeDB"/>
        
     </session-factory>
 

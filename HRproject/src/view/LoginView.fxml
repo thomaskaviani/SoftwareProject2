@@ -60,7 +60,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <JFXTextField fx:id="usernameField" onKeyPressed="#doLogin2" promptText="Username" style="-jfx-label-float: true;" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <JFXTextField fx:id="usernameField" onAction="#onEnter" promptText="Username" style="-jfx-label-float: true;" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
@@ -77,7 +77,7 @@
                   <Font size="20.0" />
                </font>
             </JFXPasswordField>
-            <JFXButton onAction="#doLogin" onKeyPressed="#doLogin2" prefHeight="39.0" prefWidth="417.0" style="-fx-background-color: #47525E;" text="Login" textFill="WHITE" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <JFXButton onAction="#doLogin" prefHeight="39.0" prefWidth="417.0" style="-fx-background-color: #47525E;" text="Login" textFill="WHITE" translateX="-100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
             </JFXButton>
             
             
