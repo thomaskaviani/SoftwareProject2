@@ -36,6 +36,9 @@ public class Main extends Application {
 		mainStage.setTitle("HR - Application");
 		mainStage.getIcons().add(new Image("images/reflex_icon.png"));
 		mainStage.setScene(createScene(loadMainPane()));
+		//mainStage.setResizable(false);
+		mainStage.setMinWidth(1200);
+		mainStage.setMinHeight(800);
 		mainStage.setMaximized(true);
 		mainStage.show();
 		
