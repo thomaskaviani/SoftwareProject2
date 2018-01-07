@@ -46,7 +46,7 @@
             
             
             
-            <TextField fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" onAction="#onEnter" prefHeight="25.0" prefWidth="637.0" promptText="Search a Book" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" onAction="#onEnter" prefHeight="25.0" prefWidth="400.0" promptText="Search a Book" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -102,6 +102,9 @@
                <font>
                   <Font size="14.0" />
                </font>
+               <GridPane.margin>
+                  <Insets right="-0.0" />
+               </GridPane.margin>
             </Button>
             <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addBook" prefHeight="31.0" prefWidth="144.0" style="-fx-background-color: #414953;" text="Add to training" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <cursor>

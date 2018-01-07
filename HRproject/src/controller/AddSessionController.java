@@ -203,10 +203,12 @@ public class AddSessionController implements Initializable {
 		//teacherlijst vullen
 		TeacherDAO tdao = new TeacherDAO();
 		ObservableList<Teacher> teachers = FXCollections.observableArrayList(tdao.getAll());
+		teachers.add(0, null);
 		
 		//adreslijst vullen
 		AddressDAO adao = new AddressDAO();
 		ObservableList<Address> addresses = FXCollections.observableArrayList(adao.getAll());
+		addresses.add(0, null);
 		
 		//comboboxen met lijsten vullen
 		teacherComboBox.getItems().addAll(teachers);

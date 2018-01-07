@@ -51,13 +51,21 @@ public class TrainingRequestDAO {
 	
 	
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<TrainingRequest> getAll() {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		List<TrainingRequest> traininglijst = (List<TrainingRequest>) session.createQuery("from TrainingRequest").list();
+		Criteria cr = session.createCriteria(TrainingRequest.class);
+		cr.add(Restrictions.eq("approval", 2));
+		
+		List<TrainingRequest> traininglijst = cr.list();
+		
+		//List<TrainingRequest> traininglijst = (List<TrainingRequest>) session.createQuery("from TrainingRequest").list();
+		
+		
+		
 		session.getTransaction().commit();
 		session.close();
 		
