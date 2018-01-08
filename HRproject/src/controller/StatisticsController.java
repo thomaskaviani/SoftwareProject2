@@ -81,7 +81,7 @@ public class StatisticsController implements Initializable{
 		xAxis.setTickLabelRotation(-90);
 
 		
-		yAxis2.setLabel("Trainings");
+		yAxis2.setLabel("");
 		yAxis2.setCategories(trainNames);
 		
 		
